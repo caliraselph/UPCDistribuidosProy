@@ -13,5 +13,10 @@ namespace upcDistribuidos.Web.Views
         {
 
         }
+
+        protected void btnNew_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("wfTPersona.aspx");
+        }
     }
 }

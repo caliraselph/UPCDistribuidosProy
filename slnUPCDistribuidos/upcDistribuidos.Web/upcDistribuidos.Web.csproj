@@ -125,7 +125,8 @@
     <Content Include="images\search.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Views\wfPersona.aspx" />
+    <Content Include="Prototype\wfBPersona.aspx" />
+    <Content Include="Prototype\wfTPersona.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -134,12 +135,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\wfPersona.aspx.cs">
-      <DependentUpon>wfPersona.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBPersona.aspx.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\wfPersona.aspx.designer.cs">
-      <DependentUpon>wfPersona.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBPersona.aspx.designer.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfTPersona.aspx.cs">
+      <DependentUpon>wfTPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfTPersona.aspx.designer.cs">
+      <DependentUpon>wfTPersona.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Themes\Tema1\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>

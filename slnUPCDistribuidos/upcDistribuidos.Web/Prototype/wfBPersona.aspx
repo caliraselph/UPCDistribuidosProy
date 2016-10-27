@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfPersona.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfPersona" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPersona.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfPersona" %>
 
 <!DOCTYPE html>
 
@@ -27,7 +27,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:ImageButton ID="btnNew" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" />
+                        <asp:ImageButton ID="btnNew" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNew_Click" />
                         &nbsp;<asp:ImageButton ID="btnNew0" runat="server" Height="32px" ImageUrl="~/images/delete.png" ToolTip="Eliminar" />
                         &nbsp;<asp:ImageButton ID="btnNew1" runat="server" Height="32px" ImageUrl="~/images/search.png" ToolTip="Buscar" />
                         &nbsp;<asp:ImageButton ID="btnNew2" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" />
@@ -42,13 +42,17 @@
                                     <td class="auto-style2">
                                         <asp:Label ID="Label2" runat="server" Text="Código:"></asp:Label>
                                     </td>
-                                    <td>&nbsp;</td>
+                                    <td>
+                                        <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style2">
                                         <asp:Label ID="Label3" runat="server" Text="Nombres y Apellidos:"></asp:Label>
                                     </td>
-                                    <td>&nbsp;</td>
+                                    <td>
+                                        <asp:TextBox ID="txtDescripcion" runat="server" Width="400px"></asp:TextBox>
+                                    </td>
                                 </tr>
                             </table>
                         </fieldset>
@@ -61,6 +65,7 @@
                                 <asp:BoundField HeaderText="Código" />
                                 <asp:BoundField HeaderText="Apellido(s)" />
                                 <asp:BoundField HeaderText="Nombre(s)" />
+                                <asp:BoundField HeaderText="Tipo" />
                                 <asp:BoundField HeaderText="Nro. Libros" />
                                 <asp:BoundField HeaderText="Deuda" />
                             </Columns>
