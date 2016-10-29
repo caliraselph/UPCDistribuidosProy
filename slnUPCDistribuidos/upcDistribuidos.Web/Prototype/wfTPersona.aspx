@@ -27,8 +27,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:ImageButton ID="btnNew" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" />
-                        &nbsp;<asp:ImageButton ID="btnNew2" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnNew2_Click" />
+                        <asp:ImageButton ID="btnGrabar" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" OnClick="btnGrabar_Click" />
+                        &nbsp;<asp:ImageButton ID="btnSalir" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnNew2_Click" />
                     </td>
                 </tr>
                 <tr>
@@ -51,7 +51,7 @@
                                     <td class="auto-style2">
                                         <asp:Label ID="Label2" runat="server" Text="Código:"></asp:Label>
                                     </td>
-                                    <td>
+                                    <td style="margin-left: 40px">
                                         <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
@@ -108,7 +108,7 @@
                                         <asp:Label ID="Label8" runat="server" Text="Nro. Libros:"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtNroLibro" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtNroLibro" runat="server" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -116,7 +116,7 @@
                                         <asp:Label ID="Label9" runat="server" Text="Deuda(S/.):"></asp:Label>
                                     </td>
                                     <td>
-                                        <asp:TextBox ID="txtDeuda" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="txtDeuda" runat="server" BackColor="#CCCCCC" ReadOnly="True"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

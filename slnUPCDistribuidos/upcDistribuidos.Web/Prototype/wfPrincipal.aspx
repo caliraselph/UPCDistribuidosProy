@@ -21,7 +21,7 @@
                         <asp:MenuItem Text="Mantenimiento" Value="mnuMantenimiento">
                             <asp:MenuItem Text="Material" Value="mnuMaterial" NavigateUrl="wfBMaterial.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Personal" Value="mnuPersonal" NavigateUrl="wfBPersona.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Usuario" Value="mnuUsuario"></asp:MenuItem>
+                            <asp:MenuItem Text="Usuario" Value="mnuUsuario" NavigateUrl="wfBUsuario.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Operación Central" Value="mnuOperacionCentral">
                             <asp:MenuItem Text="Préstamo" Value="mnuPrestamo"></asp:MenuItem>

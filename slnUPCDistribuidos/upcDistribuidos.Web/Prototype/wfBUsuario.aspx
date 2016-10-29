@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPersona.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfPersona" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBUsuario.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfBUsuario" %>
 
 <!DOCTYPE html>
 
@@ -31,7 +31,7 @@
             <table class="auto-style1">
                 <tr>
                     <td>
-                        <asp:Label ID="Label1" runat="server" Text="Trabajar con Personas"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Trabajar con Usuarios"></asp:Label>
                     </td>
                 </tr>
                 <tr>
@@ -49,26 +49,38 @@
                             <table class="auto-style1">
                                 <tr>
                                     <td class="auto-style2">
-                                        <asp:Label ID="Label2" runat="server" Text="Código:"></asp:Label>
+                                        <asp:Label ID="Label3" runat="server" Text="Perfil:"></asp:Label>
+                                    </td>
+                                    <td class="auto-style4">
+                                        <asp:DropDownList ID="ddlTipo" runat="server">
+                                            <asp:ListItem>Administrador</asp:ListItem>
+                                            <asp:ListItem>Bibliotecario</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td class="auto-style3">
+                                        &nbsp;</td>
+                                    <td>
+                                        &nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2">
+                                        <asp:Label ID="Label2" runat="server" Text="Usuario:"></asp:Label>
                                     </td>
                                     <td class="auto-style4">
                                         <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                                     </td>
                                     <td></td>
                                     <td class="auto-style3">
-                                        <asp:Label ID="Label4" runat="server" Text="DNI:"></asp:Label>
-                                    </td>
+                                        &nbsp;</td>
                                     <td>
-                                        <asp:TextBox ID="txtDNI" runat="server"></asp:TextBox>
-                                    </td>
+                                        &nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style2">
-                                        <asp:Label ID="Label3" runat="server" Text="Nombres y Apellidos:"></asp:Label>
-                                    </td>
+                                        &nbsp;</td>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtDescripcion" runat="server" Width="417px"></asp:TextBox>
-                                    </td>
+                                        &nbsp;</td>
                                 </tr>
                             </table>
                         </fieldset>
@@ -80,17 +92,11 @@
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CheckBoxField HeaderText="Sel" DataField="Sel" />
-                                <asp:BoundField HeaderText="Código" DataField="Codigo" />
-                                <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
-                                <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
-                                <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
-                                <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
-                                <asp:BoundField HeaderText="Deuda" DataField="Deuda" />
-                                <asp:BoundField HeaderText="Teléfono" DataField="Telefono" />
-                                <asp:BoundField HeaderText="E-Mail" DataField="Email" />
+                                <asp:BoundField HeaderText="Perfil" DataField="Perfil" />
+                                <asp:BoundField HeaderText="Usuario" DataField="Usuario" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfTPersona.aspx"
+                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfTUsuario.aspx"
                                             Text="Editar"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>

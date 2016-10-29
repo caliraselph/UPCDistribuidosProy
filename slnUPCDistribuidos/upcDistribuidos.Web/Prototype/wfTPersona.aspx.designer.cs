@@ -31,22 +31,22 @@ namespace upcDistribuidos.Web.Views {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control btnNew.
+        /// Control btnGrabar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew;
+        protected global::System.Web.UI.WebControls.ImageButton btnGrabar;
         
         /// <summary>
-        /// Control btnNew2.
+        /// Control btnSalir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew2;
+        protected global::System.Web.UI.WebControls.ImageButton btnSalir;
         
         /// <summary>
         /// Control Label5.
