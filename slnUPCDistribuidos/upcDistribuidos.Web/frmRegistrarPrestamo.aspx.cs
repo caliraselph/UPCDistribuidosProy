@@ -36,5 +36,17 @@ namespace upcDistribuidos.Web
             GridView1.DataBind();
 
         }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            OpenNewWindow("frmFiltroMaterial.aspx");
+        }
+        public void OpenNewWindow(string url)
+
+        {
+
+            ClientScript.RegisterStartupScript(this.GetType(), "newWindow", String.Format("<script>window.open('{0}');</script>", url));
+
+        }
     }
 }

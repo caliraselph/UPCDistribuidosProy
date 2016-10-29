@@ -222,24 +222,17 @@
             <td class="auto-style12">&nbsp;</td>
             <td class="auto-style9">&nbsp;</td>
             <td class="auto-style14" colspan="2">
-                <asp:Label ID="Label6" runat="server" Text="Tipo Material:"></asp:Label>
-            </td>
-            <td class="auto-style11">
-                <asp:DropDownList ID="DropDownList3" runat="server">
-                    <asp:ListItem>Revista</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td class="auto-style6">
                 <asp:Label ID="Label7" runat="server" Text="Material:"></asp:Label>
             </td>
-            <td class="auto-style7">
-                <asp:DropDownList ID="DropDownList4" runat="server">
-                    <asp:ListItem>HarryPotter</asp:ListItem>
-                </asp:DropDownList>
+            <td class="auto-style14" colspan="2">
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/images/search.png" OnClick="ImageButton3_Click" />
             </td>
             <td class="auto-style7">
                 <asp:Button ID="btnAgregar" runat="server" Text="+" />
             </td>
+            <td class="auto-style7">
+                &nbsp;</td>
             <td class="auto-style7">&nbsp;</td>
             <td class="auto-style7">&nbsp;</td>
             <td class="auto-style21">&nbsp;</td>
