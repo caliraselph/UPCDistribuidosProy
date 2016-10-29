@@ -18,5 +18,10 @@ namespace upcDistribuidos.Web.Prototype
         {
             Response.Redirect("wfBMaterial.aspx");
         }
+
+        protected void btnNewMat_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("wfBMaterial.aspx");
+        }
     }
 }

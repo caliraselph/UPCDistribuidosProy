@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:ImageButton ID="btnNewMat" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" />
+                    <asp:ImageButton ID="btnNewMat" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" OnClick="btnNewMat_Click" OnClientClick="alert('Registro realizo exitosamente');"/>
                     <asp:ImageButton ID="btnSalMat" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnSalMat_Click" />
                 </td>
             </tr>
