@@ -77,6 +77,12 @@
                                 <asp:BoundField HeaderText="Páginas" DataField="Paginas" />
                                 <asp:BoundField HeaderText="Stock" DataField="Stock" />
                                 <asp:BoundField HeaderText="Ubicación" DataField="Ubicacion" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx"
+                                            Text="Editar"></asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
