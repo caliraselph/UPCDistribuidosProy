@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace upcDistribuidos.Web.Views {
+namespace upcDistribuidos.Web.Prototype {
     
     
-    public partial class wfPersona {
+    public partial class wfBMaterial {
         
         /// <summary>
         /// Control form1.
@@ -31,40 +31,40 @@ namespace upcDistribuidos.Web.Views {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control btnNew.
+        /// Control btnNewMat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew;
+        protected global::System.Web.UI.WebControls.ImageButton btnNewMat;
         
         /// <summary>
-        /// Control btnNew0.
+        /// Control btnDelMat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew0;
+        protected global::System.Web.UI.WebControls.ImageButton btnDelMat;
         
         /// <summary>
-        /// Control btnNew1.
+        /// Control btnBusMat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew1;
+        protected global::System.Web.UI.WebControls.ImageButton btnBusMat;
         
         /// <summary>
-        /// Control btnNew2.
+        /// Control btnSalir.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNew2;
+        protected global::System.Web.UI.WebControls.ImageButton btnSalir;
         
         /// <summary>
         /// Control Label2.
@@ -76,57 +76,39 @@ namespace upcDistribuidos.Web.Views {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// Control txtCodigo.
+        /// Control cboTipoMat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo;
+        protected global::System.Web.UI.WebControls.DropDownList cboTipoMat;
         
         /// <summary>
-        /// Control Label4.
+        /// Control RadioButtonList1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
         
         /// <summary>
-        /// Control txtDNI.
+        /// Control txtBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDNI;
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
         
         /// <summary>
-        /// Control Label3.
+        /// Control grdMaterial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
-        /// Control txtDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
-        
-        /// <summary>
-        /// Control GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView grdMaterial;
     }
 }
