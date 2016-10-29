@@ -123,6 +123,9 @@
     <Content Include="images\new.png" />
     <Content Include="images\save.png" />
     <Content Include="images\search.png" />
+    <Content Include="Prototype\ActualizarMaterial.aspx" />
+    <Content Include="Prototype\ListarMaterial.aspx" />
+    <Content Include="Prototype\RegistrarMaterial.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Prototype\wfBPersona.aspx" />
@@ -135,6 +138,18 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\ActualizarMaterial.aspx.cs">
+      <DependentUpon>ActualizarMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\ListarMaterial.aspx.cs">
+      <DependentUpon>ListarMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\RegistrarMaterial.aspx.cs">
+      <DependentUpon>RegistrarMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Prototype\wfBPersona.aspx.cs">
       <DependentUpon>wfBPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
