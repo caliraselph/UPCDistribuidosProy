@@ -117,90 +117,77 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="default.aspx" />
-    <Content Include="frmBuscarPersonas.aspx" />
-    <Content Include="frmBuscarPrestamo.aspx" />
-    <Content Include="frmInicio.aspx" />
-    <Content Include="frmRegistrarPrestamo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\cancel.png" />
     <Content Include="images\delete.png" />
     <Content Include="images\new.png" />
     <Content Include="images\save.png" />
     <Content Include="images\search.png" />
+    <Content Include="Prototype\wfBMaterial.aspx" />
+    <Content Include="Prototype\wfBPersona.aspx" />
+    <Content Include="Prototype\wfLogin.aspx" />
+    <Content Include="Prototype\wfPrincipal.aspx" />
+    <Content Include="Prototype\wfTMaterial.aspx" />
+    <Content Include="Prototype\wfTPersona.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="frmLogin.aspx" />
-    <Content Include="Views\wfPersona.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="default.aspx.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="default.aspx.designer.cs">
-      <DependentUpon>default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmBuscarPersonas.aspx.cs">
-      <DependentUpon>frmBuscarPersonas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmBuscarPersonas.aspx.designer.cs">
-      <DependentUpon>frmBuscarPersonas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmBuscarPrestamo.aspx.cs">
-      <DependentUpon>frmBuscarPrestamo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmBuscarPrestamo.aspx.designer.cs">
-      <DependentUpon>frmBuscarPrestamo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmInicio.aspx.cs">
-      <DependentUpon>frmInicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmInicio.aspx.designer.cs">
-      <DependentUpon>frmInicio.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmRegistrarPrestamo.aspx.cs">
-      <DependentUpon>frmRegistrarPrestamo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmRegistrarPrestamo.aspx.designer.cs">
-      <DependentUpon>frmRegistrarPrestamo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Layout.Master.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layout.Master.designer.cs">
-      <DependentUpon>Layout.Master</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="frmLogin.aspx.cs">
-      <DependentUpon>frmLogin.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBMaterial.aspx.cs">
+      <DependentUpon>wfBMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmLogin.aspx.designer.cs">
-      <DependentUpon>frmLogin.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBMaterial.aspx.designer.cs">
+      <DependentUpon>wfBMaterial.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\wfPersona.aspx.cs">
-      <DependentUpon>wfPersona.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBPersona.aspx.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\wfPersona.aspx.designer.cs">
-      <DependentUpon>wfPersona.aspx</DependentUpon>
+    <Compile Include="Prototype\wfBPersona.aspx.designer.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfLogin.aspx.cs">
+      <DependentUpon>wfLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfLogin.aspx.designer.cs">
+      <DependentUpon>wfLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipal.aspx.cs">
+      <DependentUpon>wfPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
+      <DependentUpon>wfPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfTMaterial.aspx.cs">
+      <DependentUpon>wfTMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfTMaterial.aspx.designer.cs">
+      <DependentUpon>wfTMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfTPersona.aspx.cs">
+      <DependentUpon>wfTPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfTPersona.aspx.designer.cs">
+      <DependentUpon>wfTPersona.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config" />
-    <Content Include="Layout.Master" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_Themes\Tema1\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
