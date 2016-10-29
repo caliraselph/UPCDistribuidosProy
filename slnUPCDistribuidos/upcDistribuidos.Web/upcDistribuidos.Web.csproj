@@ -117,6 +117,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="default.aspx" />
+    <Content Include="frmBuscarPrestamo.aspx" />
+    <Content Include="frmInicio.aspx" />
+    <Content Include="frmLogin.aspx" />
+    <Content Include="frmRegistrarPrestamo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="images\cancel.png" />
     <Content Include="images\delete.png" />
@@ -126,7 +131,6 @@
     <Content Include="Prototype\wfBMaterial.aspx" />
     <Content Include="Prototype\wfBPersona.aspx" />
     <Content Include="Prototype\wfLogin.aspx" />
-    <Content Include="Prototype\wfPrincipal.aspx" />
     <Content Include="Prototype\wfTMaterial.aspx" />
     <Content Include="Prototype\wfTPersona.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -135,6 +139,47 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarPersonas.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBuscarPersonas.aspx.designer.cs">
+      <DependentUpon>frmBuscarPersonas.aspx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarPrestamo.aspx.cs">
+      <DependentUpon>frmBuscarPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmBuscarPrestamo.aspx.designer.cs">
+      <DependentUpon>frmBuscarPrestamo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio.aspx.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmInicio.aspx.designer.cs">
+      <DependentUpon>frmInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarPrestamo.aspx.cs">
+      <DependentUpon>frmRegistrarPrestamo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarPrestamo.aspx.designer.cs">
+      <DependentUpon>frmRegistrarPrestamo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -160,13 +205,6 @@
     <Compile Include="Prototype\wfLogin.aspx.designer.cs">
       <DependentUpon>wfLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Prototype\wfPrincipal.aspx.cs">
-      <DependentUpon>wfPrincipal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
-      <DependentUpon>wfPrincipal.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Prototype\wfTMaterial.aspx.cs">
       <DependentUpon>wfTMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +218,12 @@
     </Compile>
     <Compile Include="Prototype\wfTPersona.aspx.designer.cs">
       <DependentUpon>wfTPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\wfPersona.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\wfPersona.aspx.designer.cs">
+      <DependentUpon>wfPersona.aspx.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

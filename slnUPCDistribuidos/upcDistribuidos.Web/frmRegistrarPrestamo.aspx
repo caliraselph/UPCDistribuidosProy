@@ -108,6 +108,44 @@
         </tr>
         <tr>
             <td class="auto-style12">&nbsp;</td>
+            <td class="auto-style9">
+                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/save.png" />
+            </td>
+            <td class="auto-style10">
+                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/cancel.png" />
+            </td>
+            <td class="auto-style8">&nbsp;</td>
+            <td class="auto-style11">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style21">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style12">&nbsp;</td>
+            <td class="auto-style9">&nbsp;</td>
+            <td class="auto-style10">&nbsp;</td>
+            <td class="auto-style8">&nbsp;</td>
+            <td class="auto-style11">&nbsp;</td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style21">&nbsp;</td>
+            <td class="auto-style7">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+            <td style="position: static">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style12">&nbsp;</td>
             <td class="auto-style14" colspan="2">Fecha Salida:</td>
             <td class="auto-style14" colspan="3">
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
