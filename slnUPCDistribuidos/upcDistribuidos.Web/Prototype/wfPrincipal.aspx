@@ -24,9 +24,9 @@
                             <asp:MenuItem Text="Usuario" Value="mnuUsuario" NavigateUrl="wfBUsuario.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Operación Central" Value="mnuOperacionCentral">
-                            <asp:MenuItem Text="Préstamo" Value="mnuPrestamo"></asp:MenuItem>
-                            <asp:MenuItem Text="Devolución" Value="mnuDevolucion"></asp:MenuItem>
-                            <asp:MenuItem Text="Stock" Value="mnuStock"></asp:MenuItem>
+                            <asp:MenuItem Text="Préstamo" Value="mnuPrestamo" NavigateUrl="wfBPrestamo.aspx"></asp:MenuItem>
+                          <%--  <asp:MenuItem Text="Devolución" Value="mnuDevolucion"></asp:MenuItem>
+                            <asp:MenuItem Text="Stock" Value="mnuStock"></asp:MenuItem>--%>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Seguridad" Value="mnuSeguridad">
                             <asp:MenuItem Text="Cambio de contraseña" Value="mnuCambioContrasena"></asp:MenuItem>
