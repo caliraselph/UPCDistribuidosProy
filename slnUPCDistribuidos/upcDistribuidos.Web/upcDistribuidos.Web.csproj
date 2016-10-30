@@ -126,7 +126,6 @@
     <Content Include="Prototype\wfBPersona.aspx" />
     <Content Include="Prototype\wfFiltroMaterial.aspx" />
     <Content Include="Prototype\wfLogin.aspx" />
-    <Content Include="Prototype\wfPrincipal.aspx" />
     <Content Include="Prototype\wfTMaterial.aspx" />
     <Content Include="Prototype\wftPrestamo.aspx" />
     <Content Include="Prototype\wfTUsuario.aspx" />
@@ -182,12 +181,6 @@
     </Compile>
     <Compile Include="Prototype\wfLogin.aspx.designer.cs">
       <DependentUpon>wfLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Prototype\wfPrincipal.aspx.cs">
-      <DependentUpon>wfPrincipal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
-      <DependentUpon>wfPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfTMaterial.aspx.cs">
       <DependentUpon>wfTMaterial.aspx</DependentUpon>
