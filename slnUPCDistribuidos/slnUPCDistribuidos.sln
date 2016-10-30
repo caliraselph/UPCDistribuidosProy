@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.Web", "upcDistribuidos.Web\upcDistribuidos.Web.csproj", "{DB81233A-1F1C-47F7-BF70-CA699CFCB273}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cliente", "Cliente", "{E42C757E-F0D4-4358-90B1-022D75A52D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{FAF4B0B7-7BC4-4EE6-9485-2E51CE8FD102}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB81233A-1F1C-47F7-BF70-CA699CFCB273} = {FAF4B0B7-7BC4-4EE6-9485-2E51CE8FD102}
+		{FAF4B0B7-7BC4-4EE6-9485-2E51CE8FD102} = {E42C757E-F0D4-4358-90B1-022D75A52D50}
 	EndGlobalSection
 EndGlobal

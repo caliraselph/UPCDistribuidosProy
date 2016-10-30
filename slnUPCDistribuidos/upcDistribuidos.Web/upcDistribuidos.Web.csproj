@@ -185,7 +185,6 @@
     </Compile>
     <Compile Include="Prototype\wfPrincipal.aspx.cs">
       <DependentUpon>wfPrincipal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
       <DependentUpon>wfPrincipal.aspx</DependentUpon>
