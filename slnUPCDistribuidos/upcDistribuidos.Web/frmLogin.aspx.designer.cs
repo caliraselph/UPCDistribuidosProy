@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace upcDistribuidos.Web.Prototype {
+namespace upcDistribuidos.Web.Views {
     
     
-    public partial class wfPrincipal {
+    public partial class frmLogin {
         
         /// <summary>
         /// Control form1.
@@ -22,12 +22,12 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Control Menu1.
+        /// Control Login1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu Menu1;
+        protected global::System.Web.UI.WebControls.Login Login1;
     }
 }
