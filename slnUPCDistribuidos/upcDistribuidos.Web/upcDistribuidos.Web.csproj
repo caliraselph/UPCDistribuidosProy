@@ -123,6 +123,7 @@
     <Content Include="images\search.png" />
     <Content Include="images\view.png" />
     <Content Include="Prototype\wfBMaterial.aspx" />
+    <Content Include="Prototype\wfBPersona.aspx" />
     <Content Include="Prototype\wfBPrestamo.aspx" />
     <Content Include="Prototype\wfBUsuario.aspx" />
     <Content Include="Prototype\wfFiltroMaterial.aspx" />
@@ -147,6 +148,13 @@
     </Compile>
     <Compile Include="Prototype\wfBMaterial.aspx.designer.cs">
       <DependentUpon>wfBMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfBPersona.aspx.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfBPersona.aspx.designer.cs">
+      <DependentUpon>wfBPersona.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfBPrestamo.aspx.cs">
       <DependentUpon>wfBPrestamo.aspx</DependentUpon>
