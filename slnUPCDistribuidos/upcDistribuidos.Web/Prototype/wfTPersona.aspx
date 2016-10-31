@@ -43,7 +43,7 @@
                                     <td>
                                         <asp:DropDownList ID="ddlTipo" runat="server">
                                             <asp:ListItem Selected="True">Alumno</asp:ListItem>
-                                            <asp:ListItem>Profesor</asp:ListItem>
+                                            <asp:ListItem>Administrativo</asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
@@ -53,14 +53,6 @@
                                     </td>
                                     <td style="margin-left: 40px">
                                         <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="auto-style2">
-                                        <asp:Label ID="Label10" runat="server" Text="DNI:"></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="txtDNI" runat="server"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
