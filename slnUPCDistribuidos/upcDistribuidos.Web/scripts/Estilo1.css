@@ -1,0 +1,79 @@
+﻿
+.div-style1 {
+            border:double;
+        }
+
+.table-style1 {
+            width: 100%;
+        }
+.td-style1 {
+            width: 150px;
+            height: 10px;
+             text-align:center;
+            
+        }
+.td-style2 {
+            width: 150px;
+            height: 10px;
+            text-align:center;
+            
+            
+        }
+.td-style3 {
+            width: 100px;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style4 {
+            width: 45px;
+            height: 40px;
+            text-align:center;
+            
+        }
+
+.td-style5 {
+            width: 25%;
+            height: 10px;
+            text-align:center;
+            
+        }
+
+.td-style6 {
+            width: 50%;
+            height: 10px;
+            text-align:center;
+            
+        }
+
+.lbl-style1 {
+          width:110px;
+          font-style:normal;
+          text-align:right;
+        }
+
+.lbl-style2 {
+          width:200px;
+          font-style:normal;
+          text-align:center;
+        }
+
+.img-style1 {
+          
+          Height:20px;
+          Width:23px;
+          align-items:center;
+          
+        }
+.img-style2 {
+          
+          Height:40px;
+          Width:45px;
+        }
+.txt-style1 {
+          width:100px;
+        }
+.ddl-style1 {
+          width:112px;
+        }
+

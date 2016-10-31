@@ -116,6 +116,8 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="images\cancel.png" />
+    <Content Include="images\close.jpg" />
+    <Content Include="images\date.jpg" />
     <Content Include="images\delete.png" />
     <Content Include="images\edit.png" />
     <Content Include="images\new.png" />
@@ -125,6 +127,7 @@
     <Content Include="Prototype\wfBMaterial.aspx" />
     <Content Include="Prototype\wfBPersona.aspx" />
     <Content Include="Prototype\wfBPrestamo.aspx" />
+    <Content Include="Prototype\wfBReserva.aspx" />
     <Content Include="Prototype\wfBUsuario.aspx" />
     <Content Include="Prototype\wfFiltroMaterial.aspx" />
     <Content Include="Prototype\wfLogin.aspx" />
@@ -134,6 +137,7 @@
     <Content Include="Prototype\wfTPersona.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="scripts\Estilo1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +166,13 @@
     </Compile>
     <Compile Include="Prototype\wfBPrestamo.aspx.designer.cs">
       <DependentUpon>wfBPrestamo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfBReserva.aspx.cs">
+      <DependentUpon>wfBReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfBReserva.aspx.designer.cs">
+      <DependentUpon>wfBReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfBUsuario.aspx.cs">
       <DependentUpon>wfBUsuario.aspx</DependentUpon>
