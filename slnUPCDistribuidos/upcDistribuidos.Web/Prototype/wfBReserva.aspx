@@ -30,7 +30,7 @@
 
                     </td>
                     <td class="td-style6" >
-                        <asp:Label ID="Label1" runat="server" Text="BUSCQUEDA DE RESERVAS" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="BUSQUEDA DE RESERVAS" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
                     </td>
                     <td class="td-style5">
 

@@ -133,6 +133,7 @@
     <Content Include="Prototype\wfLogin.aspx" />
     <Content Include="Prototype\wfTMaterial.aspx" />
     <Content Include="Prototype\wftPrestamo.aspx" />
+    <Content Include="Prototype\wfTReserva.aspx" />
     <Content Include="Prototype\wfTUsuario.aspx" />
     <Content Include="Prototype\wfTPersona.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="Prototype\wftPrestamo.aspx.designer.cs">
       <DependentUpon>wftPrestamo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfTReserva.aspx.cs">
+      <DependentUpon>wfTReserva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\wfTReserva.aspx.designer.cs">
+      <DependentUpon>wfTReserva.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfTUsuario.aspx.cs">
       <DependentUpon>wfTUsuario.aspx</DependentUpon>

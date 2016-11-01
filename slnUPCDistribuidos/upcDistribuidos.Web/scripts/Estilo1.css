@@ -45,7 +45,18 @@
             text-align:center;
             
         }
-
+.td-style7 {
+            width: 150px;
+            height: 10px;
+             text-align:right;
+           
+        }
+.td-style8 {
+            width: 180px;
+            height: 10px;
+             text-align:right;
+           
+        }
 .lbl-style1 {
           width:110px;
           font-style:normal;
@@ -69,7 +80,8 @@
           
           Height:40px;
           Width:45px;
-        }
+         }
+
 .txt-style1 {
           width:100px;
         }
