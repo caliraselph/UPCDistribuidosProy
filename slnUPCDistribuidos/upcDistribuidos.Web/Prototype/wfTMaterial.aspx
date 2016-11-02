@@ -51,8 +51,7 @@
                                 <td>
                                     <asp:TextBox ID="txtTitulo" runat="server"></asp:TextBox>
                                 </td>
-                            </tr>
-                            <tr>
+                                <td></td>
                                 <td>
                                     <asp:Label ID="Label5" runat="server" Text="Autor"></asp:Label>
                                 </td>
@@ -67,8 +66,7 @@
                                 <td>
                                     <asp:TextBox ID="txtEditorial" runat="server"></asp:TextBox>
                                 </td>
-                            </tr>
-                            <tr>
+                                <td></td>
                                 <td>
                                     <asp:Label ID="Label12" runat="server" Text="Año"></asp:Label>
                                 </td>
@@ -78,13 +76,17 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label7" runat="server" Text="Páginas"></asp:Label>
+                                    <asp:Label ID="Label7" runat="server" Text="Categoria"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtPaginas" runat="server"></asp:TextBox>
+                                    <asp:DropDownList ID="cboCategoria" runat="server">
+                                        <asp:ListItem>Historia</asp:ListItem>
+                                        <asp:ListItem>Fisica</asp:ListItem>
+                                        <asp:ListItem>Matematica</asp:ListItem>
+                                        <asp:ListItem>Literatura</asp:ListItem>
+                                    </asp:DropDownList>
                                 </td>
-                            </tr>
-                            <tr>
+                                <td></td>
                                 <td>
                                     <asp:Label ID="Label8" runat="server" Text="Stock"></asp:Label>
                                 </td>
@@ -94,28 +96,16 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label9" runat="server" Text="Pasillo"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text="Estado"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtPasillo" runat="server"></asp:TextBox>
+                                    <asp:DropDownList ID="cboEstado" runat="server">
+                                        <asp:ListItem>Activo</asp:ListItem>
+                                        <asp:ListItem>Inactivo</asp:ListItem>
+                                    </asp:DropDownList>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label10" runat="server" Text="Estante"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtEstante" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label11" runat="server" Text="Fila"></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtFila" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
+                            
                         </table>
                     </fieldset>
                 </td>
