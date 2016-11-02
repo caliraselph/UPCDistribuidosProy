@@ -1,0 +1,121 @@
+﻿
+.div-style1 {
+            border:double;
+        }
+
+.table-style1 {
+            width: 100%;
+        }
+.td-style1 {
+            width: 150px;
+            height: 10px;
+             text-align:center;
+            
+        }
+.td-style2 {
+            width: 150px;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style3 {
+            width: 100px;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style4 {
+            width: 45px;
+            height: 40px;
+            text-align:center;
+            
+        }
+
+.td-style5 {
+            width: 25%;
+            height: 10px;
+            text-align:left;
+            
+        }
+
+.td-style6 {
+            width: 50%;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style7 {
+            width: 150px;
+            height: 10px;
+             text-align:right;
+           
+        }
+.td-style8 {
+            width: 180px;
+            height: 10px;
+             text-align:right;
+           
+        }
+.td-style9 {
+            width: 150px;
+            height: 10px;
+             text-align:left;
+           
+        }
+.td-style10 {
+            width: 10%;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style11 {
+            width: 80%;
+            height: 10px;
+            text-align:center;
+            
+        }
+
+.td-style12 {
+            width: 15%;
+            height: 10px;
+            text-align:center;
+            
+        }
+.td-style13 {
+            width: 70%;
+            height: 10px;
+            text-align:center;
+            
+        }
+
+.lbl-style1 {
+          width:110px;
+          font-style:normal;
+          text-align:right;
+        }
+
+.lbl-style2 {
+          width:200px;
+          font-style:normal;
+          text-align:center;
+        }
+
+.img-style1 {
+          
+          Height:20px;
+          Width:23px;
+          align-items:center;
+          
+        }
+.img-style2 {
+          
+          Height:40px;
+          Width:45px;
+         }
+
+.txt-style1 {
+          width:100px;
+        }
+.ddl-style1 {
+}
+

@@ -33,10 +33,6 @@ namespace upcDistribuidos.Web.Prototype
             dt.Columns.Add("Codigo");
             dt.Columns.Add("Titulo");
             dt.Columns.Add("Autor");
-            dt.Columns.Add("Editorial");
-            dt.Columns.Add("Paginas");
-            dt.Columns.Add("Stock");
-            dt.Columns.Add("Ubicacion");
 
             DataRow row = dt.NewRow();
 
@@ -47,14 +43,6 @@ namespace upcDistribuidos.Web.Prototype
             row["Titulo"] = "Sistemas Distribuidos";
 
             row["Autor"] = "Pedro Molina";
-
-            row["Editorial"] = "Navarrete";
-
-            row["Paginas"] = "150";
-
-            row["Stock"] = "10";
-
-            row["Ubicacion"] = "B28";
 
             dt.Rows.Add(row);
 

@@ -1,28 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPersona.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfPersona" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPersona.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfBPersona" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-
-        .auto-style2 {
-            width: 159px;
-        }
-
-        .auto-style3 {
-            width: 106px;
-        }
-
-        .auto-style4 {
-            width: 143px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -36,10 +19,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:ImageButton ID="btnNuevo" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNew_Click" />
-                        &nbsp;<asp:ImageButton ID="btnEliminar" runat="server" Height="32px" ImageUrl="~/images/delete.png" ToolTip="Eliminar" OnClick="btnNew0_Click" />
-                        &nbsp;<asp:ImageButton ID="btnBuscar" runat="server" Height="32px" ImageUrl="~/images/search.png" ToolTip="Buscar" OnClick="btnNew1_Click" />
-                        &nbsp;<asp:ImageButton ID="btnSalir" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnNew2_Click" />
+                        <asp:ImageButton ID="btnNuevo" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNuevo_Click"  />
+                        &nbsp;&nbsp;<asp:ImageButton ID="btnBuscar" runat="server" Height="32px" ImageUrl="~/images/search.png" ToolTip="Buscar" OnClick="btnBuscar_Click" />
+                        &nbsp;<asp:ImageButton ID="btnSalir" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnSalir_Click" />
                     </td>
                 </tr>
                 <tr>
@@ -55,12 +37,8 @@
                                         <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                                     </td>
                                     <td></td>
-                                    <td class="auto-style3">
-                                        <asp:Label ID="Label4" runat="server" Text="DNI:"></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="txtDNI" runat="server"></asp:TextBox>
-                                    </td>
+                                    <td class="auto-style3">&nbsp;</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style2">
@@ -76,24 +54,25 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="grdPersona" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <asp:CheckBoxField HeaderText="Sel" DataField="Sel" />
-                                <asp:BoundField HeaderText="Código" DataField="Codigo" />
-                                <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
-                                <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
-                                <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
-                                <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
-                                <asp:BoundField HeaderText="Deuda" DataField="Deuda" />
-                                <asp:BoundField HeaderText="Teléfono" DataField="Telefono" />
-                                <asp:BoundField HeaderText="E-Mail" DataField="Email" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfTPersona.aspx"
-                                            Text="Editar"></asp:HyperLink>
+                                        <asp:ImageButton ImageUrl="~/images/edit.png" ToolTip="Editar" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
+                                        <asp:ImageButton ImageUrl="~/images/delete.png" ToolTip="Eliminar" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
+                                        <asp:ImageButton ImageUrl="~/images/view.png" ToolTip="Ver" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                    <asp:BoundField HeaderText="Código" DataField="Codigo" />
+                                    <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
+                                    <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
+                                    <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
+                                    <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
+                                    <asp:BoundField HeaderText="Deuda" DataField="Deuda" />
+                                    <asp:BoundField HeaderText="Teléfono" DataField="Telefono" />
+                                    <asp:BoundField HeaderText="E-Mail" DataField="Email" />
+
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

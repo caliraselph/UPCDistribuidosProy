@@ -27,7 +27,6 @@
             <tr>
                 <td class="auto-style2">
                     <asp:ImageButton ID="btnNewMat" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNewMat_Click" />
-                    <asp:ImageButton ID="btnDelMat" runat="server" Height="32px" ImageUrl="~/images/delete.png" ToolTip="Eliminar" />
                     <asp:ImageButton ID="btnBusMat" runat="server" Height="32px" ImageUrl="~/images/search.png" ToolTip="Buscar" OnClick="btnBusMat_Click" />
                     <asp:ImageButton ID="btnSalir" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnSalir_Click1" />
                 </td>
@@ -39,27 +38,49 @@
                         <table>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label2" runat="server" Text="Tipo:"></asp:Label>
+                                    <asp:Label ID="Label2" runat="server" Text="Codigo:"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="cboTipoMat" runat="server">
-                                        <asp:ListItem Selected="True">Libro</asp:ListItem>
-                                        <asp:ListItem>Revista</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <asp:TextBox ID="txtCodigo" runat="server"></asp:TextBox>
                                 </td>
-                                <td class="auto-style1">
-                                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" Width="301px">
-                                        <asp:ListItem Value="Codigo">Código</asp:ListItem>
-                                        <asp:ListItem>Titulo</asp:ListItem>
-                                        <asp:ListItem>Autor</asp:ListItem>
-                                    </asp:RadioButtonList>
+                                <td></td>
+                                <td>
+                                    <asp:Label ID="Label3" runat="server" Text="Titulo:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtTitulo" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan ="3">
-                                    <asp:TextBox ID="txtBuscar" runat="server" Width="291px"></asp:TextBox>
+                                <td>
+                                    <asp:Label ID="Label4" runat="server" Text="Categoria:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="cboCategoria" runat="server">
+                                        <asp:ListItem>Historia</asp:ListItem>
+                                        <asp:ListItem>Fisica</asp:ListItem>
+                                        <asp:ListItem>Matematica</asp:ListItem>
+                                        <asp:ListItem>Literatura</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                
+                                <td></td>
+                                <td>
+                                    <asp:Label ID="Label5" runat="server" Text="Autor:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtAutor" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label ID="Label6" runat="server" Text="Año:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="txtAnio" runat="server"></asp:TextBox>
+                                </td>
+                            </tr>
+                            
                         </table>
                     </fieldset>
                 </td>
@@ -73,14 +94,24 @@
                                 <asp:BoundField HeaderText="Código" DataField="Codigo" />
                                 <asp:BoundField HeaderText="Titulo" DataField="Titulo" />
                                 <asp:BoundField HeaderText="Autor" DataField="Autor" />
-                                <asp:BoundField HeaderText="Editorial" DataField="Editorial" />
-                                <asp:BoundField HeaderText="Páginas" DataField="Paginas" />
-                                <asp:BoundField HeaderText="Stock" DataField="Stock" />
-                                <asp:BoundField HeaderText="Ubicación" DataField="Ubicacion" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx"
+                                        <asp:HyperLink ID="hlEditar" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx" ImageUrl="~/images/edit.png"
                                             Text="Editar"></asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png"
+                                            Text="Eliminar">
+                                            
+                                        </asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="hlVer" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx" ImageUrl="~/images/view.png"
+                                            Text="Ver"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

@@ -1,35 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
-namespace upcDistribuidos.Web.Views
+namespace upcDistribuidos.Web.Prototype
 {
-    public partial class wfPersona : System.Web.UI.Page
+    public partial class wfBPersona : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            GridView1.DataSource = dt;
+            grdPersona.DataSource = dt;
         }
 
-        protected void btnNew_Click(object sender, ImageClickEventArgs e)
+        protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfTPersona.aspx");
-        }
 
-        protected void btnNew2_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Redirect("wfPrincipal.aspx");
-        }
-
-        protected void btnNew1_Click(object sender, ImageClickEventArgs e)
-        {
-            DataTable dt = GridView1.DataSource as DataTable;
-            dt.Columns.Add("Sel");
+            DataTable dt = grdPersona.DataSource as DataTable;
             dt.Columns.Add("Codigo");
             dt.Columns.Add("Apellidos");
             dt.Columns.Add("Nombres");
@@ -41,33 +31,30 @@ namespace upcDistribuidos.Web.Views
 
             DataRow row = dt.NewRow();
 
-            row["Sel"] = false;
 
-            row["Codigo"] = "U201502510";
-
-            row["Apellidos"] = "PEREZ LUNA";
-
-            row["Nombres"] = "JUAN ANDRES";
-
-            row["Tipo"] = "Alumno";
-
-            row["NroLibros"] = "5";
-
+            row["Codigo"] = "U2015";
+            row["Apellidos"] = "CASTILLO ESTRADA";
+            row["Nombres"] = "CARLOS EMILIO";
+            row["Tipo"] = "ALUMNO";
+            row["NroLibros"] = "1";
             row["Deuda"] = "0.00";
-
-            row["Telefono"] = "4748765";
-
-            row["Email"] = "JUAN.PEREZ@GMAIL.COM";
+            row["Telefono"] = "45756345";
+            row["Email"] = "ccastillo@hotmail.com";
 
             dt.Rows.Add(row);
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
+            grdPersona.DataSource = dt;
+            grdPersona.DataBind();
         }
 
-        protected void btnNew0_Click(object sender, ImageClickEventArgs e)
+        protected void btnSalir_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Write("<script>alert('El registro se elimino correctamente.')</script>");
+            Response.Redirect("wfPrincipal.aspx");
+        }
+
+        protected void btnNuevo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("wfTPersona.aspx");
         }
     }
 }
