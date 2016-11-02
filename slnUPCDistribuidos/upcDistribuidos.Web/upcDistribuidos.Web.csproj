@@ -132,7 +132,6 @@
     <Content Include="Prototype\wfFiltroMaterial.aspx" />
     <Content Include="Prototype\wfLogin.aspx" />
     <Content Include="Prototype\wfTMaterial.aspx" />
-    <Content Include="Prototype\wftPrestamo.aspx" />
     <Content Include="Prototype\wfTReserva.aspx" />
     <Content Include="Prototype\wfTUsuario.aspx" />
     <Content Include="Prototype\wfTPersona.aspx" />
@@ -202,13 +201,6 @@
     </Compile>
     <Compile Include="Prototype\wfTMaterial.aspx.designer.cs">
       <DependentUpon>wfTMaterial.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Prototype\wftPrestamo.aspx.cs">
-      <DependentUpon>wftPrestamo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Prototype\wftPrestamo.aspx.designer.cs">
-      <DependentUpon>wftPrestamo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfTReserva.aspx.cs">
       <DependentUpon>wfTReserva.aspx</DependentUpon>
