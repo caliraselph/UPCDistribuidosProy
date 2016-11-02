@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace WebApplication4
+namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBReserva : System.Web.UI.Page
     {
@@ -20,8 +20,7 @@ namespace WebApplication4
 
             }
         }
-
-
+        
         private void  GrillaDefault()
         {
             DataTable _dt = new DataTable("tb_test");
@@ -72,5 +71,26 @@ namespace WebApplication4
             var r = 1;
         }
 
+        protected void imgFechaIniDev_Click(object sender, ImageClickEventArgs e)
+        {
+            calFechaIniDev.Visible = !calFechaIniDev.Visible;
+        }
+
+        protected void imgFechaFinDev_Click(object sender, ImageClickEventArgs e)
+        {
+            calFechaFinDev.Visible = !calFechaFinDev.Visible;
+        }
+
+        protected void calFechaIniDev_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaIniDev.Text = calFechaIniDev.SelectedDate.ToShortDateString();
+            calFechaIniDev.Visible = false;
+        }
+
+        protected void calFechaFinDev_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaFinDev.Text = calFechaFinDev.SelectedDate.ToShortDateString();
+            calFechaFinDev.Visible = false;
+        }
     }
 }

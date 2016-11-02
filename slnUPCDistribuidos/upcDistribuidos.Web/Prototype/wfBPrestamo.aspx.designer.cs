@@ -7,19 +7,19 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebApplication4 {
+namespace upcDistribuidos.Web.Prototype {
     
     
-    public partial class wfBReserva {
+    public partial class wfBPrestamo {
         
         /// <summary>
-        /// Control formBReserva.
+        /// Control formBPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formBReserva;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formBPrestamo;
         
         /// <summary>
         /// Control Label1.
@@ -31,76 +31,76 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control btnNuevoReserva.
+        /// Control btnNuevoPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnNuevoReserva;
+        protected global::System.Web.UI.WebControls.ImageButton btnNuevoPrestamo;
         
         /// <summary>
-        /// Control btnConsultarReserva.
+        /// Control btnConsultarPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnConsultarReserva;
+        protected global::System.Web.UI.WebControls.ImageButton btnConsultarPrestamo;
         
         /// <summary>
-        /// Control btnSalirReserva.
+        /// Control btnSalirPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnSalirReserva;
+        protected global::System.Web.UI.WebControls.ImageButton btnSalirPrestamo;
         
         /// <summary>
-        /// Control lblFechaReserva.
+        /// Control lblFechaPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFechaReserva;
+        protected global::System.Web.UI.WebControls.Label lblFechaPrestamo;
         
         /// <summary>
-        /// Control txtFechaResIni.
+        /// Control txtFechaPresIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaResIni;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPresIni;
         
         /// <summary>
-        /// Control imgFechaResIni.
+        /// Control imgFechaPresIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgFechaResIni;
+        protected global::System.Web.UI.WebControls.ImageButton imgFechaPresIni;
         
         /// <summary>
-        /// Control txtFechaResFin.
+        /// Control txtFechaPresFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaResFin;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPresFin;
         
         /// <summary>
-        /// Control imgFechaResFin.
+        /// Control imgFechaPresFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imgFechaResFin;
+        protected global::System.Web.UI.WebControls.ImageButton imgFechaPresFin;
         
         /// <summary>
         /// Control lblPersona.
@@ -121,13 +121,13 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.TextBox txtPersona;
         
         /// <summary>
-        /// Control ImageButton1.
+        /// Control imgBuscarPersona.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.ImageButton imgBuscarPersona;
         
         /// <summary>
         /// Control lblEstado.
@@ -148,22 +148,22 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
-        /// Control calFecResIni.
+        /// Control calFecPresIni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calFecResIni;
+        protected global::System.Web.UI.WebControls.Calendar calFecPresIni;
         
         /// <summary>
-        /// Control calFecResFin.
+        /// Control calFecPresFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calFecResFin;
+        protected global::System.Web.UI.WebControls.Calendar calFecPresFin;
         
         /// <summary>
         /// Control Label2.
@@ -247,12 +247,12 @@ namespace WebApplication4 {
         protected global::System.Web.UI.WebControls.Calendar calFechaFinDev;
         
         /// <summary>
-        /// Control dgvReserva.
+        /// Control dgvPrestamo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvReserva;
+        protected global::System.Web.UI.WebControls.GridView dgvPrestamo;
     }
 }

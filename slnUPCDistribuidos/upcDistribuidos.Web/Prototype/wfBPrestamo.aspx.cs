@@ -6,9 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace WebApplication4
+namespace upcDistribuidos.Web.Prototype
 {
-    public partial class wfBReserva : System.Web.UI.Page
+    public partial class wfBPrestamo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,38 +39,58 @@ namespace WebApplication4
                     new DataColumn("Estado", typeof(string)) };
 
             _dt.Columns.AddRange(_colms);
-            dgvReserva.DataSource = _dt;
-            dgvReserva.DataBind();
+            dgvPrestamo.DataSource = _dt;
+            dgvPrestamo.DataBind();
           
         }
 
-        protected void imgFechaResIni_Click(object sender, ImageClickEventArgs e) 
+        protected void imgFechaPresIni_Click(object sender, ImageClickEventArgs e)
         {
-            calFecResIni.Visible = !calFecResIni.Visible;
-
+            calFecPresIni.Visible = !calFecPresIni.Visible;
         }
 
-        protected void imgFechaResFin_Click(object sender, ImageClickEventArgs e)
+        protected void imgFechaPresFin_Click(object sender, ImageClickEventArgs e)
         {
-            calFecResFin.Visible = !calFecResFin.Visible;
+            calFecPresFin.Visible = !calFecPresFin.Visible;
         }
 
-        protected void calFecResIni_SelectionChanged(object sender, EventArgs e)
+        protected void calFecPresIni_SelectionChanged(object sender, EventArgs e)
         {
-            txtFechaResIni.Text = calFecResIni.SelectedDate.ToShortDateString();
-            calFecResIni.Visible = false;
+            txtFechaIniDev.Text = calFecPresIni.SelectedDate.ToShortDateString();
+            calFecPresIni.Visible = false;
         }
 
-        protected void calFecResFin_SelectionChanged(object sender, EventArgs e)
+        protected void calFecPresFin_SelectionChanged(object sender, EventArgs e)
         {
-            txtFechaResFin.Text = calFecResFin.SelectedDate.ToShortDateString();
-            calFecResFin.Visible = false;
+            txtFechaPresFin.Text = calFecPresFin.SelectedDate.ToShortDateString();
+            calFecPresFin.Visible = false;
         }
 
-        protected void dgvReserva_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void imgFechaIniDev_Click(object sender, ImageClickEventArgs e)
         {
-            var r = 1;
+            calFechaIniDev.Visible = !calFechaIniDev.Visible;
         }
 
+        protected void imgFechaFinDev_Click(object sender, ImageClickEventArgs e)
+        {
+            calFechaFinDev.Visible = !calFechaFinDev.Visible;
+        }
+
+        protected void calFechaIniDev_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaIniDev.Text = calFechaIniDev.SelectedDate.ToShortDateString();
+            calFechaIniDev.Visible = false;
+        }
+
+        protected void calFechaFinDev_SelectionChanged(object sender, EventArgs e)
+        {
+            txtFechaFinDev.Text = calFechaFinDev.SelectedDate.ToShortDateString();
+            calFechaFinDev.Visible = false;
+        }
+
+        protected void dgvPrestamo_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
     }
 }

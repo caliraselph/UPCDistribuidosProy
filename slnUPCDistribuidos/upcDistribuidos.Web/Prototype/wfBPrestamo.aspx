@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPrestamo.aspx.cs" Inherits="WebApplication4.wfBReserva" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPrestamo.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfBPrestamo" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <form id="formBReserva" runat="server">
+    <form id="formBPrestamo" runat="server">
         <div>
             <table class="table-style1">
                 <tr>
@@ -30,7 +30,7 @@
 
                     </td>
                     <td class="td-style6" >
-                        <asp:Label ID="Label1" runat="server" Text="BUSQUEDA DE RESERVAS" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="BUSQUEDA DE PRESTAMO" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
                     </td>
                     <td class="td-style5">
 
@@ -53,13 +53,13 @@
             <table>
                 <tr>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnNuevoReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" />
+                        <asp:ImageButton ID="btnNuevoPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" />
                     </td>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnConsultarReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" />
+                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" />
                     </td>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnSalirReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
+                        <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
                     </td>
                     
                 </tr>
@@ -69,22 +69,22 @@
             <table>
             <tr >   
                 <td  class="td-style1" >
-                    <asp:Label ID="lblFechaReserva" runat="server" Text="Fecha de Reserva:" CssClass="lbl-style1"/>
+                    <asp:Label ID="lblFechaPrestamo" runat="server" Text="Fecha Prestamo:" CssClass="lbl-style1"/>
                 </td>
                 <td  class="td-style2" >
-                    <asp:TextBox ID="txtFechaResIni" runat="server" CssClass="txt-style1"></asp:TextBox>
-                    <asp:ImageButton ID="imgFechaResIni" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaResIni_Click" />
+                    <asp:TextBox ID="txtFechaPresIni" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaPresIni" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaPresIni_Click"  />
                 </td>
                 <td  class="td-style2" >
-                    <asp:TextBox ID="txtFechaResFin" runat="server" CssClass="txt-style1"></asp:TextBox>
-                    <asp:ImageButton ID="imgFechaResFin" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaResFin_Click" />
+                    <asp:TextBox ID="txtFechaPresFin" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaPresFin" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaPresFin_Click"  />
                 </td>
                 <td class="td-style3" >
                      <asp:Label ID="lblPersona" runat="server" Text="Persona:" CssClass="lbl-style1"/>
                 </td>
                 <td class="td-style2" >
                       <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
-                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" />
+                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" />
                 
                 </td>
                 <td class="td-style3" >
@@ -98,7 +98,7 @@
                 <td  class="td-style1" >
                 </td>
                 <td  class="td-style2" >
-                    <asp:Calendar Visible="false" ID="calFecResIni" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecResIni_SelectionChanged">
+                    <asp:Calendar Visible="false" ID="calFecPresIni" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecPresIni_SelectionChanged" >
                         <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                         <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                         <OtherMonthDayStyle ForeColor="#999999" />
@@ -110,7 +110,7 @@
                     </asp:Calendar>
                 </td>
                 <td  class="td-style2" >
-                    <asp:Calendar ID="calFecResFin" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecResFin_SelectionChanged">
+                    <asp:Calendar ID="calFecPresFin" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecPresFin_SelectionChanged" >
                         <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                         <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                         <OtherMonthDayStyle ForeColor="#999999" />
@@ -136,11 +136,11 @@
                 </td>
                 <td  class="td-style2" >
                     <asp:TextBox ID="txtFechaIniDev" runat="server" CssClass="txt-style1"></asp:TextBox>
-                    <asp:ImageButton ID="imgFechaIniDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaResIni_Click" />
+                    <asp:ImageButton ID="imgFechaIniDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaIniDev_Click"  />
                 </td>
                 <td  class="td-style2" >
                     <asp:TextBox ID="txtFechaFinDev" runat="server" CssClass="txt-style1"></asp:TextBox>
-                    <asp:ImageButton ID="imgFechaFinDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaResFin_Click" />
+                    <asp:ImageButton ID="imgFechaFinDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaFinDev_Click" />
                 </td>
                 <td class="td-style3" >
                      <asp:Label ID="Label3" runat="server" Text="Codigo:" CssClass="lbl-style1"/>
@@ -158,7 +158,7 @@
                 <td  class="td-style1" >
                 </td>
                 <td  class="td-style2" >
-                    <asp:Calendar Visible="false" ID="calFechaIniDev" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecResIni_SelectionChanged">
+                    <asp:Calendar Visible="false" ID="calFechaIniDev" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFechaIniDev_SelectionChanged" >
                         <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                         <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                         <OtherMonthDayStyle ForeColor="#999999" />
@@ -170,7 +170,7 @@
                     </asp:Calendar>
                 </td>
                 <td  class="td-style2" >
-                    <asp:Calendar ID="calFechaFinDev" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecResFin_SelectionChanged">
+                    <asp:Calendar ID="calFechaFinDev" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFechaFinDev_SelectionChanged" >
                         <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                         <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                         <OtherMonthDayStyle ForeColor="#999999" />
@@ -196,7 +196,7 @@
             <table class="table-style1">
                 <tr>
                     <td> 
-                        <asp:GridView ID="dgvReserva" runat="server"  AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="100%" OnRowCommand="dgvReserva_RowCommand"  >
+                        <asp:GridView ID="dgvPrestamo" runat="server"  AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="100%" OnRowCommand="dgvPrestamo_RowCommand"   >
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
@@ -215,7 +215,6 @@
                                 <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" />
                                 <asp:BoundField DataField="CodPersona" DataFormatString="CodPersona" HeaderText="CodPersona" Visible="False" />
                                 <asp:BoundField DataField="Persona" DataFormatString="Persona" HeaderText="Persona" />
-                                <asp:BoundField DataField="FechaReserva" DataFormatString="FechaReserva" HeaderText="Fecha Reserva" />
                                 <asp:BoundField DataField="FechaPrestamo" DataFormatString="FechaPrestamo" HeaderText="Fecha Prestamo" />
                                 <asp:BoundField DataField="FechaEntrega" DataFormatString="FechaEntrega" HeaderText="FechaEntrega" />
                                 <asp:BoundField DataField="FechaDevolucion" DataFormatString="FechaDevolucion" HeaderText="Fecha Devolución" />
