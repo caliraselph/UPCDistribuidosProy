@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTReserva.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfTReserva" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTPrestamo.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfTPrestamo" %>
 
 <!DOCTYPE html>
 
@@ -28,7 +28,7 @@
 
                 </td>
                 <td class="td-style6">
-                    <asp:Label ID="Label4" runat="server" Text="Registrar Reserva" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text="Registrar Prestamo" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
                 </td>
                 <td class="td-style5">
                 </td>
@@ -94,7 +94,7 @@
                     <asp:Label ID="Label3" runat="server" Text="Categoria:" CssClass="lbl-style1"></asp:Label>
                 </td>
                 <td class="td-style1">
-                    <asp:DropDownList ID="ddlCategoriaB" runat="server" CssClass="ddl-style1" ></asp:DropDownList>
+                    <asp:DropDownList ID="ddlCategoriaB" runat="server" CssClass="ddl-style1" Height="19px" ></asp:DropDownList>
                 </td>
                 <td class="td-style9">
                     <asp:ImageButton ID="imgBuscarMaterial" runat="server" ImageUrl="~/images/search.png" />
@@ -173,23 +173,13 @@
                                 <asp:Label ID="Label5" runat="server" Text="Codigo:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtCodigoR" runat="server"></asp:TextBox>
-                            </td>
-                            <td class="td-style5"></td>
-                            <td class="td-style5"></td>
-                        </tr>
-                        <tr>
-                            <td class="td-style5">
-                                <asp:Label ID="Label6" runat="server" Text="Fecha Reserva:"></asp:Label>
-                            </td>
-                            <td class="td-style5">
-                                <asp:TextBox ID="txtFechaReservar" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtCodigoP" runat="server"></asp:TextBox>
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label7" runat="server" Text="Fecha Prestamo:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaPrestamoP" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -197,13 +187,13 @@
                                 <asp:Label ID="Label8" runat="server" Text="Fecha Retorno:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtFechaRetornoR" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaRetornoP" runat="server"></asp:TextBox>
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label9" runat="server" Text="Fecha Devolucion:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtFechaDevolucionR" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaDevolucionP" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -212,13 +202,13 @@
                             </td>
                             <td class="td-style5">
                                 <asp:TextBox ID="txtPersonaR" runat="server"></asp:TextBox>
-                                <asp:ImageButton ID="imbBuscarPersonaR" runat="server" ImageUrl="~/images/search.png" />
+                                <asp:ImageButton ID="imbBuscarPersonaP" runat="server" ImageUrl="~/images/search.png" />
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label11" runat="server" Text="Estado:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtEstadoR" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEstadoP" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -233,7 +223,7 @@
                 </td>
                 <td class="td-style13">
                     <div class="div-style1">
-                            <asp:GridView ID="dgvDetalleR" runat="server"  AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="100%" OnRowCommand="dgvDetalleR_RowCommand" >
+                            <asp:GridView ID="dgvDetalleP" runat="server"  AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="100%" OnRowCommand="dgvDetalleR_RowCommand" >
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>

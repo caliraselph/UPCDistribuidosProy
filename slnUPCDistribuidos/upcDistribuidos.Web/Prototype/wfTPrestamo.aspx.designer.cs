@@ -10,7 +10,7 @@
 namespace upcDistribuidos.Web.Prototype {
     
     
-    public partial class wfTReserva {
+    public partial class wfTPrestamo {
         
         /// <summary>
         /// Control frmTReserva.
@@ -148,31 +148,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control txtCodigoR.
+        /// Control txtCodigoP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoR;
-        
-        /// <summary>
-        /// Control Label6.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
-        
-        /// <summary>
-        /// Control txtFechaReservar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaReservar;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoP;
         
         /// <summary>
         /// Control Label7.
@@ -184,13 +166,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control TextBox3.
+        /// Control txtFechaPrestamoP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPrestamoP;
         
         /// <summary>
         /// Control Label8.
@@ -202,13 +184,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control txtFechaRetornoR.
+        /// Control txtFechaRetornoP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaRetornoR;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaRetornoP;
         
         /// <summary>
         /// Control Label9.
@@ -220,13 +202,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Control txtFechaDevolucionR.
+        /// Control txtFechaDevolucionP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaDevolucionR;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaDevolucionP;
         
         /// <summary>
         /// Control Label10.
@@ -247,13 +229,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.TextBox txtPersonaR;
         
         /// <summary>
-        /// Control imbBuscarPersonaR.
+        /// Control imbBuscarPersonaP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton imbBuscarPersonaR;
+        protected global::System.Web.UI.WebControls.ImageButton imbBuscarPersonaP;
         
         /// <summary>
         /// Control Label11.
@@ -265,21 +247,21 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// Control txtEstadoR.
+        /// Control txtEstadoP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstadoR;
+        protected global::System.Web.UI.WebControls.TextBox txtEstadoP;
         
         /// <summary>
-        /// Control dgvDetalleR.
+        /// Control dgvDetalleP.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvDetalleR;
+        protected global::System.Web.UI.WebControls.GridView dgvDetalleP;
     }
 }

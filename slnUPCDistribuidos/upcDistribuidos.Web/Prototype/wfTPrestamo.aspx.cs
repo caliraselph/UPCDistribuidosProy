@@ -8,12 +8,12 @@ using System.Data;
 
 namespace upcDistribuidos.Web.Prototype
 {
-    public partial class wfTReserva : System.Web.UI.Page
+    public partial class wfTPrestamo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             GrillaMaterialDefault(dgvBusquedaMaterial);
-            GrillaMaterialDefault(dgvDetalleR);
+            GrillaMaterialDefault(dgvDetalleP);
         }
 
         protected void dgvBusquedaMaterial_RowCommand(object sender, GridViewCommandEventArgs e)

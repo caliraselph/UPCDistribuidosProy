@@ -1,188 +1,240 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPrestamo.aspx.cs" Inherits="WebApplication4.wfBPrestamo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBPrestamo.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfBPrestamo" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../scripts/Estilo1.css" rel="stylesheet" />
     <title></title>
-    <style type="text/css">
-        .auto-style6 {
-            height: 23px;
-        }
-        .auto-style12 {
-            width: 17px;
-        }
-        .auto-style13 {
-            width: 77px;
-        }
-        .auto-style14 {
-            width: 214px;
-        }
-        .auto-style15 {
-            width: 77px;
-            height: 23px;
-        }
-        .auto-style16 {
-            width: 214px;
-            height: 23px;
-        }
-        .auto-style17 {
-            width: 17px;
-            height: 23px;
-        }
-        .auto-style18 {
-            width: 226px;
-        }
-        .auto-style19 {
-            height: 23px;
-            width: 226px;
-        }
-        .auto-style20 {
-            height: 23px;
-            width: 226px;
-            text-align: right;
-        }
-    </style>
+
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-          <table style="width:100%;">
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td colspan="4" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style13" colspan="2" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style14" style="line-height: normal">&nbsp;</td>
-            <td class="auto-style12" style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td aria-orientation="vertical" class="auto-style18" colspan="3" style="line-height: 10%">
-                <asp:Label ID="Label1" runat="server" BackColor="#00CC00" CssClass="separator" Font-Bold="True" Font-Italic="True" Font-Names="Arial Black" Text="BUSCAR PRESTAMOS"></asp:Label>
-            </td>
-            <td class="auto-style13" colspan="2" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style14" style="line-height: normal">&nbsp;</td>
-            <td class="auto-style12" style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: 10%">
-                <asp:ImageButton ID="btnBuscar" runat="server" ImageUrl="~/images/search.png" ToolTip="Buscar" />
-                <asp:ImageButton ID="btnNuevo" runat="server" ImageUrl="~/images/new.png" OnClick="btnNuevo_Click" ToolTip="Nuevo" />
-                <asp:ImageButton ID="btnEliminar" runat="server" ImageUrl="~/images/delete.png" ToolTip="Eliminar" />
-            </td>
-            <td class="auto-style18" colspan="3" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style13" colspan="2" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style14" style="line-height: normal">&nbsp;</td>
-            <td class="auto-style12" style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6" style="line-height: 10%"></td>
-            <td class="auto-style6" style="line-height: 10%"></td>
-            <td class="auto-style19" colspan="3" style="line-height: 10%"></td>
-            <td class="auto-style15" colspan="2" style="line-height: 10%"></td>
-            <td class="auto-style16" style="line-height: normal"></td>
-            <td class="auto-style17" style="line-height: normal"></td>
-            <td class="auto-style6" style="line-height: normal"></td>
-            <td class="auto-style6" style="line-height: normal"></td>
-        </tr>
-        <tr>
-            <td class="auto-style6" style="line-height: 10%"></td>
-            <td class="auto-style6" style="line-height: 10%">
-                <asp:Label ID="Label2" runat="server" Text="Tipo Persona:"></asp:Label>
-&nbsp;<asp:DropDownList ID="ddTipoPersona" runat="server" EnableTheming="True" Font-Overline="False" Height="23px" Width="143px">
-                    <asp:ListItem>Profesor</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td class="auto-style20" style="line-height: 10%">
-                <asp:Label ID="Label3" runat="server" Text="Persona:"></asp:Label>
-&nbsp; </td>
-            <td class="auto-style19" style="line-height: 10%">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </td>
-            <td class="auto-style19" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style15" colspan="2" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style16" style="line-height: normal"></td>
-            <td class="auto-style17" style="line-height: normal"></td>
-            <td class="auto-style6" style="line-height: normal"></td>
-            <td class="auto-style6" style="line-height: normal"></td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td colspan="5" rowspan="8" style="line-height: 10%">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Height="141px" Width="863px">
-                    <Columns>
-                        <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Codigo">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="FechaSalida" DataFormatString="FechaSalida" HeaderText="FechaSalida">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="FechaIngreso" DataFormatString="FechaIngreso" HeaderText="FechaIngreso">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="TipoPersona" DataFormatString="TipoPersona" HeaderText="TipoPersona">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:BoundField>
-                        <asp:BoundField DataField="Persona" DataFormatString="Persona" HeaderText="Persona">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:BoundField>
-                        <asp:HyperLinkField HeaderText="Ver" Text="Ver">
-                        <HeaderStyle BackColor="#33CCFF" />
-                        </asp:HyperLinkField>
-                    </Columns>
-                </asp:GridView>
-            </td>
-            <td colspan="4" rowspan="8" style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6" style="line-height: 10%"></td>
-            <td class="auto-style6" style="line-height: normal"></td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-        <tr>
-            <td style="line-height: 10%">&nbsp;</td>
-            <td colspan="4" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style13" colspan="2" style="line-height: 10%">&nbsp;</td>
-            <td class="auto-style14" style="line-height: normal">&nbsp;</td>
-            <td class="auto-style12" style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-            <td style="line-height: normal">&nbsp;</td>
-        </tr>
-    </table>
-    </div>
+
+    <form id="formBPrestamo" runat="server">
+        <div>
+            <table class="table-style1">
+                <tr>
+                    <td class="td-style5">
+
+                    </td>
+                    <td class="td-style6">
+
+                    </td>
+                    <td class="td-style5">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-style5">
+
+                    </td>
+                    <td class="td-style6" >
+                        <asp:Label ID="Label1" runat="server" Text="BUSQUEDA DE PRESTAMO" CssClass="lbl-style2" Font-Bold="True" Font-Size="Large" Font-Underline=""></asp:Label>
+                    </td>
+                    <td class="td-style5">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-style5">
+
+                    </td>
+                    <td class="td-style6">
+
+                    </td>
+                    <td class="td-style5">
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="div-style1" >   
+            <table>
+                <tr>
+                    <td class="td-style4">
+                        <asp:ImageButton ID="btnNuevoPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" />
+                    </td>
+                    <td class="td-style4">
+                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" />
+                    </td>
+                    <td class="td-style4">
+                        <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>    
+        <div class="div-style1" id="divFiltros">
+            <table>
+            <tr >   
+                <td  class="td-style1" >
+                    <asp:Label ID="lblFechaPrestamo" runat="server" Text="Fecha Prestamo:" CssClass="lbl-style1"/>
+                </td>
+                <td  class="td-style2" >
+                    <asp:TextBox ID="txtFechaPresIni" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaPresIni" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaPresIni_Click"  />
+                </td>
+                <td  class="td-style2" >
+                    <asp:TextBox ID="txtFechaPresFin" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaPresFin" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaPresFin_Click"  />
+                </td>
+                <td class="td-style3" >
+                     <asp:Label ID="lblPersona" runat="server" Text="Persona:" CssClass="lbl-style1"/>
+                </td>
+                <td class="td-style2" >
+                      <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
+                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" />
+                
+                </td>
+                <td class="td-style3" >
+                    <asp:Label ID="lblEstado" runat="server" Text="Estado:" CssClass="lbl-style1"/>
+                </td>
+                <td class="td-style2" >
+                    <asp:DropDownList ID="ddlEstado" runat="server" CssClass="ddl-style1" ></asp:DropDownList>
+                </td>
+            </tr>
+            <tr >   
+                <td  class="td-style1" >
+                </td>
+                <td  class="td-style2" >
+                    <asp:Calendar Visible="false" ID="calFecPresIni" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecPresIni_SelectionChanged" >
+                        <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
+                        <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                        <WeekendDayStyle BackColor="#CCCCFF" />
+                    </asp:Calendar>
+                </td>
+                <td  class="td-style2" >
+                    <asp:Calendar ID="calFecPresFin" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFecPresFin_SelectionChanged" >
+                        <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
+                        <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                        <WeekendDayStyle BackColor="#CCCCFF" />
+                    </asp:Calendar>
+                </td>
+                <td class="td-style3" >
+                </td>
+                <td class="td-style2" >
+                </td>
+                <td class="td-style3" >
+                </td>
+                <td class="td-style2" >
+                </td>
+            </tr>
+            <tr >   
+                <td  class="td-style1" >
+                    <asp:Label ID="Label2" runat="server" Text="Fecha Devolucion:" CssClass="lbl-style1"/>
+                </td>
+                <td  class="td-style2" >
+                    <asp:TextBox ID="txtFechaIniDev" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaIniDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaIniDev_Click"  />
+                </td>
+                <td  class="td-style2" >
+                    <asp:TextBox ID="txtFechaFinDev" runat="server" CssClass="txt-style1"></asp:TextBox>
+                    <asp:ImageButton ID="imgFechaFinDev" runat="server" ImageUrl="~/images/date.jpg" CssClass="img-style1" OnClick="imgFechaFinDev_Click" />
+                </td>
+                <td class="td-style3" >
+                     <asp:Label ID="Label3" runat="server" Text="Codigo:" CssClass="lbl-style1"/>
+                </td>
+                <td class="td-style2" >
+                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
+                
+                </td>
+                <td class="td-style3" >
+                    &nbsp;</td>
+                <td class="td-style2" >
+                    &nbsp;</td>
+            </tr>
+            <tr >   
+                <td  class="td-style1" >
+                </td>
+                <td  class="td-style2" >
+                    <asp:Calendar Visible="false" ID="calFechaIniDev" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFechaIniDev_SelectionChanged" >
+                        <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
+                        <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                        <WeekendDayStyle BackColor="#CCCCFF" />
+                    </asp:Calendar>
+                </td>
+                <td  class="td-style2" >
+                    <asp:Calendar ID="calFechaFinDev" Visible="false" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="129px" Width="140px" OnSelectionChanged="calFechaFinDev_SelectionChanged" >
+                        <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
+                        <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                        <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
+                        <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
+                        <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
+                        <WeekendDayStyle BackColor="#CCCCFF" />
+                    </asp:Calendar>
+                </td>
+                <td class="td-style3" >
+                </td>
+                <td class="td-style2" >
+                </td>
+                <td class="td-style3" >
+                </td>
+                <td class="td-style2" >
+                </td>
+            </tr>
+        </table> 
+        </div>
+        <div>
+            <table class="table-style1">
+                <tr>
+                    <td> 
+                        <asp:GridView ID="dgvPrestamo" runat="server"  AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" Width="100%" OnRowCommand="dgvPrestamo_RowCommand"   >
+                            <AlternatingRowStyle BackColor="#CCCCCC" />
+                            <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
+                            <Columns>
+                                <asp:ButtonField ButtonType="Image" ControlStyle-CssClass="img-style1" CommandName="cmdEditar" ImageUrl="~/images/edit.png">
+<ControlStyle CssClass="img-style1"></ControlStyle>
+                                <ItemStyle Width="10px" />
+                                </asp:ButtonField>
+                                <asp:ButtonField ButtonType="Image"  CommandName="cmdEliminar" ControlStyle-CssClass="img-style1" ImageUrl="~/images/delete.png" >
+<ControlStyle CssClass="img-style1"></ControlStyle>
+                                <ItemStyle Width="10px" />
+                                </asp:ButtonField>
+                                <asp:ButtonField ButtonType="Image"  CommandName="cmdVer"  ControlStyle-CssClass="img-style1" ImageUrl="~/images/view.png"  >
+<ControlStyle CssClass="img-style1"></ControlStyle>
+                                <ItemStyle Width="10px" />
+                                </asp:ButtonField>
+                                <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" />
+                                <asp:BoundField DataField="CodPersona" DataFormatString="CodPersona" HeaderText="CodPersona" Visible="False" />
+                                <asp:BoundField DataField="Persona" DataFormatString="Persona" HeaderText="Persona" />
+                                <asp:BoundField DataField="FechaPrestamo" DataFormatString="FechaPrestamo" HeaderText="Fecha Prestamo" />
+                                <asp:BoundField DataField="FechaEntrega" DataFormatString="FechaEntrega" HeaderText="FechaEntrega" />
+                                <asp:BoundField DataField="FechaDevolucion" DataFormatString="FechaDevolucion" HeaderText="Fecha Devolución" />
+                                <asp:BoundField DataField="CodEstado" DataFormatString="CodEstado" HeaderText="CodEstado" Visible="False" />
+                                <asp:BoundField DataField="Estado" DataFormatString="Estado" HeaderText="Estado"  />
+                            </Columns>
+
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White"  />
+                            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="Gray" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                        </asp:GridView>
+                    </td>
+                </tr>
+            </table>  
+        </div>
     </form>
 </body>
 </html>
