@@ -96,13 +96,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label9" runat="server" Text="Estado"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text="Sala"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="cboEstado" runat="server">
-                                        <asp:ListItem>Activo</asp:ListItem>
-                                        <asp:ListItem>Inactivo</asp:ListItem>
-                                    </asp:DropDownList>
+                                    <asp:CheckBox ID="chkSala" runat="server"/>
                                 </td>
                             </tr>
                             
