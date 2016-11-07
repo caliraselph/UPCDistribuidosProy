@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.Web", "upcDistribuidos.Web\upcDistribuidos.Web.csproj", "{DB81233A-1F1C-47F7-BF70-CA699CFCB273}"
 EndProject
@@ -18,6 +18,20 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web Api", "Web Api", "{344B0FE4-D888-4E34-BD8D-E7879CBBF19C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.WebApi", "upcDistribuidos.WebApi\upcDistribuidos.WebApi.csproj", "{AB453A2B-5690-4799-A665-CBD2A5B391CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LogicaCliente", "LogicaCliente", "{0713FA94-BC48-4D2B-879D-983B6B5C3D12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServiciosDistribuido", "ServiciosDistribuido", "{4B123A15-C206-41C5-8E66-BB6B3904B34B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.Servicios", "upcDistribuidos.Servicios\upcDistribuidos.Servicios.csproj", "{2BA14908-19FB-4DCF-9AAF-3730D890A9C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.Servicios.Logica", "upcDistribuidos.Servicios.Logica\upcDistribuidos.Servicios.Logica.csproj", "{362D7FED-964A-4985-839B-F3604FAD64C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.Servicios.Datos", "upcDistribuidos.Servicios.Datos\upcDistribuidos.Servicios.Datos.csproj", "{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.ClienteLogica", "upcDistribuidos.ClienteLogica\upcDistribuidos.ClienteLogica.csproj", "{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.ClienteProxy", "upcDistribuidos.ClienteProxy\upcDistribuidos.ClienteProxy.csproj", "{D8D56A38-78D9-46C0-9B5F-7B10343B6450}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +55,26 @@ Global
 		{AB453A2B-5690-4799-A665-CBD2A5B391CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB453A2B-5690-4799-A665-CBD2A5B391CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB453A2B-5690-4799-A665-CBD2A5B391CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362D7FED-964A-4985-839B-F3604FAD64C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362D7FED-964A-4985-839B-F3604FAD64C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362D7FED-964A-4985-839B-F3604FAD64C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362D7FED-964A-4985-839B-F3604FAD64C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D56A38-78D9-46C0-9B5F-7B10343B6450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D56A38-78D9-46C0-9B5F-7B10343B6450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D56A38-78D9-46C0-9B5F-7B10343B6450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D56A38-78D9-46C0-9B5F-7B10343B6450}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,5 +86,10 @@ Global
 		{E1EDF1F8-5796-4D80-9F35-05146BFE3E2A} = {03094D4D-DD84-418C-AADE-2752E71621D9}
 		{344B0FE4-D888-4E34-BD8D-E7879CBBF19C} = {E42C757E-F0D4-4358-90B1-022D75A52D50}
 		{AB453A2B-5690-4799-A665-CBD2A5B391CF} = {344B0FE4-D888-4E34-BD8D-E7879CBBF19C}
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6} = {4B123A15-C206-41C5-8E66-BB6B3904B34B}
+		{362D7FED-964A-4985-839B-F3604FAD64C6} = {4B123A15-C206-41C5-8E66-BB6B3904B34B}
+		{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002} = {4B123A15-C206-41C5-8E66-BB6B3904B34B}
+		{1BF082EE-6E8F-4E89-AF69-CF1558FFD966} = {0713FA94-BC48-4D2B-879D-983B6B5C3D12}
+		{D8D56A38-78D9-46C0-9B5F-7B10343B6450} = {0713FA94-BC48-4D2B-879D-983B6B5C3D12}
 	EndGlobalSection
 EndGlobal

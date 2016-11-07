@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1EDF1F8-5796-4D80-9F35-05146BFE3E2A}</ProjectGuid>
+    <ProjectGuid>{4DE23F34-4C6E-4498-84A6-8A2E6DC4B002}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>upcDistribuidos.Entidades</RootNamespace>
-    <AssemblyName>upcDistribuidos.Entidades</AssemblyName>
+    <RootNamespace>upcDistribuidos.Servicios.Datos</RootNamespace>
+    <AssemblyName>upcDistribuidos.Servicios.Datos</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,11 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entidades\" />
-    <Folder Include="Errores\" />
-    <Folder Include="Mapper\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
