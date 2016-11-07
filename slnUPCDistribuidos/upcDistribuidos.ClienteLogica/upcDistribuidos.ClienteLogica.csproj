@@ -45,6 +45,20 @@
   <ItemGroup>
     <Folder Include="NewFolder1\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\upcDistribuidos.ClienteProxy\upcDistribuidos.ClienteProxy.csproj">
+      <Project>{d8d56a38-78d9-46c0-9b5f-7b10343b6450}</Project>
+      <Name>upcDistribuidos.ClienteProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
+      <Project>{96f242f2-cfb7-491f-bab0-234a348245ef}</Project>
+      <Name>upcDistribuidos.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Entidades\upcDistribuidos.Entidades.csproj">
+      <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
+      <Name>upcDistribuidos.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

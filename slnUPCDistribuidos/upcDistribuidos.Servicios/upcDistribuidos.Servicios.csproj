@@ -111,6 +111,20 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
+      <Project>{96f242f2-cfb7-491f-bab0-234a348245ef}</Project>
+      <Name>upcDistribuidos.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Entidades\upcDistribuidos.Entidades.csproj">
+      <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
+      <Name>upcDistribuidos.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Servicios.Logica\upcDistribuidos.Servicios.Logica.csproj">
+      <Project>{362d7fed-964a-4985-839b-f3604fad64c6}</Project>
+      <Name>upcDistribuidos.Servicios.Logica</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -248,6 +248,20 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\upcDistribuidos.ClienteLogica\upcDistribuidos.ClienteLogica.csproj">
+      <Project>{1bf082ee-6e8f-4e89-af69-cf1558ffd966}</Project>
+      <Name>upcDistribuidos.ClienteLogica</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
+      <Project>{96f242f2-cfb7-491f-bab0-234a348245ef}</Project>
+      <Name>upcDistribuidos.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\upcDistribuidos.Entidades\upcDistribuidos.Entidades.csproj">
+      <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
+      <Name>upcDistribuidos.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
