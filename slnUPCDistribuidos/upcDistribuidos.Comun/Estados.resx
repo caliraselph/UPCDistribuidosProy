@@ -117,7 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="wfBuscarReserva" xml:space="preserve">
-    <value />
+  <data name="ANU" xml:space="preserve">
+    <value>2</value>
+    <comment>Anulado</comment>
+  </data>
+  <data name="DEV" xml:space="preserve">
+    <value>4</value>
+    <comment>Devuelto</comment>
+  </data>
+  <data name="PEN" xml:space="preserve">
+    <value>5</value>
+    <comment>Pendiente devolución</comment>
+  </data>
+  <data name="PRE" xml:space="preserve">
+    <value>3</value>
+    <comment>Prestado</comment>
+  </data>
+  <data name="RES" xml:space="preserve">
+    <value>1</value>
+    <comment>Reservado</comment>
   </data>
 </root>

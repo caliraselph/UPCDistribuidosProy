@@ -40,17 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constantes.Designer.cs">
+    <Compile Include="Estados.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Constantes.resx</DependentUpon>
+      <DependentUpon>Estados.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Constantes.resx">
+    <EmbeddedResource Include="Estados.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Constantes.Designer.cs</LastGenOutput>
+      <LastGenOutput>Estados.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

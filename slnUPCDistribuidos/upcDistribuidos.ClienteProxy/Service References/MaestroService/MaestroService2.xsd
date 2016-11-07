@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1594/Maestros/MaestroService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" />
+  <xs:element name="ListarEstados">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEstadosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="ListarEstadosResult" nillable="true" type="q1:ArrayOfEstado" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoMateriales">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarTipoMaterialesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="ListarTipoMaterialesResult" nillable="true" type="q2:ArrayOfTipoMaterial" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCategorias">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCategoriasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="ListarCategoriasResult" nillable="true" type="q3:ArrayOfCategoria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contrato\IMaestroBL.cs" />
+    <Compile Include="Implementacion\MaestroBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.ClienteProxy\upcDistribuidos.ClienteProxy.csproj">
       <Project>{d8d56a38-78d9-46c0-9b5f-7b10343b6450}</Project>

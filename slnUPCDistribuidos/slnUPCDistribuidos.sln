@@ -32,6 +32,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.ClienteLogica", "upcDistribuidos.ClienteLogica\upcDistribuidos.ClienteLogica.csproj", "{1BF082EE-6E8F-4E89-AF69-CF1558FFD966}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "upcDistribuidos.ClienteProxy", "upcDistribuidos.ClienteProxy\upcDistribuidos.ClienteProxy.csproj", "{D8D56A38-78D9-46C0-9B5F-7B10343B6450}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2BA14908-19FB-4DCF-9AAF-3730D890A9C6} = {2BA14908-19FB-4DCF-9AAF-3730D890A9C6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

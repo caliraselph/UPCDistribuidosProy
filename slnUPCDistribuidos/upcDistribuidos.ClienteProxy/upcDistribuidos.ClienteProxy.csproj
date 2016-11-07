@@ -32,6 +32,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,11 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Maestros\MaestroProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\MaestroService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
       <Project>{96f242f2-cfb7-491f-bab0-234a348245ef}</Project>
@@ -54,6 +60,43 @@
       <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
       <Name>upcDistribuidos.Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Categoria.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Estado.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.TipoMaterial.datasource" />
+    <None Include="Service References\MaestroService\MaestroService.wsdl" />
+    <None Include="Service References\MaestroService\MaestroService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaestroService\MaestroService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaestroService\MaestroService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\MaestroService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaestroService\MaestroService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaestroService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaestroService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaestroService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

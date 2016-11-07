@@ -22,14 +22,14 @@ namespace upcDistribuidos.Comun {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Constantes {
+    internal class Estados {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Constantes() {
+        internal Estados() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace upcDistribuidos.Comun {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("upcDistribuidos.Comun.Constantes", typeof(Constantes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("upcDistribuidos.Comun.Estados", typeof(Estados).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,47 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 2.
         /// </summary>
-        internal static string wfBuscarReserva {
+        internal static string ANU {
             get {
-                return ResourceManager.GetString("wfBuscarReserva", resourceCulture);
+                return ResourceManager.GetString("ANU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.
+        /// </summary>
+        internal static string DEV {
+            get {
+                return ResourceManager.GetString("DEV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        internal static string PEN {
+            get {
+                return ResourceManager.GetString("PEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        internal static string PRE {
+            get {
+                return ResourceManager.GetString("PRE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        internal static string RES {
+            get {
+                return ResourceManager.GetString("RES", resourceCulture);
             }
         }
     }
