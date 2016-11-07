@@ -57,10 +57,10 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="cboCategoria" runat="server">
-                                        <asp:ListItem>Historia</asp:ListItem>
+                                    <%--    <asp:ListItem>Historia</asp:ListItem>
                                         <asp:ListItem>Fisica</asp:ListItem>
                                         <asp:ListItem>Matematica</asp:ListItem>
-                                        <asp:ListItem>Literatura</asp:ListItem>
+                                        <asp:ListItem>Literatura</asp:ListItem>--%>
                                     </asp:DropDownList>
                                 </td>
                                 

@@ -5,25 +5,37 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using upcDistribuidos.ClienteLogica.Contrato;
+using upcDistribuidos.ClienteLogica.Implementacion;
+using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Comun;
+
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBMaterial : System.Web.UI.Page
     {
+        IMaestroBL _logica = new MaestroBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            grdMaterial.DataSource = dt;
+            if (!IsPostBack)
+            {
+                CargarCategoria();
+                DataTable dt = new DataTable();
+                grdMaterial.DataSource = dt;
+            }
+            
         }
 
         protected void btnNewMat_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfTMaterial.aspx");
+            Response.Redirect(Formularios.MaterialTrans);
         }
 
         protected void btnSalir_Click1(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfPrincipal.aspx");
+            Response.Redirect(Formularios.Principal);
         }
 
         protected void btnBusMat_Click(object sender, ImageClickEventArgs e)
@@ -49,5 +61,14 @@ namespace upcDistribuidos.Web.Prototype
             grdMaterial.DataSource = dt;
             grdMaterial.DataBind();
         }
+
+        private void CargarCategoria()
+        {
+            cboCategoria.DataSource = _logica.ListarCategorias();
+            cboCategoria.DataMember = "Id";
+            cboCategoria.DataValueField = "Descripcion";
+            cboCategoria.DataBind();
+        }
+
     }
 }

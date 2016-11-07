@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace upcDistribuidos.Web.Views
+namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBUsuario : System.Web.UI.Page
     {

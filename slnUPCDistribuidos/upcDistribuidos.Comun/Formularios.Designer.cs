@@ -22,14 +22,14 @@ namespace upcDistribuidos.Comun {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Estados {
+    public class Formularios {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Estados() {
+        internal Formularios() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace upcDistribuidos.Comun {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("upcDistribuidos.Comun.Estados", typeof(Estados).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("upcDistribuidos.Comun.Formularios", typeof(Formularios).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,47 +61,20 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2.
+        ///   Looks up a localized string similar to wfTMaterial.aspx.
         /// </summary>
-        public static string ANU {
+        public static string MaterialTrans {
             get {
-                return ResourceManager.GetString("ANU", resourceCulture);
+                return ResourceManager.GetString("MaterialTrans", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4.
+        ///   Looks up a localized string similar to wfPrincipal.aspx.
         /// </summary>
-        public static string DEV {
+        public static string Principal {
             get {
-                return ResourceManager.GetString("DEV", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 5.
-        /// </summary>
-        public static string PEN {
-            get {
-                return ResourceManager.GetString("PEN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 3.
-        /// </summary>
-        public static string PRE {
-            get {
-                return ResourceManager.GetString("PRE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 1.
-        /// </summary>
-        public static string RES {
-            get {
-                return ResourceManager.GetString("RES", resourceCulture);
+                return ResourceManager.GetString("Principal", resourceCulture);
             }
         }
     }
