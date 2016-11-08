@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
 namespace upcDistribuidos.Entidades.Entidades
-{
+{ 
     [DataContract]
     public class Material
     {
