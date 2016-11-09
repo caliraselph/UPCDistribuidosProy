@@ -79,6 +79,15 @@
                                 <td>
                                     <asp:TextBox ID="txtAnio" runat="server"></asp:TextBox>
                                 </td>
+                                <td></td>
+                                <td>
+                                    <asp:Label ID="Label7" runat="server" Text="Estado:"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="cboEstado" runat="server">
+
+                                    </asp:DropDownList>
+                                </td>
                             </tr>
                             
                         </table>
@@ -89,6 +98,7 @@
                     <td>
                         <asp:GridView ID="grdMaterial" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ViewStateMode="Enabled">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
                                 <asp:CheckBoxField HeaderText="Sel" DataField="Sel" />
                                 <asp:BoundField HeaderText="Código" DataField="Codigo" />

@@ -46,6 +46,21 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
             return _lista;
         }
 
+        public List<Estado> ListarFlags(int def)
+        {
+            List<Estado> _lista = new List<Estado>();
+            
+            if (def == 1) // Deault Seleccionar
+                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Seleccionar_Cod), Descripcion = Estados.Seleccionar_Value });
+            else // default Todos
+                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Todos_Cod), Descripcion = Estados.Todos_Value });
+
+            _lista.Add(new Estado { Id = Convert.ToInt16(Estados.FLAG_ALTA), Descripcion = Estados.ALTA_Value });
+            _lista.Add(new Estado { Id = Convert.ToInt16(Estados.FLAG_BAJA), Descripcion = Estados.BAJA_VALUE });
+
+            return _lista;
+        }
+
         public List<TipoMaterial> ListarTipoMateriales(int def)
         {
 

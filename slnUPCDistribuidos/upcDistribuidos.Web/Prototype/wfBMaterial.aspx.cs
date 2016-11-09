@@ -23,6 +23,7 @@ namespace upcDistribuidos.Web.Prototype
             if (!IsPostBack)
             {
                 CargarCategoria();
+                CargarEstados();
                 DataTable dt = new DataTable();
                 grdMaterial.DataSource = dt;
             }
@@ -70,5 +71,13 @@ namespace upcDistribuidos.Web.Prototype
             cboCategoria.DataBind();
         }
 
+
+        private void CargarEstados()
+        {
+            cboEstado.DataSource = _logica.ListarFlags(_Todos);
+            cboEstado.DataMember = "Id";
+            cboEstado.DataValueField = "Descripcion";
+            cboEstado.DataBind();
+        }
     }
 }

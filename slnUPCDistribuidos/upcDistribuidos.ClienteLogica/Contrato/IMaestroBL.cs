@@ -12,5 +12,7 @@ namespace upcDistribuidos.ClienteLogica.Contrato
         List<Estado> ListarEstados(int def);
         List<TipoMaterial> ListarTipoMateriales(int def);
         List<Categoria> ListarCategorias(int def);
+
+        List<Estado> ListarFlags(int def);
     }
 }
