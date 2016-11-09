@@ -90,12 +90,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Maestros\MaestroService.svc" />
+    <Content Include="Materiales\MaterialService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Maestros\IMaestroService.cs" />
     <Compile Include="Maestros\MaestroService.svc.cs">
       <DependentUpon>MaestroService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Materiales\IMaterialService.cs" />
+    <Compile Include="Materiales\MaterialService.svc.cs">
+      <DependentUpon>MaterialService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

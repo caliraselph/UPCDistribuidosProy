@@ -9,8 +9,8 @@ namespace upcDistribuidos.ClienteLogica.Contrato
 {
    public  interface IMaestroBL
     {
-        List<Estado> ListarEstados();
-        List<TipoMaterial> ListarTipoMateriales();
-        List<Categoria> ListarCategorias();
+        List<Estado> ListarEstados(int def);
+        List<TipoMaterial> ListarTipoMateriales(int def);
+        List<Categoria> ListarCategorias(int def);
     }
 }

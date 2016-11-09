@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contrato\IMaestroBL.cs" />
+    <Compile Include="Contrato\IMaterialBL.cs" />
     <Compile Include="Implementacion\MaestroBL.cs" />
+    <Compile Include="Implementacion\MaterialBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

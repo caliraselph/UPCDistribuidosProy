@@ -5,21 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace upcDistribuidos.Entidades.Entidades
-{ 
+namespace upcDistribuidos.Entidades.Mapper
+{
     [DataContract]
-    public class Material
+    public class MaterialListar
     {
-        //[DataMember]
-        //public int Id { get; set; }
         [DataMember]
-        public int Stock { get; set; }
-        [DataMember]
-        public int Cantidad { get; set; }
-        [DataMember]
-        public int TipoId { get; set; }
-        [DataMember]
-        public string Codigo{ get; set; }
+        public string Codigo { get; set; }
         [DataMember]
         public string Titulo { get; set; }
         [DataMember]
@@ -29,7 +21,9 @@ namespace upcDistribuidos.Entidades.Entidades
         [DataMember]
         public string Editorial { get; set; }
         [DataMember]
-        public int Flag{ get; set; }
+        public string Flag { get; set; }
+        [DataMember]
+        public string TipoMaterial { get; set; }
 
     }
 }

@@ -43,14 +43,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Maestros\MaestroProxy.cs" />
+    <Compile Include="Materiales\MaterialProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\MaestroService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\MaterialService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Service References\MaterialService\MaterialService.disco" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
       <Project>{96f242f2-cfb7-491f-bab0-234a348245ef}</Project>
@@ -68,7 +76,9 @@
     <None Include="app.config" />
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Categoria.datasource" />
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Estado.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Material.datasource" />
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.TipoMaterial.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Mapper.MaterialListar.datasource" />
     <None Include="Service References\MaestroService\MaestroService.wsdl" />
     <None Include="Service References\MaestroService\MaestroService.xsd">
       <SubType>Designer</SubType>
@@ -79,9 +89,26 @@
     <None Include="Service References\MaestroService\MaestroService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\MaterialService\MaterialService.wsdl" />
+    <None Include="Service References\MaterialService\MaterialService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaterialService\MaterialService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaterialService\MaterialService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaterialService\MaterialService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MaterialService\MaterialService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MaestroService\" />
+    <WCFMetadataStorage Include="Service References\MaterialService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MaestroService\MaestroService.disco" />
@@ -94,6 +121,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MaestroService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaterialService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaterialService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MaterialService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

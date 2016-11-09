@@ -117,24 +117,43 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ANU" xml:space="preserve">
+  <data name="FLAG_ALTA" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="FLAG_BAJA" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RES_ANU" xml:space="preserve">
     <value>2</value>
     <comment>Anulado</comment>
   </data>
-  <data name="DEV" xml:space="preserve">
+  <data name="RES_DEV" xml:space="preserve">
     <value>4</value>
     <comment>Devuelto</comment>
   </data>
-  <data name="PEN" xml:space="preserve">
+  <data name="RES_PEN" xml:space="preserve">
     <value>5</value>
     <comment>Pendiente devolución</comment>
   </data>
-  <data name="PRE" xml:space="preserve">
+  <data name="RES_PRE" xml:space="preserve">
     <value>3</value>
     <comment>Prestado</comment>
   </data>
-  <data name="RES" xml:space="preserve">
+  <data name="RES_RES" xml:space="preserve">
     <value>1</value>
     <comment>Reservado</comment>
+  </data>
+  <data name="Seleccionar_Cod" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="Seleccionar_Value" xml:space="preserve">
+    <value>-----Seleccionar-----</value>
+  </data>
+  <data name="Todos_Cod" xml:space="preserve">
+    <value>-1</value>
+    <comment>Para los combo Box</comment>
+  </data>
+  <data name="Todos_Value" xml:space="preserve">
+    <value>------Todos-----</value>
   </data>
 </root>

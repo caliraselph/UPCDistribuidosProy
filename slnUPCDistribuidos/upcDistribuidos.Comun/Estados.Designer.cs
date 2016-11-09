@@ -61,47 +61,101 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        public static string FLAG_ALTA {
+            get {
+                return ResourceManager.GetString("FLAG_ALTA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        public static string FLAG_BAJA {
+            get {
+                return ResourceManager.GetString("FLAG_BAJA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2.
         /// </summary>
-        public static string ANU {
+        public static string RES_ANU {
             get {
-                return ResourceManager.GetString("ANU", resourceCulture);
+                return ResourceManager.GetString("RES_ANU", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
-        public static string DEV {
+        public static string RES_DEV {
             get {
-                return ResourceManager.GetString("DEV", resourceCulture);
+                return ResourceManager.GetString("RES_DEV", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 5.
         /// </summary>
-        public static string PEN {
+        public static string RES_PEN {
             get {
-                return ResourceManager.GetString("PEN", resourceCulture);
+                return ResourceManager.GetString("RES_PEN", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 3.
         /// </summary>
-        public static string PRE {
+        public static string RES_PRE {
             get {
-                return ResourceManager.GetString("PRE", resourceCulture);
+                return ResourceManager.GetString("RES_PRE", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 1.
         /// </summary>
-        public static string RES {
+        public static string RES_RES {
             get {
-                return ResourceManager.GetString("RES", resourceCulture);
+                return ResourceManager.GetString("RES_RES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -1.
+        /// </summary>
+        public static string Seleccionar_Cod {
+            get {
+                return ResourceManager.GetString("Seleccionar_Cod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -----Seleccionar-----.
+        /// </summary>
+        public static string Seleccionar_Value {
+            get {
+                return ResourceManager.GetString("Seleccionar_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -1.
+        /// </summary>
+        public static string Todos_Cod {
+            get {
+                return ResourceManager.GetString("Todos_Cod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ------Todos-----.
+        /// </summary>
+        public static string Todos_Value {
+            get {
+                return ResourceManager.GetString("Todos_Value", resourceCulture);
             }
         }
     }

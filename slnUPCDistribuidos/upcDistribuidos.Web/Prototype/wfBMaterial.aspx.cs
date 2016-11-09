@@ -16,6 +16,7 @@ namespace upcDistribuidos.Web.Prototype
     public partial class wfBMaterial : System.Web.UI.Page
     {
         IMaestroBL _logica = new MaestroBL();
+        int _Todos = 2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,7 +26,6 @@ namespace upcDistribuidos.Web.Prototype
                 DataTable dt = new DataTable();
                 grdMaterial.DataSource = dt;
             }
-            
         }
 
         protected void btnNewMat_Click(object sender, ImageClickEventArgs e)
@@ -64,7 +64,7 @@ namespace upcDistribuidos.Web.Prototype
 
         private void CargarCategoria()
         {
-            cboCategoria.DataSource = _logica.ListarCategorias();
+            cboCategoria.DataSource = _logica.ListarCategorias(_Todos);
             cboCategoria.DataMember = "Id";
             cboCategoria.DataValueField = "Descripcion";
             cboCategoria.DataBind();

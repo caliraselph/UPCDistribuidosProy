@@ -45,12 +45,12 @@
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\Material.cs" />
     <Compile Include="Entidades\TipoMaterial.cs" />
+    <Compile Include="Errores\RepetidoException.cs" />
+    <Compile Include="Errores\ParametroException.cs" />
+    <Compile Include="Mapper\MaterialListar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Errores\" />
-    <Folder Include="Mapper\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

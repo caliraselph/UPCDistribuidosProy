@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Maestros\MaestroDAO.cs" />
+    <Compile Include="Materiales\MaterialDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,9 +57,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Material\" />
-    <Folder Include="Persona\" />
-    <Folder Include="Prestamo\" />
+    <Folder Include="Personas\" />
+    <Folder Include="Prestamos\" />
     <Folder Include="Seguridad\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
