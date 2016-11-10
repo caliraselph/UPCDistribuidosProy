@@ -40,18 +40,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="Constantes.Designer.cs">
+    <Compile Include="Estados.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Constantes.resx</DependentUpon>
+      <DependentUpon>Estados.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Formularios.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Constantes.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Constantes.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Estados.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Estados.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Formularios.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

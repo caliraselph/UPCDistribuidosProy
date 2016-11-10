@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="92131d4f-3484-45bf-8c03-fc526425616e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1594/Maestros/MaestroService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MaestroService.xsd" MetadataType="Schema" ID="349472c0-1ebf-4665-b21d-34968c2f616c" SourceId="1" SourceUrl="http://localhost:1594/Maestros/MaestroService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MaestroService.wsdl" MetadataType="Wsdl" ID="2e5166ec-1a2a-4f5e-8954-af3672188dae" SourceId="1" SourceUrl="http://localhost:1594/Maestros/MaestroService.svc?wsdl" />
+    <MetadataFile FileName="MaestroService.disco" MetadataType="Disco" ID="93b25317-b140-4552-af5f-2772b9917ee9" SourceId="1" SourceUrl="http://localhost:1594/Maestros/MaestroService.svc?disco" />
+    <MetadataFile FileName="MaestroService1.xsd" MetadataType="Schema" ID="bd8e0f8a-b27f-4b12-a32f-ca9949c174a3" SourceId="1" SourceUrl="http://localhost:1594/Maestros/MaestroService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MaestroService2.xsd" MetadataType="Schema" ID="69f8c6d9-2126-41a9-b377-03b9668626ce" SourceId="1" SourceUrl="http://localhost:1594/Maestros/MaestroService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

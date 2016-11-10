@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace WebApplication4
+namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfFiltroMaterial : System.Web.UI.Page
     {

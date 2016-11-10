@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTPersona.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfTPersona" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTPersona.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfTPersona" %>
 
 <!DOCTYPE html>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBUsuario.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfBUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfBUsuario.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfBUsuario" %>
 
 <!DOCTYPE html>
 

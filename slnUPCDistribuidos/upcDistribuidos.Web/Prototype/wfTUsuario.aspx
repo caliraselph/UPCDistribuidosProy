@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTUsuario.aspx.cs" Inherits="upcDistribuidos.Web.Views.wfTUsuario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfTUsuario.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfTUsuario" %>
 
 <!DOCTYPE html>
 

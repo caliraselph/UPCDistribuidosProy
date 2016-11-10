@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfFiltroMaterial.aspx.cs" Inherits="WebApplication4.wfFiltroMaterial" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wfFiltroMaterial.aspx.cs" Inherits="upcDistribuidos.Web.Prototype.wfFiltroMaterial" %>
 
 <!DOCTYPE html>
 
