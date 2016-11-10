@@ -47,7 +47,7 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
         }
 
         public List<Estado> ListarFlags(int def)
-        {
+        { 
             List<Estado> _lista = new List<Estado>();
             
             if (def == 1) // Deault Seleccionar
