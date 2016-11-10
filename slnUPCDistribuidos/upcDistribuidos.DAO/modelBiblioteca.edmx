@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Bd_PortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_categoria">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_estado">
+          <Key>
+            <PropertyRef Name="sta_id" />
+          </Key>
+          <Property Name="sta_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sta_abrev" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="sta_desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_material">
+          <Key>
+            <PropertyRef Name="mat_id" />
+          </Key>
+          <Property Name="mat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mat_cod" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="titulo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="autor" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="año" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="editorial" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="flag_sala" Type="bit" Nullable="false" />
+          <Property Name="stock" Type="tinyint" Nullable="false" />
+          <Property Name="cat_id" Type="int" Nullable="false" />
+          <Property Name="tip_mat_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_persona">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="per_cod" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="nombres" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+          <Property Name="celular" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nro_libros" Type="tinyint" />
+          <Property Name="monto_deuda" Type="decimal" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="tb_prestamo">
+          <Key>
+            <PropertyRef Name="pres_id" />
+          </Key>
+          <Property Name="pres_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="fec_reserva" Type="smalldatetime" Nullable="false" />
+          <Property Name="fec_ini_pre" Type="smalldatetime" />
+          <Property Name="fec_fin_pre" Type="smalldatetime" />
+          <Property Name="fec_devolucion" Type="smalldatetime" />
+          <Property Name="observacion" Type="nvarchar" MaxLength="50" />
+          <Property Name="per_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Bd_Portal.dbo.tb_prestamo_det' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="tb_prestamo_det">
+          <Key>
+            <PropertyRef Name="pres_id" />
+            <PropertyRef Name="mat_id" />
+          </Key>
+          <Property Name="pres_id" Type="int" Nullable="false" />
+          <Property Name="mat_id" Type="int" Nullable="false" />
+          <Property Name="cant" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="tb_tipoMaterial">
+          <Key>
+            <PropertyRef Name="tip_mat_id" />
+          </Key>
+          <Property Name="tip_mat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tip_mat_desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="usu_id" />
+          </Key>
+          <Property Name="usu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="per_id" Type="int" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="perfil_id" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tb_materi__cat_i__09DE7BCC">
+          <End Role="tb_categoria" Type="Self.tb_categoria" Multiplicity="1" />
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_categoria">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tb_material">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_materi__tip_m__0AD2A005">
+          <End Role="tb_tipoMaterial" Type="Self.tb_tipoMaterial" Multiplicity="1" />
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoMaterial">
+              <PropertyRef Name="tip_mat_id" />
+            </Principal>
+            <Dependent Role="tb_material">
+              <PropertyRef Name="tip_mat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__estad__1CF15040">
+          <End Role="tb_estado" Type="Self.tb_estado" Multiplicity="1" />
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estado">
+              <PropertyRef Name="sta_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo">
+              <PropertyRef Name="estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__mat_i__20C1E124">
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="1" />
+          <End Role="tb_prestamo_det" Type="Self.tb_prestamo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_material">
+              <PropertyRef Name="mat_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo_det">
+              <PropertyRef Name="mat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__per_i__1DE57479">
+          <End Role="tb_persona" Type="Self.tb_persona" Multiplicity="1" />
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__pres___1FCDBCEB">
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="1" />
+          <End Role="tb_prestamo_det" Type="Self.tb_prestamo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_prestamo">
+              <PropertyRef Name="pres_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo_det">
+              <PropertyRef Name="pres_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_usuari__per_i__1367E606">
+          <End Role="tb_persona" Type="Self.tb_persona" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd_PortalModelStoreContainer">
+          <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_estado" EntityType="Self.tb_estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_material" EntityType="Self.tb_material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_persona" EntityType="Self.tb_persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_prestamo" EntityType="Self.tb_prestamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_tipoMaterial" EntityType="Self.tb_tipoMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_prestamo_det" EntityType="Self.tb_prestamo_det" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tb_prestamo_det].[pres_id] AS [pres_id], 
+    [tb_prestamo_det].[mat_id] AS [mat_id], 
+    [tb_prestamo_det].[cant] AS [cant]
+    FROM [dbo].[tb_prestamo_det] AS [tb_prestamo_det]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tb_materi__cat_i__09DE7BCC" Association="Self.FK__tb_materi__cat_i__09DE7BCC">
+            <End Role="tb_categoria" EntitySet="tb_categoria" />
+            <End Role="tb_material" EntitySet="tb_material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_materi__tip_m__0AD2A005" Association="Self.FK__tb_materi__tip_m__0AD2A005">
+            <End Role="tb_tipoMaterial" EntitySet="tb_tipoMaterial" />
+            <End Role="tb_material" EntitySet="tb_material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__estad__1CF15040" Association="Self.FK__tb_presta__estad__1CF15040">
+            <End Role="tb_estado" EntitySet="tb_estado" />
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__mat_i__20C1E124" Association="Self.FK__tb_presta__mat_i__20C1E124">
+            <End Role="tb_material" EntitySet="tb_material" />
+            <End Role="tb_prestamo_det" EntitySet="tb_prestamo_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__per_i__1DE57479" Association="Self.FK__tb_presta__per_i__1DE57479">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__pres___1FCDBCEB" Association="Self.FK__tb_presta__pres___1FCDBCEB">
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+            <End Role="tb_prestamo_det" EntitySet="tb_prestamo_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_usuari__per_i__1367E606" Association="Self.FK__tb_usuari__per_i__1367E606">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Bd_PortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_categoria">
+          <Key>
+            <PropertyRef Name="cat_id" />
+          </Key>
+          <Property Name="cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_material" Relationship="Self.FK__tb_materi__cat_i__09DE7BCC" FromRole="tb_categoria" ToRole="tb_material" />
+        </EntityType>
+        <EntityType Name="tb_estado">
+          <Key>
+            <PropertyRef Name="sta_id" />
+          </Key>
+          <Property Name="sta_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sta_abrev" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sta_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_prestamo" Relationship="Self.FK__tb_presta__estad__1CF15040" FromRole="tb_estado" ToRole="tb_prestamo" />
+        </EntityType>
+        <EntityType Name="tb_material">
+          <Key>
+            <PropertyRef Name="mat_id" />
+          </Key>
+          <Property Name="mat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mat_cod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="autor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="año" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="editorial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="flag_sala" Type="Boolean" Nullable="false" />
+          <Property Name="stock" Type="Byte" Nullable="false" />
+          <Property Name="cat_id" Type="Int32" Nullable="false" />
+          <Property Name="tip_mat_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_categoria" Relationship="Self.FK__tb_materi__cat_i__09DE7BCC" FromRole="tb_material" ToRole="tb_categoria" />
+          <NavigationProperty Name="tb_tipoMaterial" Relationship="Self.FK__tb_materi__tip_m__0AD2A005" FromRole="tb_material" ToRole="tb_tipoMaterial" />
+          <NavigationProperty Name="tb_prestamo_det" Relationship="Self.FK__tb_presta__mat_i__20C1E124" FromRole="tb_material" ToRole="tb_prestamo_det" />
+        </EntityType>
+        <EntityType Name="tb_persona">
+          <Key>
+            <PropertyRef Name="per_id" />
+          </Key>
+          <Property Name="per_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="per_cod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="celular" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nro_libros" Type="Byte" />
+          <Property Name="monto_deuda" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="tb_prestamo" Relationship="Self.FK__tb_presta__per_i__1DE57479" FromRole="tb_persona" ToRole="tb_prestamo" />
+          <NavigationProperty Name="tb_usuario" Relationship="Self.FK__tb_usuari__per_i__1367E606" FromRole="tb_persona" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_prestamo">
+          <Key>
+            <PropertyRef Name="pres_id" />
+          </Key>
+          <Property Name="pres_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="fec_reserva" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fec_ini_pre" Type="DateTime" Precision="0" />
+          <Property Name="fec_fin_pre" Type="DateTime" Precision="0" />
+          <Property Name="fec_devolucion" Type="DateTime" Precision="0" />
+          <Property Name="observacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="per_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_estado" Relationship="Self.FK__tb_presta__estad__1CF15040" FromRole="tb_prestamo" ToRole="tb_estado" />
+          <NavigationProperty Name="tb_persona" Relationship="Self.FK__tb_presta__per_i__1DE57479" FromRole="tb_prestamo" ToRole="tb_persona" />
+          <NavigationProperty Name="tb_prestamo_det" Relationship="Self.FK__tb_presta__pres___1FCDBCEB" FromRole="tb_prestamo" ToRole="tb_prestamo_det" />
+        </EntityType>
+        <EntityType Name="tb_tipoMaterial">
+          <Key>
+            <PropertyRef Name="tip_mat_id" />
+          </Key>
+          <Property Name="tip_mat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tip_mat_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_material" Relationship="Self.FK__tb_materi__tip_m__0AD2A005" FromRole="tb_tipoMaterial" ToRole="tb_material" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="usu_id" />
+          </Key>
+          <Property Name="usu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="per_id" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="perfil_id" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_persona" Relationship="Self.FK__tb_usuari__per_i__1367E606" FromRole="tb_usuario" ToRole="tb_persona" />
+        </EntityType>
+        <EntityType Name="tb_prestamo_det">
+          <Key>
+            <PropertyRef Name="pres_id" />
+            <PropertyRef Name="mat_id" />
+          </Key>
+          <Property Name="pres_id" Type="Int32" Nullable="false" />
+          <Property Name="mat_id" Type="Int32" Nullable="false" />
+          <Property Name="cant" Type="Byte" />
+          <NavigationProperty Name="tb_material" Relationship="Self.FK__tb_presta__mat_i__20C1E124" FromRole="tb_prestamo_det" ToRole="tb_material" />
+          <NavigationProperty Name="tb_prestamo" Relationship="Self.FK__tb_presta__pres___1FCDBCEB" FromRole="tb_prestamo_det" ToRole="tb_prestamo" />
+        </EntityType>
+        <Association Name="FK__tb_materi__cat_i__09DE7BCC">
+          <End Role="tb_categoria" Type="Self.tb_categoria" Multiplicity="1" />
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_categoria">
+              <PropertyRef Name="cat_id" />
+            </Principal>
+            <Dependent Role="tb_material">
+              <PropertyRef Name="cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__estad__1CF15040">
+          <End Role="tb_estado" Type="Self.tb_estado" Multiplicity="1" />
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_estado">
+              <PropertyRef Name="sta_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo">
+              <PropertyRef Name="estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_materi__tip_m__0AD2A005">
+          <End Role="tb_tipoMaterial" Type="Self.tb_tipoMaterial" Multiplicity="1" />
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_tipoMaterial">
+              <PropertyRef Name="tip_mat_id" />
+            </Principal>
+            <Dependent Role="tb_material">
+              <PropertyRef Name="tip_mat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__mat_i__20C1E124">
+          <End Role="tb_material" Type="Self.tb_material" Multiplicity="1" />
+          <End Role="tb_prestamo_det" Type="Self.tb_prestamo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_material">
+              <PropertyRef Name="mat_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo_det">
+              <PropertyRef Name="mat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__per_i__1DE57479">
+          <End Role="tb_persona" Type="Self.tb_persona" Multiplicity="1" />
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_usuari__per_i__1367E606">
+          <End Role="tb_persona" Type="Self.tb_persona" Multiplicity="1" />
+          <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_persona">
+              <PropertyRef Name="per_id" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="per_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tb_presta__pres___1FCDBCEB">
+          <End Role="tb_prestamo" Type="Self.tb_prestamo" Multiplicity="1" />
+          <End Role="tb_prestamo_det" Type="Self.tb_prestamo_det" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_prestamo">
+              <PropertyRef Name="pres_id" />
+            </Principal>
+            <Dependent Role="tb_prestamo_det">
+              <PropertyRef Name="pres_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Bd_PortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_categoria" EntityType="Self.tb_categoria" />
+          <EntitySet Name="tb_estado" EntityType="Self.tb_estado" />
+          <EntitySet Name="tb_material" EntityType="Self.tb_material" />
+          <EntitySet Name="tb_persona" EntityType="Self.tb_persona" />
+          <EntitySet Name="tb_prestamo" EntityType="Self.tb_prestamo" />
+          <EntitySet Name="tb_tipoMaterial" EntityType="Self.tb_tipoMaterial" />
+          <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+          <EntitySet Name="tb_prestamo_det" EntityType="Self.tb_prestamo_det" />
+          <AssociationSet Name="FK__tb_materi__cat_i__09DE7BCC" Association="Self.FK__tb_materi__cat_i__09DE7BCC">
+            <End Role="tb_categoria" EntitySet="tb_categoria" />
+            <End Role="tb_material" EntitySet="tb_material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__estad__1CF15040" Association="Self.FK__tb_presta__estad__1CF15040">
+            <End Role="tb_estado" EntitySet="tb_estado" />
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_materi__tip_m__0AD2A005" Association="Self.FK__tb_materi__tip_m__0AD2A005">
+            <End Role="tb_tipoMaterial" EntitySet="tb_tipoMaterial" />
+            <End Role="tb_material" EntitySet="tb_material" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__mat_i__20C1E124" Association="Self.FK__tb_presta__mat_i__20C1E124">
+            <End Role="tb_material" EntitySet="tb_material" />
+            <End Role="tb_prestamo_det" EntitySet="tb_prestamo_det" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__per_i__1DE57479" Association="Self.FK__tb_presta__per_i__1DE57479">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_usuari__per_i__1367E606" Association="Self.FK__tb_usuari__per_i__1367E606">
+            <End Role="tb_persona" EntitySet="tb_persona" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tb_presta__pres___1FCDBCEB" Association="Self.FK__tb_presta__pres___1FCDBCEB">
+            <End Role="tb_prestamo" EntitySet="tb_prestamo" />
+            <End Role="tb_prestamo_det" EntitySet="tb_prestamo_det" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Bd_PortalModelStoreContainer" CdmEntityContainer="Bd_PortalEntities">
+          <EntitySetMapping Name="tb_categoria">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_categoria">
+              <MappingFragment StoreEntitySet="tb_categoria">
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="cat_desc" ColumnName="cat_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_estado">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_estado">
+              <MappingFragment StoreEntitySet="tb_estado">
+                <ScalarProperty Name="sta_id" ColumnName="sta_id" />
+                <ScalarProperty Name="sta_abrev" ColumnName="sta_abrev" />
+                <ScalarProperty Name="sta_desc" ColumnName="sta_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_material">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_material">
+              <MappingFragment StoreEntitySet="tb_material">
+                <ScalarProperty Name="mat_id" ColumnName="mat_id" />
+                <ScalarProperty Name="mat_cod" ColumnName="mat_cod" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="autor" ColumnName="autor" />
+                <ScalarProperty Name="año" ColumnName="año" />
+                <ScalarProperty Name="editorial" ColumnName="editorial" />
+                <ScalarProperty Name="flag_sala" ColumnName="flag_sala" />
+                <ScalarProperty Name="stock" ColumnName="stock" />
+                <ScalarProperty Name="cat_id" ColumnName="cat_id" />
+                <ScalarProperty Name="tip_mat_id" ColumnName="tip_mat_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_persona">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_persona">
+              <MappingFragment StoreEntitySet="tb_persona">
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="per_cod" ColumnName="per_cod" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="nro_libros" ColumnName="nro_libros" />
+                <ScalarProperty Name="monto_deuda" ColumnName="monto_deuda" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_prestamo">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_prestamo">
+              <MappingFragment StoreEntitySet="tb_prestamo">
+                <ScalarProperty Name="pres_id" ColumnName="pres_id" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fec_reserva" ColumnName="fec_reserva" />
+                <ScalarProperty Name="fec_ini_pre" ColumnName="fec_ini_pre" />
+                <ScalarProperty Name="fec_fin_pre" ColumnName="fec_fin_pre" />
+                <ScalarProperty Name="fec_devolucion" ColumnName="fec_devolucion" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_tipoMaterial">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_tipoMaterial">
+              <MappingFragment StoreEntitySet="tb_tipoMaterial">
+                <ScalarProperty Name="tip_mat_id" ColumnName="tip_mat_id" />
+                <ScalarProperty Name="tip_mat_desc" ColumnName="tip_mat_desc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_usuario">
+              <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="usu_id" ColumnName="usu_id" />
+                <ScalarProperty Name="per_id" ColumnName="per_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="perfil_id" ColumnName="perfil_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_prestamo_det">
+            <EntityTypeMapping TypeName="Bd_PortalModel.tb_prestamo_det">
+              <MappingFragment StoreEntitySet="tb_prestamo_det">
+                <ScalarProperty Name="pres_id" ColumnName="pres_id" />
+                <ScalarProperty Name="mat_id" ColumnName="mat_id" />
+                <ScalarProperty Name="cant" ColumnName="cant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
