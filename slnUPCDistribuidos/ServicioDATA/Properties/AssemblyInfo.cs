@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("upcDistribuidos.DAO")]
+[assembly: AssemblyTitle("ServicioDATA")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("upcDistribuidos.DAO")]
+[assembly: AssemblyProduct("ServicioDATA")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("d39a3e9f-e267-4b5b-be05-fdd0a1c0a419")]
+[assembly: Guid("fca12f60-cc06-4225-9df2-2b47ba6fd3ff")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //
