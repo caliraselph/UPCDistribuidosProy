@@ -14,6 +14,12 @@
             width: 314px;
         }
     </style>
+    <script type="text/javascript">
+        function Mensaje()
+        {
+            alert('En construcción');
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -109,13 +115,13 @@
                                 <asp:BoundField HeaderText="Autor" DataField="Autor" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png"
-                                            Text="Editar"></asp:HyperLink>
+                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Editar" ></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png"
+                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png" NavigateUrl="javascript:Mensaje()"
                                             Text="Eliminar" >
                                             
                                         </asp:HyperLink>
@@ -123,7 +129,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png"
+                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png" NavigateUrl="javascript:Mensaje()"
                                             Text="Ver"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>

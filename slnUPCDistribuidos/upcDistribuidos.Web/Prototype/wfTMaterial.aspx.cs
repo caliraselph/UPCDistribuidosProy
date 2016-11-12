@@ -15,7 +15,7 @@ namespace upcDistribuidos.Web.Prototype
     {
         IMaestroBL _logica = new MaestroBL();
         IMaterialBL _material = new MaterialBL();
-        int _Todos = 2;
+        int _Todos = 1;
 
         protected void Page_Load(object sender, EventArgs e)
         {
