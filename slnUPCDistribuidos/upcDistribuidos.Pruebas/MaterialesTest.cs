@@ -37,7 +37,7 @@ namespace upcDistribuidos.Pruebas
             {
                 MaterialesWS.Material materialCreado = proxy.RegistrarMaterial(new MaterialesWS.Material()
                 {
-                    Codigo = "M003",
+                    Codigo = "M007",
                     Titulo = "Los Gallinazos Sin Plumas",
                     Autor = "Julio Ramon Ribeyro",
                     Editorial = "Norma",
