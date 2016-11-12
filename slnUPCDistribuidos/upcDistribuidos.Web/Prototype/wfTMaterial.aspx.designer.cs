@@ -157,6 +157,15 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.TextBox txtAno;
         
         /// <summary>
+        /// Control RegularExpressionValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// Control Label7.
         /// </summary>
         /// <remarks>
@@ -193,6 +202,15 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.TextBox txtStock;
         
         /// <summary>
+        /// Control RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
         /// Control Label9.
         /// </summary>
         /// <remarks>
@@ -202,12 +220,12 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Control chkSala.
+        /// Control cboEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkSala;
+        protected global::System.Web.UI.WebControls.DropDownList cboEstado;
     }
 }

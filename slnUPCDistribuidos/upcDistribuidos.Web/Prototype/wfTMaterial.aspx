@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:ImageButton ID="btnNewMat" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" OnClick="btnNewMat_Click" OnClientClick="alert('Registro realizo exitosamente');"/>
+                    <asp:ImageButton ID="btnNewMat" runat="server" Height="32px" ImageUrl="~/images/save.png" ToolTip="Grabar" OnClick="btnNewMat_Click"/>
                     <asp:ImageButton ID="btnSalMat" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnSalMat_Click" />
                 </td>
             </tr>
@@ -39,8 +39,6 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="cboTipo" runat="server">
-                                        <asp:ListItem>Libro</asp:ListItem>
-                                        <asp:ListItem>Revista</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -72,6 +70,12 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtAno" runat="server"></asp:TextBox>
+                                    <asp:RegularExpressionValidator id="RegularExpressionValidator1"
+                                        ControlToValidate="txtAno"
+                                        ValidationExpression="\d+"
+                                        Display="Static"
+                                        EnableClientScript="true"
+                                        runat="server"/>
                                 </td>
                             </tr>
                             <tr>
@@ -80,10 +84,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="cboCategoria" runat="server">
-                                        <asp:ListItem>Historia</asp:ListItem>
-                                        <asp:ListItem>Fisica</asp:ListItem>
-                                        <asp:ListItem>Matematica</asp:ListItem>
-                                        <asp:ListItem>Literatura</asp:ListItem>
+
                                     </asp:DropDownList>
                                 </td>
                                 <td></td>
@@ -92,14 +93,20 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtStock" runat="server"></asp:TextBox>
+                                    <asp:RegularExpressionValidator id="RegularExpressionValidator2"
+                                        ControlToValidate="txtStock"
+                                        ValidationExpression="\d+"
+                                        Display="Static"
+                                        EnableClientScript="true"
+                                        runat="server"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label9" runat="server" Text="Sala"></asp:Label>
+                                    <asp:Label ID="Label9" runat="server" Text="Estado"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:CheckBox ID="chkSala" runat="server"/>
+                                    <asp:DropDownList ID="cboEstado" runat="server"/>
                                 </td>
                             </tr>
                             

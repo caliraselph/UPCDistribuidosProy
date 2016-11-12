@@ -23,8 +23,8 @@ namespace upcDistribuidos.Servicios.Materiales
             if (material != null)
             {
                 if (!string.IsNullOrEmpty(material.Anio) ||!string.IsNullOrEmpty(material.Autor) ||
-                    !string.IsNullOrEmpty(material.Codigo) ||!string.IsNullOrEmpty(material.Editorial) ||
-                    material.Flag>0 ||!string.IsNullOrEmpty(material.Titulo) ||material.TipoId > 0)
+                    !string.IsNullOrEmpty(material.Codigo) || material.Flag>0 || 
+                    !string.IsNullOrEmpty(material.Titulo))
                 {
                     return logica.ListarMateriales(material);
                 }
@@ -72,14 +72,14 @@ namespace upcDistribuidos.Servicios.Materiales
                 {
                     if (logica.ObtenerMaterial(material.Codigo) != null)
                     {
-                        return logica.RegistrarMaterial(material);
-                    }
-                    else
-                    {
                         throw new FaultException<RepetidoException>(
                             new RepetidoException { Codigo = "101", Mensaje = "Código ya Existe" },
                             new FaultReason("Error Registrar Material")
                         );
+                    }
+                    else
+                    {
+                        return logica.RegistrarMaterial(material);
                     }
                 }
                 else

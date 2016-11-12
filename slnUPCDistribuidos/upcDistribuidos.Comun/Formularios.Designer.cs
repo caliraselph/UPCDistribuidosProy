@@ -61,7 +61,7 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a wfTMaterial.aspx.
+        ///   Looks up a localized string similar to wfTMaterial.aspx.
         /// </summary>
         public static string MaterialTrans {
             get {
