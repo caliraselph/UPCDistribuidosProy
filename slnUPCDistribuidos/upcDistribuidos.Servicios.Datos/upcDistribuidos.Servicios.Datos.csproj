@@ -44,6 +44,7 @@
     <Compile Include="Conexion\Conexion.cs" />
     <Compile Include="Maestros\MaestroDAO.cs" />
     <Compile Include="Materiales\MaterialDAO.cs" />
+    <Compile Include="Personas\PersonaDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +58,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Personas\" />
     <Folder Include="Prestamos\" />
     <Folder Include="Seguridad\" />
   </ItemGroup>

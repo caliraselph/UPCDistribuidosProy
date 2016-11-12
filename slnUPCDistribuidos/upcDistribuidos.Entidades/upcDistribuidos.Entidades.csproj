@@ -44,6 +44,7 @@
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\Material.cs" />
+    <Compile Include="Entidades\Persona.cs" />
     <Compile Include="Entidades\TipoMaterial.cs" />
     <Compile Include="Errores\RepetidoException.cs" />
     <Compile Include="Errores\ParametroException.cs" />
