@@ -57,10 +57,7 @@
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="cboCategoria" runat="server">
-                                    <%--    <asp:ListItem>Historia</asp:ListItem>
-                                        <asp:ListItem>Fisica</asp:ListItem>
-                                        <asp:ListItem>Matematica</asp:ListItem>
-                                        <asp:ListItem>Literatura</asp:ListItem>--%>
+
                                     </asp:DropDownList>
                                 </td>
                                 
@@ -78,6 +75,12 @@
                                 </td>
                                 <td>
                                     <asp:TextBox ID="txtAnio" runat="server"></asp:TextBox>
+                                    <asp:RegularExpressionValidator id="RegularExpressionValidator1"
+                                        ControlToValidate="txtAnio"
+                                        ValidationExpression="\d+"
+                                        Display="Dynamic"
+                                        EnableClientScript="true"
+                                        runat="server"/>
                                 </td>
                                 <td></td>
                                 <td>
@@ -106,21 +109,21 @@
                                 <asp:BoundField HeaderText="Autor" DataField="Autor" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlEditar" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx" ImageUrl="~/images/edit.png"
+                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png"
                                             Text="Editar"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png"
-                                            Text="Eliminar">
+                                            Text="Eliminar" >
                                             
                                         </asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlVer" runat="server" NavigateUrl="~/Prototype/wfTMaterial.aspx" ImageUrl="~/images/view.png"
+                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png"
                                             Text="Ver"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>

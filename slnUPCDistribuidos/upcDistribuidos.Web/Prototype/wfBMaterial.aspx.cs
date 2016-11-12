@@ -7,15 +7,17 @@ using System.Web.UI.WebControls;
 using System.Data;
 using upcDistribuidos.ClienteLogica.Contrato;
 using upcDistribuidos.ClienteLogica.Implementacion;
-using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Entidades;
 using upcDistribuidos.Comun;
-
+using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.Entidades.Entidades;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBMaterial : System.Web.UI.Page
     {
         IMaestroBL _logica = new MaestroBL();
+        IMaterialBL _material = new MaterialBL();
         int _Todos = 2;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,23 +43,39 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void btnBusMat_Click(object sender, ImageClickEventArgs e)
         {
-            DataTable dt = grdMaterial.DataSource as DataTable;
+            Material materialABuscar = new Material();
+            List<MaterialListar> lista = new List<MaterialListar>();
+
+            materialABuscar.Codigo = txtCodigo.Text;
+            materialABuscar.Titulo = txtTitulo.Text;
+            materialABuscar.Cantidad = int.Parse(cboCategoria.SelectedValue);
+            materialABuscar.Flag = int.Parse(cboEstado.SelectedValue);
+            materialABuscar.Anio = txtAnio.Text;
+            materialABuscar.Autor = txtAutor.Text;
+
+            lista = _material.ListarMateriales(materialABuscar);
+
+            DataTable dt = new DataTable();
             dt.Columns.Add("Sel");
             dt.Columns.Add("Codigo");
             dt.Columns.Add("Titulo");
             dt.Columns.Add("Autor");
 
-            DataRow row = dt.NewRow();
+            foreach (MaterialListar mat in lista)
+            {
+                DataRow row = dt.NewRow();
 
-            row["Sel"] = false;
+                row["Sel"] = false;
 
-            row["Codigo"] = "DS001";
+                row["Codigo"] = mat.Codigo;
 
-            row["Titulo"] = "Sistemas Distribuidos";
+                row["Titulo"] = mat.Titulo;
 
-            row["Autor"] = "Pedro Molina";
+                row["Autor"] = mat.Autor;
 
-            dt.Rows.Add(row);
+                dt.Rows.Add(row);
+            }
+            
 
             grdMaterial.DataSource = dt;
             grdMaterial.DataBind();
@@ -67,7 +85,8 @@ namespace upcDistribuidos.Web.Prototype
         {
             cboCategoria.DataSource = _logica.ListarCategorias(_Todos);
             cboCategoria.DataMember = "Id";
-            cboCategoria.DataValueField = "Descripcion";
+            cboCategoria.DataValueField = "Id";
+            cboCategoria.DataTextField = "Descripcion";
             cboCategoria.DataBind();
         }
 
@@ -76,7 +95,8 @@ namespace upcDistribuidos.Web.Prototype
         {
             cboEstado.DataSource = _logica.ListarFlags(_Todos);
             cboEstado.DataMember = "Id";
-            cboEstado.DataValueField = "Descripcion";
+            cboEstado.DataValueField = "Id";
+            cboEstado.DataTextField = "Descripcion";
             cboEstado.DataBind();
         }
     }

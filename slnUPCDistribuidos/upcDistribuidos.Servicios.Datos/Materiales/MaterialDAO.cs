@@ -37,7 +37,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                         Autor = _reader["autor"].ToString(),
                         Cantidad = Convert.ToInt32(_reader["cat_id"].ToString()),
                         Editorial = _reader["editorial"].ToString(),
-                        Flag = Convert.ToInt16( _reader["flag_sala"].ToString()),
+                        //Flag = Convert.ToInt16( _reader["flag_sala"].ToString()),
                         Stock = Convert.ToInt32(_reader["stock"].ToString()),
                         TipoId = Convert.ToInt32(_reader["tip_mat_id"].ToString()),
                         Titulo = _reader["titulo"].ToString()
@@ -86,7 +86,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
             _cmd.Parameters.AddWithValue("@flag_sala", material.Flag);
             _cmd.Parameters.AddWithValue("@stock", material.Stock);
             _cmd.Parameters.AddWithValue("@cat_id", material.Cantidad);
-            _cmd.Parameters.AddWithValue("@tip_mat_id)", material.TipoId);
+            _cmd.Parameters.AddWithValue("@tip_mat_id", material.TipoId);
             _cnx.AbrirConexion();
 
             int _id = Convert.ToInt32(_cmd.ExecuteScalar());
@@ -104,10 +104,11 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                                 CASE WHEN	m.flag_sala = 0 THEN 'BAJA' ELSE 'ALTA'END Flag,ttm.tip_mat_desc TipoMaterial
                             FROM [dbo].[tb_material] m WITH(NOLOCK) 
 	                            INNER JOIN dbo.tb_tipoMaterial ttm WITH	(NOLOCK) ON m.tip_mat_id = ttm	.tip_mat_id	
-                            WHERE (m.mat_cod LIKE '%'+@Codigo+ '%' AND	m.titulo	LIKE '%'+@Titulo+'%' AND m.autor	LIKE '%'+@Editorial+'%')
-	                            AND	m.año = CASE WHEN isnull(@Anio,'') ='' THEN  m.año	 else @Anio end
-	                            AND m.flag_sala= case when @Flag =-1 THEN m.flag_sala ELSE @Flag END 
-	                            AND m.tip_mat_id = case when @TipoMaterial = -1  THEN m.tip_mat_id ELSE @TipoMaterial END 
+                            WHERE m.mat_cod LIKE '%'+@Codigo+ '%' 
+                                AND	m.titulo LIKE '%'+@Titulo+'%' 
+                                AND m.autor	LIKE '%'+@Autor+'%'
+	                            AND	(@Anio = '' OR m.año = CAST(@Anio AS INT))
+	                            AND (@Flag = -1 or m.flag_sala = @Flag)
                             ORDER BY m.mat_cod ASC	";
 
             List<MaterialListar> _lista = new List<MaterialListar>();
@@ -117,10 +118,8 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
             _cmd.Parameters.AddWithValue("@Codigo", material.Codigo);
             _cmd.Parameters.AddWithValue("@Titulo", material.Titulo);
             _cmd.Parameters.AddWithValue("@Autor", material.Autor);
-            _cmd.Parameters.AddWithValue("@Editorial", material.Editorial);
             _cmd.Parameters.AddWithValue("@Anio", material.Anio);
             _cmd.Parameters.AddWithValue("@Flag", material.Flag);
-            _cmd.Parameters.AddWithValue("@TipoMaterial", material.TipoId);
 
             _cnx.AbrirConexion();
 

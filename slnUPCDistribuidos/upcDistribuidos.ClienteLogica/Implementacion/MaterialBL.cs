@@ -7,24 +7,44 @@ using upcDistribuidos.ClienteProxy;
 using upcDistribuidos.ClienteLogica.Contrato;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.ClienteProxy.Materiales;
 
 namespace upcDistribuidos.ClienteLogica.Implementacion
 {
     public class MaterialBL : IMaterialBL
     {
+        MaterialProxy proxy;
+
+        public MaterialBL()
+        {
+            proxy = new MaterialProxy();
+        }
+
         public List<MaterialListar> ListarMateriales(Material material)
         {
-            throw new NotImplementedException();
+            List<MaterialListar> lista = new List<MaterialListar>();
+
+            lista = proxy.ListarMateriales(material);
+
+            return lista;
         }
 
         public Material ObtenerMaterial(string cod)
         {
-            throw new NotImplementedException();
+            Material materialObtenido = new Material();
+
+            materialObtenido = proxy.ObtenerMaterial(cod);
+
+            return materialObtenido;
         }
 
         public Material RegistrarMaterial(Material material)
         {
-            throw new NotImplementedException();
+            Material materialCreado;
+
+            materialCreado = proxy.RegistrarMaterial(material);
+
+            return materialCreado;
         }
     }
 }
