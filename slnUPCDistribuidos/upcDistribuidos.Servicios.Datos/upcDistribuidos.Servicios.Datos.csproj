@@ -45,6 +45,7 @@
     <Compile Include="Maestros\MaestroDAO.cs" />
     <Compile Include="Materiales\MaterialDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seguridad\UsuarioDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
@@ -59,7 +60,6 @@
   <ItemGroup>
     <Folder Include="Personas\" />
     <Folder Include="Prestamos\" />
-    <Folder Include="Seguridad\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

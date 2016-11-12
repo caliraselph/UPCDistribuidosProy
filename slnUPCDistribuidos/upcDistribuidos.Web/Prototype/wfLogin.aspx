@@ -20,24 +20,13 @@
     <table>
         <tr>
             <td>
-                <asp:Label ID="Label2" runat="server" Text="Tipo de Usuario:"></asp:Label>
-            </td>
-            <td class="auto-style1">
-                <asp:DropDownList ID="cboTipoUsu" runat="server">
-                    <asp:ListItem Selected="True">Administrador(a)</asp:ListItem>
-                    <asp:ListItem>Usuario</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-            <td rowspan="3">
-                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Cadenas.png"/>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <asp:Label ID="Label1" runat="server" Text="Usuario:"></asp:Label>
             </td>
             <td class="auto-style1">
                 <asp:TextBox ID="txtUsuario" runat="server" Width="135px"></asp:TextBox>
+            </td>
+            <td rowspan="3">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Cadenas.png"/>
             </td>
         </tr>
         <tr>
@@ -55,6 +44,10 @@
             <td class="auto-style1">
                 <asp:Button ID="btnSalir" runat="server" Text="SALIR" OnClick="btnSalir_Click" />
             </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Prototype/wfRecuperarContrasena.aspx">¿Olvidaste tu contraseña?</asp:HyperLink></td>
         </tr>
     </table>
     </fieldset>

@@ -5,54 +5,55 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using upcDistribuidos.ClienteLogica.Contrato;
+using upcDistribuidos.ClienteLogica.Implementacion;
+using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Comun;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBUsuario : System.Web.UI.Page
     {
+        //IUsuarioBL _UsuarioBL = new UsuarioBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            GridView1.DataSource = dt;
+            grdUsuario.DataSource = dt;
         }
 
-        protected void btnNew_Click(object sender, ImageClickEventArgs e)
+        protected void btnNewUsu_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("wfTUsuario.aspx");
         }
 
-        protected void btnNew2_Click(object sender, ImageClickEventArgs e)
+        protected void btnSalir_Click1(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("wfPrincipal.aspx");
         }
 
-        protected void btnNew1_Click(object sender, ImageClickEventArgs e)
+        protected void btnBusUsu_Click(object sender, ImageClickEventArgs e)
         {
-            DataTable dt = GridView1.DataSource as DataTable;
-            dt.Columns.Add("Sel");
+            DataTable dt = grdUsuario.DataSource as DataTable;
+            dt.Columns.Add("CodUsuario");
+            dt.Columns.Add("Password");
             dt.Columns.Add("Perfil");
-            dt.Columns.Add("Usuario");
-          
+            dt.Columns.Add("NombreCompleto");
 
             DataRow row = dt.NewRow();
 
-            row["Sel"] = false;
+            row["CodUsuario"] = "U201502510";
 
-            row["Perfil"] = "ADMINISTRADOR";
+            row["Password"] = "&!*=%1";
 
-            row["Usuario"] = "ADMIN";
+            row["Perfil"] = "Usuario";
 
-         
+            row["NombreCompleto"] = "Sandra Arizaca";
 
             dt.Rows.Add(row);
 
-            GridView1.DataSource = dt;
-            GridView1.DataBind();
-        }
-
-        protected void btnNew0_Click(object sender, ImageClickEventArgs e)
-        {
-            Response.Write("<script>alert('El registro se elimino correctamente.')</script>");
+            grdUsuario.DataSource = dt;
+            grdUsuario.DataBind();
         }
     }
 }

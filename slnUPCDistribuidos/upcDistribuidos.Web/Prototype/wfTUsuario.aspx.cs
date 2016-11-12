@@ -11,27 +11,22 @@ namespace upcDistribuidos.Web.Prototype
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
-        protected void btnSalir_Click(object sender, ImageClickEventArgs e)
+        protected void btnNewUsu_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfBUsuario.aspx");
+
         }
 
-        protected void btnGrabar_Click(object sender, ImageClickEventArgs e)
+        protected void btnSalUsu_Click(object sender, ImageClickEventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtUsuario.Text) && !String.IsNullOrEmpty(txtContrasena.Text) )
-            {
-                Response.Write("<script>alert('El registro se registró correctamente.')</script>");
 
-            }
-            else
-            {
-                Response.Write("<script>alert('No se puede registrar el usuario, todos los campos son obligatorios.')</script>");
-            }
         }
 
-       
+        protected void btnBusPer_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Write("<script>window.open('wfBPersona.aspx', 'Persona', 'location=1,status=1,scrollbars=1,width=800,height=500');</script>");
+        }
     }
 }

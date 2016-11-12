@@ -131,6 +131,9 @@
     <Content Include="Prototype\wfBUsuario.aspx" />
     <Content Include="Prototype\wfFiltroMaterial.aspx" />
     <Content Include="Prototype\wfLogin.aspx" />
+    <Content Include="Prototype\wfPrincipal.aspx" />
+    <Content Include="Prototype\wfPrincipalUsu.aspx" />
+    <Content Include="Prototype\wfRecuperarContrasena.aspx" />
     <Content Include="Prototype\wfTMaterial.aspx" />
     <Content Include="Prototype\wfTPrestamo.aspx" />
     <Content Include="Prototype\wfTReserva.aspx" />
@@ -195,6 +198,24 @@
     </Compile>
     <Compile Include="Prototype\wfLogin.aspx.designer.cs">
       <DependentUpon>wfLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipal.aspx.cs">
+      <DependentUpon>wfPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
+      <DependentUpon>wfPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipalUsu.aspx.cs">
+      <DependentUpon>wfPrincipalUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfPrincipalUsu.aspx.designer.cs">
+      <DependentUpon>wfPrincipalUsu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfRecuperarContrasena.aspx.cs">
+      <DependentUpon>wfRecuperarContrasena.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Prototype\wfRecuperarContrasena.aspx.designer.cs">
+      <DependentUpon>wfRecuperarContrasena.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfTMaterial.aspx.cs">
       <DependentUpon>wfTMaterial.aspx</DependentUpon>
