@@ -34,22 +34,37 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void btnNewMat_Click(object sender, ImageClickEventArgs e)
         {
-            string cod = "";
-            Material material = new Material();
-            material.Codigo = txtCodigo.Text;
-            material.Titulo = txtTitulo.Text;
-            material.TipoId = int.Parse(cboTipo.SelectedValue);
-            material.Stock = int.Parse(txtStock.Text);
-            material.Editorial = txtEditorial.Text;
-            material.Autor = txtAutor.Text;
-            material.Anio = txtAno.Text;
-            material.Flag = int.Parse(cboEstado.SelectedValue);
-            material.Cantidad = int.Parse(cboCategoria.SelectedValue);
+            try
+            {
+                if (txtCodigo.Text == "" || txtTitulo.Text == "" || txtStock.Text == ""
+                    || txtAno.Text == "" || txtAutor.Text == "" || txtEditorial.Text == ""
+                    || int.Parse(cboTipo.SelectedValue) < 0 || int.Parse(cboCategoria.SelectedValue) < 0
+                    || int.Parse(cboEstado.SelectedValue) < 0)
+                {
+                    Response.Write("<script>alert('Por favor ingrese los datos faltantes.')</script>");
+                    return;
+                }
 
-            _material.RegistrarMaterial(material);
+                Material material = new Material();
+                material.Codigo = txtCodigo.Text;
+                material.Titulo = txtTitulo.Text;
+                material.TipoId = int.Parse(cboTipo.SelectedValue);
+                material.Stock = int.Parse(txtStock.Text);
+                material.Editorial = txtEditorial.Text;
+                material.Autor = txtAutor.Text;
+                material.Anio = txtAno.Text;
+                material.Flag = int.Parse(cboEstado.SelectedValue);
+                material.Cantidad = int.Parse(cboCategoria.SelectedValue);
 
-            
-            Response.Redirect(Formularios.MaterialBusq);
+
+                _material.RegistrarMaterial(material);
+                Response.Write("<script>alert('El material se registró correctamente.')</script>");
+                Response.Redirect(Formularios.MaterialBusq);
+            }
+            catch
+            {
+                Response.Write("<script>alert('Ocurrió un error al ingresar los datos.')</script>");
+            }
         }
 
         private void CargarCategoria()

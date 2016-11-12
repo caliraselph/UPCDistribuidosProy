@@ -43,6 +43,12 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void btnBusMat_Click(object sender, ImageClickEventArgs e)
         {
+            if (txtCodigo.Text == "")
+            {
+                Response.Write("<script>alert('Por favor ingrese un código.')</script>");
+                return;
+            }
+
             Material materialABuscar = new Material();
             List<MaterialListar> lista = new List<MaterialListar>();
 
