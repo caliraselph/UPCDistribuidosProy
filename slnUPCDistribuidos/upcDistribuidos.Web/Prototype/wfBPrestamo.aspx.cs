@@ -56,7 +56,7 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void calFecPresIni_SelectionChanged(object sender, EventArgs e)
         {
-            txtFechaIniDev.Text = calFecPresIni.SelectedDate.ToShortDateString();
+            txtFechaPresIni.Text = calFecPresIni.SelectedDate.ToShortDateString();
             calFecPresIni.Visible = false;
         }
 

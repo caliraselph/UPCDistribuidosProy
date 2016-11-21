@@ -45,11 +45,13 @@
     <Compile Include="Entidades\Estado.cs" />
     <Compile Include="Entidades\Material.cs" />
     <Compile Include="Entidades\Persona.cs" />
+    <Compile Include="Entidades\Prestamo.cs" />
     <Compile Include="Entidades\TipoMaterial.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Errores\RepetidoException.cs" />
     <Compile Include="Errores\ParametroException.cs" />
     <Compile Include="Mapper\MaterialListar.cs" />
+    <Compile Include="Mapper\PrestamoListar.cs" />
     <Compile Include="Mapper\UsuarioListar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
