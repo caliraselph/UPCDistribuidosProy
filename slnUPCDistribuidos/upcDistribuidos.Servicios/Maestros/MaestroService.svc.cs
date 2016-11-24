@@ -14,7 +14,7 @@ namespace upcDistribuidos.Servicios.Maestros
     // NOTE: In order to launch WCF Test Client for testing this service, please select MaestroService.svc or MaestroService.svc.cs at the Solution Explorer and start debugging.
     public class MaestroService : IMaestroService
     {
-        IMaestroBL _Logica = new MaestroBL();
+        MaestroBL _Logica = new MaestroBL();
 
         public List<Categoria> ListarCategorias()
         {
