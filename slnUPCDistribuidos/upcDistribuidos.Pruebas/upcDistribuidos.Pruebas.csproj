@@ -107,12 +107,8 @@
     <None Include="Service References\PrestamoWS\PrestamoService3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\PrestamoWS\upcDistribuidos.Pruebas.PrestamoWS.Prestamo.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PrestamoWS\upcDistribuidos.Pruebas.PrestamoWS.PrestamoListar.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="upcDistribuidos.Entidades.Entidades.Prestamo.datasource" />
+    <None Include="upcDistribuidos.Entidades.Mapper.PrestamoListar.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MaterialesWS\" />
