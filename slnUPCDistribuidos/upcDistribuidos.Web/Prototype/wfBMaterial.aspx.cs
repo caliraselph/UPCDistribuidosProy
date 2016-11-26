@@ -11,6 +11,7 @@ using upcDistribuidos.Entidades;
 using upcDistribuidos.Comun;
 using upcDistribuidos.Entidades.Mapper;
 using upcDistribuidos.Entidades.Entidades;
+using System.Net;
 
 namespace upcDistribuidos.Web.Prototype
 {
@@ -41,13 +42,13 @@ namespace upcDistribuidos.Web.Prototype
             Response.Redirect(Formularios.Principal);
         }
 
-        protected void btnBusMat_Click(object sender, ImageClickEventArgs e)
+        public void BuscarMateriales()
         {
-            if (txtCodigo.Text == "")
-            {
-                Response.Write("<script>alert('Por favor ingrese un código.')</script>");
-                return;
-            }
+            //if (txtCodigo.Text == "")
+            //{
+            //    Response.Write("<script>alert('Por favor ingrese un código.')</script>");
+            //    return;
+            //}
 
             Material materialABuscar = new Material();
             List<MaterialListar> lista = new List<MaterialListar>();
@@ -81,10 +82,15 @@ namespace upcDistribuidos.Web.Prototype
 
                 dt.Rows.Add(row);
             }
-            
+
 
             grdMaterial.DataSource = dt;
             grdMaterial.DataBind();
+        }
+
+        protected void btnBusMat_Click(object sender, ImageClickEventArgs e)
+        {
+            BuscarMateriales();
         }
 
         private void CargarCategoria()
@@ -105,5 +111,33 @@ namespace upcDistribuidos.Web.Prototype
             cboEstado.DataTextField = "Descripcion";
             cboEstado.DataBind();
         }
+
+        protected void grdMaterial_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            string cod = e.CommandArgument.ToString();
+
+            switch (e.CommandName)
+            {
+                case "Editar":
+                    Response.Redirect(Formularios.MaterialTrans + "?edt=" + cod);
+                    break;
+                case "Ver":
+                    Response.Redirect(Formularios.MaterialTrans + "?vew=" + cod);
+                    break;
+                case "Eliminar":
+                    try
+                    {
+                        _material.EliminarMaterial(cod);
+                    }
+                    catch (WebException ex)
+                    {
+                        Response.Write("<script>alert('"+ ((HttpWebResponse)ex.Response).StatusDescription + "')</script>");
+                    }
+                    BuscarMateriales();
+                    break;
+            }
+        }
+
+
     }
 }

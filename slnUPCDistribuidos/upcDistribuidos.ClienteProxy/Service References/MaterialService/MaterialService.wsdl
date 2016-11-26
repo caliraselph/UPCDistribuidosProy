@@ -39,6 +39,18 @@
   <wsdl:message name="IMaterialService_ListarMateriales_ParametroExceptionFault_FaultMessage">
     <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores" name="detail" element="q4:ParametroException" />
   </wsdl:message>
+  <wsdl:message name="IMaterialService_EliminaMaterial_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaMaterial" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_EliminaMaterial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminaMaterialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_ModificarMaterial_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarMaterial" />
+  </wsdl:message>
+  <wsdl:message name="IMaterialService_ModificarMaterial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarMaterialResponse" />
+  </wsdl:message>
   <wsdl:portType name="IMaterialService">
     <wsdl:operation name="ObtenerMaterial">
       <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/ObtenerMaterial" message="tns:IMaterialService_ObtenerMaterial_InputMessage" />
@@ -55,6 +67,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/ListarMateriales" message="tns:IMaterialService_ListarMateriales_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/ListarMaterialesResponse" message="tns:IMaterialService_ListarMateriales_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IMaterialService/ListarMaterialesParametroExceptionFault" name="ParametroExceptionFault" message="tns:IMaterialService_ListarMateriales_ParametroExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminaMaterial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/EliminaMaterial" message="tns:IMaterialService_EliminaMaterial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/EliminaMaterialResponse" message="tns:IMaterialService_EliminaMaterial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMaterial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMaterialService/ModificarMaterial" message="tns:IMaterialService_ModificarMaterial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMaterialService/ModificarMaterialResponse" message="tns:IMaterialService_ModificarMaterial_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IMaterialService" type="tns:IMaterialService">
@@ -97,6 +117,24 @@
       <wsdl:fault name="ParametroExceptionFault">
         <soap:fault use="literal" name="ParametroExceptionFault" namespace="" />
       </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="EliminaMaterial">
+      <soap:operation soapAction="http://tempuri.org/IMaterialService/EliminaMaterial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarMaterial">
+      <soap:operation soapAction="http://tempuri.org/IMaterialService/ModificarMaterial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="MaterialService">

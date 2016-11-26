@@ -1,1 +1,5 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="upcDistribuidos.Servicios.Materiales.MaterialService" CodeBehind="MaterialService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" 
+    Debug="true" 
+    Service="upcDistribuidos.Servicios.Materiales.MaterialService" 
+    CodeBehind="MaterialService.svc.cs" 
+    %>
