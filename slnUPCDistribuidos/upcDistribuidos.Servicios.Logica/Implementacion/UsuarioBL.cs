@@ -20,19 +20,19 @@ namespace upcDistribuidos.Servicios.Logica.Implementacion
         }
 
 
-        public List<UsuarioListar> ListarUsuarios(Usuario material)
+        public List<UsuarioListar> ListarUsuarios(Usuario usuario)
         {
-            throw new NotImplementedException();
+            return _dao.ListarUsuarios(usuario); ;
         }
 
         public Usuario ObtenerUsuario(string codUsuario)
         {
-            throw new NotImplementedException();
+            return _dao.ObtenerUsuario(codUsuario);
         }
 
         public Usuario RegistrarUsuario(Usuario usuario)
         {
-            throw new NotImplementedException();
+            return _dao.RegistrarUsuario(usuario);
         }
     }
 }

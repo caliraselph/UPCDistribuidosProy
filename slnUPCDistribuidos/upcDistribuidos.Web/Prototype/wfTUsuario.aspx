@@ -82,6 +82,9 @@
                                         <asp:ListItem Value="0">Inactivo</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
+                                <td>
+                                    <asp:Label ID="lblIdPersona" runat="server" Text="-1" Visible="False"></asp:Label>
+                                </td>
                             </tr>
                         </table>
                     </fieldset>

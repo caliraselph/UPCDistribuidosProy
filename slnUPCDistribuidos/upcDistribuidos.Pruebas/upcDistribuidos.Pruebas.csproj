@@ -48,7 +48,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -66,6 +68,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\UsuarioWS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -88,12 +96,8 @@
     <None Include="Service References\MaterialesWS\MaterialService4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\MaterialesWS\upcDistribuidos.Pruebas.MaterialesWS.Material.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\MaterialesWS\upcDistribuidos.Pruebas.MaterialesWS.MaterialListar.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
+    <None Include="Service References\MaterialesWS\upcDistribuidos.Pruebas.MaterialesWS.Material.datasource" />
+    <None Include="Service References\MaterialesWS\upcDistribuidos.Pruebas.MaterialesWS.MaterialListar.datasource" />
     <None Include="Service References\PrestamoWS\PrestamoService.wsdl" />
     <None Include="Service References\PrestamoWS\PrestamoService.xsd">
       <SubType>Designer</SubType>
@@ -107,12 +111,29 @@
     <None Include="Service References\PrestamoWS\PrestamoService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\UsuarioWS\UsuarioService.wsdl" />
+    <None Include="Service References\UsuarioWS\UsuarioService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioWS\UsuarioService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioWS\UsuarioService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioWS\UsuarioService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsuarioWS\UsuarioService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="upcDistribuidos.Entidades.Entidades.Prestamo.datasource" />
     <None Include="upcDistribuidos.Entidades.Mapper.PrestamoListar.datasource" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MaterialesWS\" />
     <WCFMetadataStorage Include="Service References\PrestamoWS\" />
+    <WCFMetadataStorage Include="Service References\UsuarioWS\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MaterialesWS\MaterialService.disco" />
@@ -149,6 +170,21 @@
       <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
       <Name>upcDistribuidos.Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioWS\UsuarioService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UsuarioWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -126,6 +126,9 @@
   <data name="Principal" xml:space="preserve">
     <value>wfPrincipal.aspx</value>
   </data>
+  <data name="UsuarioBusq" xml:space="preserve">
+    <value>wfBUsuario.aspx</value>
+  </data>
   <data name="UsuarioTrans" xml:space="preserve">
     <value>wfTUsuario.aspx</value>
   </data>
