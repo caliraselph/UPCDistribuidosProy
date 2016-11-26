@@ -22,14 +22,13 @@ namespace upcDistribuidos.Web.Prototype
         {
             if (!IsPostBack)
             {
-                DataTable dt = new DataTable();
-                grdPersona.DataSource = dt;
+                Todos();
             }
         }
 
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
-        
+
             if (txtCodigo.Text == "")
             {
                 Response.Write("<script>alert('Por favor ingrese un código.')</script>");
@@ -83,9 +82,67 @@ namespace upcDistribuidos.Web.Prototype
             Response.Redirect("wfPrincipal.aspx");
         }
 
+        protected void GridEdit_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+        }
+
+        protected void grdCSRPageData_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "DeleteRow")
+            {
+               
+            }
+        }
+
         protected void btnNuevo_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("wfTPersona.aspx");
+        }
+        protected void Todos()
+        {
+            List<Persona> lista = new List<Persona>();
+
+            string codigo = txtCodigo.Text;
+
+
+            lista = _persona.ListarPersonas();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Sel");
+            dt.Columns.Add("Codigo");
+            dt.Columns.Add("Apellidos");
+            dt.Columns.Add("Nombres");
+            dt.Columns.Add("Correo");
+            dt.Columns.Add("Direccion");
+            dt.Columns.Add("Celular");
+            dt.Columns.Add("NroLibros");
+            dt.Columns.Add("MontoDeuda");
+
+
+            foreach (Persona per in lista)
+            {
+                DataRow row = dt.NewRow();
+
+                row["Sel"] = false;
+                row["Codigo"] = per.Codigo;
+                row["Apellidos"] = per.Apellidos;
+                row["Nombres"] = per.Nombres;
+                row["Correo"] = per.NroLibros;
+                row["Direccion"] = per.MontoDeuda;
+                row["Celular"] = per.Celular;
+                row["NroLibros"] = per.Celular;
+                row["MontoDeuda"] = per.Celular;
+
+                dt.Rows.Add(row);
+            }
+
+
+            grdPersona.DataSource = dt;
+            grdPersona.DataBind();
         }
     }
 }
