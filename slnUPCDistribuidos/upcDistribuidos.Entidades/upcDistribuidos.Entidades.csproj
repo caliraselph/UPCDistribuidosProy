@@ -51,6 +51,7 @@
     <Compile Include="Errores\RepetidoException.cs" />
     <Compile Include="Errores\ParametroException.cs" />
     <Compile Include="Mapper\MaterialListar.cs" />
+    <Compile Include="Mapper\PersonaListar.cs" />
     <Compile Include="Mapper\PrestamoListar.cs" />
     <Compile Include="Mapper\UsuarioListar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

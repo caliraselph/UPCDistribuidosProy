@@ -1,11 +1,6 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.ServiceModel;
-using System.Net;
-using System.Web.Script.Serialization;
-using System.IO;
-using upcDistribuidos.Entidades.Entidades;
-using System.Text;
 
 namespace upcDistribuidos.Pruebas
 {
@@ -112,33 +107,6 @@ namespace upcDistribuidos.Pruebas
             //    Assert.AreEqual(error.Detail.Codigo, "102");
             //    Assert.AreEqual(error.Detail.Descripcion, "El material no existe");
             //}
-        }
-
-        [TestMethod]
-        public void Test5ModificarOk()
-        {
-
-                string postdata = "{\"Codigo\":\"M002\",\"Titulo\":\"Apple Ni mas ni Menos\",\"Autor\":\"Steve Jobs\",\"Anio\":\"2014\",\"Editorial\":\"Apple Inc.\",\"Flag\":1,\"Stock\":20,\"Cantidad\":5,\"TipoId\":1}"; //JSON
-                byte[] data = Encoding.UTF8.GetBytes(postdata);
-                HttpWebRequest req = (HttpWebRequest)WebRequest
-                    .Create("http://localhost:1594/Materiales/MaterialRESTService.svc/Material");
-                req.Method = "PUT";
-                req.ContentLength = data.Length;
-                req.ContentType = "application/json";
-                var reqStream = req.GetRequestStream();
-                reqStream.Write(data, 0, data.Length);
-                HttpWebResponse res = (HttpWebResponse)req.GetResponse();
-                StreamReader reader = new StreamReader(res.GetResponseStream());
-                string materialJson = reader.ReadToEnd();
-                JavaScriptSerializer js = new JavaScriptSerializer();
-
-                Material MaterialCreado = js.Deserialize<Material>(materialJson);
-
-                Assert.AreEqual("2014", MaterialCreado.Anio);
-                Assert.AreEqual("Steve Jobs", MaterialCreado.Autor);
-                Assert.AreEqual("M002", MaterialCreado.Codigo);
-                Assert.AreEqual("Apple Ni mas ni Menos", MaterialCreado.Titulo);
-
         }
     }
 }

@@ -46,19 +46,5 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
 
             return materialCreado;
         }
-
-        public Material ModificarMaterial(Material material)
-        {
-            Material materialModificado;
-
-            materialModificado = proxy.ModificarMaterial(material);
-
-            return materialModificado;
-        }
-
-        public void EliminarMaterial(string cod)
-        {
-            proxy.EliminarMaterial(cod);
-        }
     }
 }

@@ -1,47 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using upcDistribuidos.ClienteLogica.Contrato;
+using upcDistribuidos.ClienteLogica.Implementacion;
+using upcDistribuidos.Entidades;
+using upcDistribuidos.Comun;
+using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.Entidades.Entidades;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBPersona : System.Web.UI.Page
     {
+        IPersonaBL _persona = new PersonaBL();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            grdPersona.DataSource = dt;
+            if (!IsPostBack)
+            {
+                DataTable dt = new DataTable();
+                grdPersona.DataSource = dt;
+            }
         }
 
         protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
         {
+        
+            if (txtCodigo.Text == "")
+            {
+                Response.Write("<script>alert('Por favor ingrese un código.')</script>");
+                return;
+            }
 
-            DataTable dt = grdPersona.DataSource as DataTable;
+
+            List<Persona> lista = new List<Persona>();
+
+            string codigo = txtCodigo.Text;
+
+
+            lista = _persona.ListarPersonas();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Sel");
             dt.Columns.Add("Codigo");
             dt.Columns.Add("Apellidos");
             dt.Columns.Add("Nombres");
-            dt.Columns.Add("Tipo");
+            dt.Columns.Add("Correo");
+            dt.Columns.Add("Direccion");
+            dt.Columns.Add("Celular");
             dt.Columns.Add("NroLibros");
-            dt.Columns.Add("Deuda");
-            dt.Columns.Add("Telefono");
-            dt.Columns.Add("Email");
-
-            DataRow row = dt.NewRow();
+            dt.Columns.Add("MontoDeuda");
 
 
-            row["Codigo"] = "U2015";
-            row["Apellidos"] = "CASTILLO ESTRADA";
-            row["Nombres"] = "CARLOS EMILIO";
-            row["Tipo"] = "ALUMNO";
-            row["NroLibros"] = "1";
-            row["Deuda"] = "0.00";
-            row["Telefono"] = "45756345";
-            row["Email"] = "ccastillo@hotmail.com";
+            foreach (Persona per in lista)
+            {
+                DataRow row = dt.NewRow();
 
-            dt.Rows.Add(row);
+                row["Sel"] = false;
+                row["Codigo"] = per.Codigo;
+                row["Apellidos"] = per.Apellidos;
+                row["Nombres"] = per.Nombres;
+                row["Correo"] = per.NroLibros;
+                row["Direccion"] = per.MontoDeuda;
+                row["Celular"] = per.Celular;
+                row["NroLibros"] = per.Celular;
+                row["MontoDeuda"] = per.Celular;
+
+                dt.Rows.Add(row);
+            }
+
 
             grdPersona.DataSource = dt;
             grdPersona.DataBind();

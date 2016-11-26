@@ -33,15 +33,5 @@ namespace upcDistribuidos.Servicios.Logica.Implementacion
         {
             return _dao.RegistrarMaterial(material);
         }
-
-        public Material ModificarMaterial(Material material)
-        {
-            return _dao.ModificarMaterial(material);
-        }
-
-        public void EliminarMaterial(string cod)
-        {
-            _dao.EliminarMaterial(cod);
-        }
     }
 }
