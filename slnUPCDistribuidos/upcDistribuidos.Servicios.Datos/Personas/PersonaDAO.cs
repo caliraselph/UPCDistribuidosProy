@@ -93,6 +93,42 @@ namespace upcDistribuidos.Servicios.Datos.Personas
             return _per;
         }
 
+        public Persona ActualizarPersona(Persona persona)
+        {
+            String _sql = @"UPDATE [dbo].[tb_persona] SET
+                            nombres = @nombres,
+                            apellidos = @apellidos,
+                            email = @email,
+                            direccion = @direccion,
+                            celular = @celular,
+                            nro_libros = @nro_libros,
+                            monto_deuda = @monto_deuda
+                            where per_cod = @per_cod)
+                            ";
+
+            Persona _per = null;
+            Conexion _cnx = new Conexion();
+
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@per_cod", persona.Codigo);
+            _cmd.Parameters.AddWithValue("@nombres", persona.Nombres);
+            _cmd.Parameters.AddWithValue("@apellidos", persona.Apellidos);
+            _cmd.Parameters.AddWithValue("@email", persona.Correo);
+            _cmd.Parameters.AddWithValue("@direccion", persona.Direccion);
+            _cmd.Parameters.AddWithValue("@celular", persona.Celular);
+            _cmd.Parameters.AddWithValue("@nro_libros", persona.NroLibros);
+            _cmd.Parameters.AddWithValue("@monto_deuda", persona.MontoDeuda);
+            _cnx.AbrirConexion();
+
+            int _id = Convert.ToInt32(_cmd.ExecuteScalar());
+
+            if (_id > 0)
+                _per = ObtenerPersona(persona.Codigo);
+
+            _cnx.CerrarConexion();
+            return _per;
+        }
+
         public List<Persona> ListarPersonas()
         {
             String _sql = @"SELECT *

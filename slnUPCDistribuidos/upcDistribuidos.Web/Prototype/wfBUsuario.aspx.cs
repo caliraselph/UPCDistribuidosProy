@@ -7,50 +7,69 @@ using System.Web.UI.WebControls;
 using System.Data;
 using upcDistribuidos.ClienteLogica.Contrato;
 using upcDistribuidos.ClienteLogica.Implementacion;
-using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Entidades;
 using upcDistribuidos.Comun;
+using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.Entidades.Entidades;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBUsuario : System.Web.UI.Page
     {
-        //IUsuarioBL _UsuarioBL = new UsuarioBL();
+        IUsuarioBL _usuario = new UsuarioBL();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            grdUsuario.DataSource = dt;
+            if (!IsPostBack)
+            {
+                DataTable dt = new DataTable();
+                grdUsuario.DataSource = dt;
+            }
         }
 
         protected void btnNewUsu_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfTUsuario.aspx");
+            Response.Redirect(Formularios.UsuarioTrans);
         }
 
         protected void btnSalir_Click1(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("wfPrincipal.aspx");
+            Response.Redirect(Formularios.Principal);
         }
 
         protected void btnBusUsu_Click(object sender, ImageClickEventArgs e)
         {
-            DataTable dt = grdUsuario.DataSource as DataTable;
-            dt.Columns.Add("CodUsuario");
+            Usuario usuarioABuscar = new Usuario();
+            List<UsuarioListar> lista = new List<UsuarioListar>();
+
+            usuarioABuscar.codUsuario = txtCodigo.Text;
+            usuarioABuscar.nombre = txtDescripcion.Text;
+
+            lista = _usuario.ListarUsuarios(usuarioABuscar);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Sel");
+            dt.Columns.Add("Codigo");
             dt.Columns.Add("Password");
             dt.Columns.Add("Perfil");
             dt.Columns.Add("NombreCompleto");
 
-            DataRow row = dt.NewRow();
+            foreach (UsuarioListar usu in lista)
+            {
+                DataRow row = dt.NewRow();
 
-            row["CodUsuario"] = "U201502510";
+                row["Sel"] = false;
 
-            row["Password"] = "&!*=%1";
+                row["Codigo"] = usu.CodUsuario;
 
-            row["Perfil"] = "Usuario";
+                row["Password"] = usu.Password;
 
-            row["NombreCompleto"] = "Sandra Arizaca";
+                row["Perfil"] = usu.Perfil;
 
-            dt.Rows.Add(row);
+                row["NombreCompleto"] = usu.NombreCompleto;
+
+                dt.Rows.Add(row);
+            }
 
             grdUsuario.DataSource = dt;
             grdUsuario.DataBind();

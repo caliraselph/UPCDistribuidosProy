@@ -28,6 +28,8 @@ namespace upcDistribuidos.Entidades.Entidades
         public int? Persona { get; set; }
         [DataMember]
         public int? UsuarioCreacion { get; set; }
-
+        [DataMember]
+        public List<Material> Materiales { get; set; }
+        
     }
 }

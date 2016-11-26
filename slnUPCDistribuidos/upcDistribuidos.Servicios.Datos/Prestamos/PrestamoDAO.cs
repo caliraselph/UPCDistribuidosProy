@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using upcDistribuidos.Entidades.Mapper;
 using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Servicios.Datos.Materiales;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -83,19 +84,29 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
         {
             String _sql = @"
                             SELECT 
-                                CONCAT('PR-',pres_id) Codigo
-                                ,[estado] Estado
-                                ,[fec_reserva] FechaReserva
-                                ,[fec_ini_pre] FechaPrestamo
-                                ,[fec_fin_pre] FechaEntrega
-                                ,[fec_devolucion] FechaDevolucion
-                                ,[observacion] Observacion
-                                ,[per_id] Persona
-                                ,[adm_id] UsuarioCreacion
-                            FROM [dbo].[tb_prestamo] with(nolock)
-                            WHERE CONCAT('PR-',pres_id) =  @Codigo";
+                                CONCAT('PR-',c.pres_id) Codigo
+                                ,c.[estado] Estado
+                                ,c.[fec_reserva] FechaReserva
+                                ,c.[fec_ini_pre] FechaPrestamo
+                                ,c.[fec_fin_pre] FechaEntrega
+                                ,c.[fec_devolucion] FechaDevolucion
+                                ,c.[observacion] Observacion
+                                ,c.[per_id] Persona
+                                ,c.[adm_id] UsuarioCreacion
+                            	,convert(varchar(256),(select concat(',',m.mat_cod )
+                            		from [tb_prestamo_det] p
+                            			inner join tb_material m on p.mat_id=m.mat_id
+                            		where p.pres_id = c.pres_id
+                            		for xml path(''))
+                            	) Materiales
+                            FROM [dbo].[tb_prestamo] c with(nolock) 
+                            WHERE CONCAT('PR-',c.pres_id) = @Codigo";
 
             Prestamo _pres = null;
+            string _mat = string.Empty;
+            List<Material> _materiales = new List<Material>();
+            MaterialDAO _matDao = new MaterialDAO();
+
             Conexion _cnx = new Conexion();
 
             SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
@@ -120,13 +131,24 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                         UsuarioCreacion= Convert.ToInt32(_reader["UsuarioCreacion"].ToString())
                     };
 
+                    _mat = _reader["Materiales"] == null ? string.Empty : _reader["Materiales"].ToString();
+                    
+                    foreach (string codmat in _mat.Split(','))
+                    {
+                        if (string.IsNullOrEmpty(codmat))
+                            continue;
+                        _materiales.Add(_matDao.ObtenerMaterial(codmat));
+                    }
+
+                    _pres.Materiales = _materiales;
+
                 }
             }
+            
             _cnx.CerrarConexion();
             return _pres;
         }
-
-
+        
         public Prestamo RegistrarPrestamo(Prestamo prestamo)
         {
             String _sql = @"INSERT INTO [dbo].[tb_prestamo]
@@ -167,11 +189,55 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
 
             int _id = Convert.ToInt32(_cmd.ExecuteScalar());
 
-            if (_id > 0)
+            if (_id > 0) {
+
+                _sql = @"INSERT INTO [dbo].[tb_prestamo_det]
+                       ([pres_id]
+                        ,[mat_id]
+                        ,[cant])
+                    VALUES
+                        (@PrestamoId
+                        ,@MaterialId
+                        ,@Cantidad)
+                    ";
+                foreach (Material item in prestamo.Materiales)
+                {
+                    int _MaterialId = ObtenerMaterialId(item.Codigo);
+
+                    _cmd.CommandText = _sql;
+                    _cmd.Parameters.Clear();
+                    _cmd.Parameters.AddWithValue("@PrestamoId", _id);
+                    _cmd.Parameters.AddWithValue("@MaterialId", _MaterialId);
+                    _cmd.Parameters.AddWithValue("@Cantidad", 1);
+                  
+                    _cmd.ExecuteNonQuery();
+
+                }
                 _pres = ObtenerPrestamo("PR-" + _id.ToString());
+
+            }
 
             _cnx.CerrarConexion();
             return _pres;
+        }
+        
+        private int ObtenerMaterialId(string codigo)
+        {
+            String _sql = @" select mat_id
+                            from [dbo].[tb_material] 
+                            WHERE mat_cod =  @Codigo";
+      
+            Conexion _cnx = new Conexion();
+
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Codigo", codigo);
+
+            _cnx.AbrirConexion();
+
+            int _id = Convert.ToInt16(_cmd.ExecuteScalar());
+            
+            _cnx.CerrarConexion();
+            return _id;
         }
 
 
