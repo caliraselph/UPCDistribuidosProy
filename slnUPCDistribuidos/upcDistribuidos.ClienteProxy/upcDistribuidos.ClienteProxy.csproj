@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Maestros\MaestroProxy.cs" />
     <Compile Include="Materiales\MaterialProxy.cs" />
+    <Compile Include="Personas\PersonaProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\MaestroService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -55,9 +56,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PersonaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Persona.datasource" />
     <None Include="Service References\MaterialService\MaterialService.disco" />
+    <None Include="Service References\PersonaService\PersonaService.wsdl" />
+    <None Include="Service References\PersonaService\PersonaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PersonaService\PersonaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.Comun\upcDistribuidos.Comun.csproj">
@@ -109,6 +126,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\MaestroService\" />
     <WCFMetadataStorage Include="Service References\MaterialService\" />
+    <WCFMetadataStorage Include="Service References\PersonaService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MaestroService\MaestroService.disco" />
@@ -133,6 +151,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\MaterialService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonaService\PersonaService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PersonaService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

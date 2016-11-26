@@ -42,9 +42,11 @@
   <ItemGroup>
     <Compile Include="Contrato\IMaestroBL.cs" />
     <Compile Include="Contrato\IMaterialBL.cs" />
+    <Compile Include="Contrato\IPersonaBL.cs" />
     <Compile Include="Contrato\IUsuarioBL.cs" />
     <Compile Include="Implementacion\MaestroBL.cs" />
     <Compile Include="Implementacion\MaterialBL.cs" />
+    <Compile Include="Implementacion\PersonaBL.cs" />
     <Compile Include="Implementacion\UsuarioBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
