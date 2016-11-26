@@ -91,6 +91,7 @@
   <ItemGroup>
     <Content Include="Maestros\MaestroService.svc" />
     <Content Include="Materiales\MaterialService.svc" />
+    <Content Include="Personas\PersonaService.svc" />
     <Content Include="Prestamos\PrestamoService.svc" />
     <Content Include="Seguridad\UsuarioService.svc" />
     <Content Include="Web.config" />
@@ -103,6 +104,10 @@
     <Compile Include="Materiales\IMaterialService.cs" />
     <Compile Include="Materiales\MaterialService.svc.cs">
       <DependentUpon>MaterialService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\IPersonaService.cs" />
+    <Compile Include="Personas\PersonaService.svc.cs">
+      <DependentUpon>PersonaService.svc</DependentUpon>
     </Compile>
     <Compile Include="Prestamos\IPrestamoService.cs" />
     <Compile Include="Prestamos\PrestamoService.svc.cs">
