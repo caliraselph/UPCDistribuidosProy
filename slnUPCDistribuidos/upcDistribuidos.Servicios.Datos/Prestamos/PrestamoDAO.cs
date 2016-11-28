@@ -35,7 +35,7 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
 	                    inner join tb_persona per with(nolock) on per.per_id = p.per_id
 	                    inner join tb_estado e with(nolock) on p.estado=e.sta_id
                     where 
-	                    CONCAT('PR-',p.pres_id) = @codigo and
+	                    CONCAT('PR-',p.pres_id) like case when isnull(@codigo,'') ='' then '%' else @codigo end and
 	                    e.sta_abrev = case when @Estado = '-1' then e.sta_abrev else @estado end  and
 	                    per.per_cod = @Persona and
 	                    (p.fec_ini_pre between @FechaPresIni and @FechaPresFin) and 

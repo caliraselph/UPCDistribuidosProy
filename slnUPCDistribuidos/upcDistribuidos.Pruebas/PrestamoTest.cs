@@ -51,5 +51,13 @@ namespace upcDistribuidos.Pruebas
 
         }
 
+        [TestMethod]
+        public void ListarPrestamo()
+        {
+            PrestamoWS.PrestamoServiceClient _services = new PrestamoWS.PrestamoServiceClient();
+
+            var _list = _services.BuscarPrestamo("", "-1", "20021002", Convert.ToDateTime("01/01/2010"), Convert.ToDateTime("01/01/2020"), Convert.ToDateTime("01/01/2010"), Convert.ToDateTime("01/01/2020"));
+        }
+
     }
 }

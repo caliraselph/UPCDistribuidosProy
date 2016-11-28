@@ -153,21 +153,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\PrestamoWS\PrestamoService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PrestamoWS\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PrestamoWS\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\PrestamoWS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\upcDistribuidos.Entidades\upcDistribuidos.Entidades.csproj">
       <Project>{e1edf1f8-5796-4d80-9f35-05146bfe3e2a}</Project>
       <Name>upcDistribuidos.Entidades</Name>
@@ -184,6 +169,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\UsuarioWS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoWS\PrestamoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoWS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoWS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoWS\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
