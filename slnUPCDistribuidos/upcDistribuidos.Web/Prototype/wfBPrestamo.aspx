@@ -7,10 +7,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="../scripts/Estilo1.css" rel="stylesheet" />
     <title></title>
+    
 
 </head>
 <body>
+    <script>
+         function MostrarCodigoEmpleado(cod) {
+            window.print(cod);
+            $("#txtPersona").val(cod);
+        }
 
+    </script>
     <form id="formBPrestamo" runat="server">
         <div>
             <table class="table-style1">
@@ -83,8 +90,8 @@
                      <asp:Label ID="lblPersona" runat="server" Text="Persona:" CssClass="lbl-style1"/>
                 </td>
                 <td class="td-style2" >
-                      <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
-                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" />
+                      <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ></asp:TextBox>
+                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" OnClientClick="window.open('./ppBuscarPersona.aspx','Personas', 'top=300,width=650 ,height=350, left=350');" />
                 
                 </td>
                 <td class="td-style3" >
@@ -146,7 +153,7 @@
                      <asp:Label ID="Label3" runat="server" Text="Codigo:" CssClass="lbl-style1"/>
                 </td>
                 <td class="td-style2" >
-                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
+                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt-style1" ></asp:TextBox>
                 
                 </td>
                 <td class="td-style3" >

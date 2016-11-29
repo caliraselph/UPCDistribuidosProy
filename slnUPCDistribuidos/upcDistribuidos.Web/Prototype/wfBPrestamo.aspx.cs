@@ -16,6 +16,10 @@ namespace upcDistribuidos.Web.Prototype
             {
                 GrillaDefault();
 
+                if (Session["CodPersonaPres"] != null)
+                {
+                    txtPersona.Text = Session["CodPersonaPres"].ToString();
+                }
 
 
             }

@@ -110,6 +110,10 @@
     <Compile Include="Materiales\MaterialService.svc.cs">
       <DependentUpon>MaterialService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Personas\IPersonaService.cs" />
+    <Compile Include="Personas\PersonaService.svc.cs">
+      <DependentUpon>PersonaService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Prestamos\IPrestamoService.cs" />
     <Compile Include="Prestamos\PrestamoService.svc.cs">
       <DependentUpon>PrestamoService.svc</DependentUpon>

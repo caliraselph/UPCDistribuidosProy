@@ -24,6 +24,7 @@ namespace upcDistribuidos.Servicios.Prestamos
         Prestamo ObtenerPrestamo(string cod);
 
         [FaultContract(typeof(ParametroException))]
+        [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         Prestamo RegistrarPrestamo(Prestamo prestamo);
     }

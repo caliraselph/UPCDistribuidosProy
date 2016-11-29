@@ -124,6 +124,7 @@
     <Content Include="images\save.png" />
     <Content Include="images\search.png" />
     <Content Include="images\view.png" />
+    <Content Include="Prototype\ppBuscarPersona.aspx" />
     <Content Include="Prototype\wfBMaterial.aspx" />
     <Content Include="Prototype\wfBPersona.aspx" />
     <Content Include="Prototype\wfBPrestamo.aspx" />
@@ -150,6 +151,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype\ppBuscarPersona.aspx.cs">
+      <DependentUpon>ppBuscarPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Prototype\ppBuscarPersona.aspx.designer.cs">
+      <DependentUpon>ppBuscarPersona.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Prototype\wfBMaterial.aspx.cs">
       <DependentUpon>wfBMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,18 +209,21 @@
     </Compile>
     <Compile Include="Prototype\wfPrincipal.aspx.cs">
       <DependentUpon>wfPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Prototype\wfPrincipal.aspx.designer.cs">
       <DependentUpon>wfPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfPrincipalUsu.aspx.cs">
       <DependentUpon>wfPrincipalUsu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Prototype\wfPrincipalUsu.aspx.designer.cs">
       <DependentUpon>wfPrincipalUsu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Prototype\wfRecuperarContrasena.aspx.cs">
       <DependentUpon>wfRecuperarContrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Prototype\wfRecuperarContrasena.aspx.designer.cs">
       <DependentUpon>wfRecuperarContrasena.aspx</DependentUpon>

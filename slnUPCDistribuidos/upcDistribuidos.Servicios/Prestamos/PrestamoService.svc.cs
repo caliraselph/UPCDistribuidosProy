@@ -6,12 +6,11 @@ using System.ServiceModel;
 using System.Text;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;
-using upcDistribuidos.Servicios.Prestamos;
 using upcDistribuidos.Servicios.Logica.Contrato;
 using upcDistribuidos.Servicios.Logica.Implementacion;
 using upcDistribuidos.Entidades.Errores;
 using upcDistribuidos.Servicios.Materiales;
-
+using upcDistribuidos.Servicios.Personas;
 
 namespace upcDistribuidos.Servicios.Prestamos
 {
@@ -89,7 +88,15 @@ namespace upcDistribuidos.Servicios.Prestamos
                                    new FaultReason("Error al registrar Prestamo")
                              );
             }
-            
+
+            IPersonaService _servicesPersona = new PersonaService();
+
+            if (_servicesPersona.ObtenerPersona(prestamo.Persona.Codigo) == null) {
+                throw new FaultException<RepetidoException>(
+                      new RepetidoException { Codigo = "101", Mensaje = "Código de Persona no Existe. "  },
+                      new FaultReason("Error Registrar Prestamo")
+                  );
+            }
             
             if (prestamo.Materiales.Count > 3)
             {

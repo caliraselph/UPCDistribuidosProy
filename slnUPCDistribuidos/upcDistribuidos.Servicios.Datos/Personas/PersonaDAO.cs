@@ -155,8 +155,8 @@ namespace upcDistribuidos.Servicios.Datos.Personas
                             Correo = _reader["email"].ToString(),
                             Direccion = _reader["direccion"].ToString(),
                             Celular = _reader["celular"].ToString(),
-                            NroLibros = Convert.ToByte(_reader["nro_libros"].ToString()),
-                            MontoDeuda = Convert.ToDecimal(_reader["monto_deuda"].ToString()),
+                            NroLibros = Convert.ToByte(string.IsNullOrEmpty(_reader["nro_libros"].ToString()) ? "0" : _reader["nro_libros"].ToString()),
+                            MontoDeuda = Convert.ToDecimal(string.IsNullOrEmpty(_reader["monto_deuda"].ToString()) ? "0.0" : _reader["monto_deuda"].ToString())
                         }
                      );
                 }
