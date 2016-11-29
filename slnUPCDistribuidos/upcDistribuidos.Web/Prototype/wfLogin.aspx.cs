@@ -30,16 +30,16 @@ namespace upcDistribuidos.Web.Prototype
             var usu = txtUsuario.Text.Trim();
             var con = txtContraseña.Text.Trim();
 
-            if (usu=="U201202510" || usu=="EBCASTILLO")
+            if (usu=="SARIZACA" || usu== "BBONIFAZ")
             {
-                if (usu == "U201202510")
+                if (usu == "BBONIFAZ")
                 {
                     tusu = "Usuario";
                 }else{
                     tusu = "Administrador(a)";
                 }
 
-                if (con=="prueba")
+                if (con== "1234")
                 { 
                     if(tusu == "Administrador(a)")
                     {

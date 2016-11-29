@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="upcDistribuidos.Servicios.Seguridad.Service1" CodeBehind="UsuarioService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="upcDistribuidos.Servicios.Seguridad.UsuarioService" CodeBehind="UsuarioService.svc.cs" %>

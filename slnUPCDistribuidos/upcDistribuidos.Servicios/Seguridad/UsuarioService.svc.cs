@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using upcDistribuidos.Entidades.Entidades;
@@ -74,7 +73,7 @@ namespace upcDistribuidos.Servicios.Seguridad
                     else
                     {
                         throw new FaultException<RepetidoException>(
-                            new RepetidoException { Codigo = "101", Mensaje = "Código ya Existe" },
+                            new RepetidoException { Codigo = usuario.codUsuario, Mensaje = "Código ya Existe" },
                             new FaultReason("Error Registrar Usuario")
                         );
                     }
@@ -91,7 +90,7 @@ namespace upcDistribuidos.Servicios.Seguridad
             {
                 throw new FaultException<ParametroException>(
                       new ParametroException { Codigo = "201", Mensaje = "Parametro vacio" },
-                      new FaultReason("Error Registrar Material")
+                      new FaultReason("Error Registrar Usuario")
                 );
             }
         }

@@ -17,9 +17,9 @@ namespace upcDistribuidos.Servicios.Datos.Seguridad
         {
             String _sql = @"SELECT [codUsuario],[password],[perfil_id],[estado], [per_id]
                             FROM [tb_usuario]
-                            WHERE codUsuario = @Codigo	";
+                            WHERE codUsuario = @Codigo";
 
-            Usuario _mat = null;
+            Usuario _usu = null;
             Conexion _cnx = new Conexion();
 
             SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
@@ -31,7 +31,7 @@ namespace upcDistribuidos.Servicios.Datos.Seguridad
             {
                 if (_reader.Read())
                 {
-                    _mat = new Usuario
+                    _usu = new Usuario
                     {
                         codUsuario = _reader["codUsuario"].ToString(),
                         password = _reader["password"].ToString(),
@@ -43,7 +43,7 @@ namespace upcDistribuidos.Servicios.Datos.Seguridad
                 }
             }
             _cnx.CerrarConexion();
-            return _mat;
+            return _usu;
         }
 
         public Usuario RegistrarUsuario(Usuario usuario)

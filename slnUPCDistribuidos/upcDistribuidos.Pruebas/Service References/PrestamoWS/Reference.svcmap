@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1f33fc5e-cad7-4d09-815e-ef245249c475" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="upcDistribuidos.Entidades" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1594/Prestamos/PrestamoService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PrestamoService.xsd" MetadataType="Schema" ID="f32739a4-b186-4148-bf8b-99fc10e1f7eb" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="PrestamoService.wsdl" MetadataType="Wsdl" ID="aa7cb803-5e26-420f-8b5a-d399d225af53" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?wsdl" />
+    <MetadataFile FileName="PrestamoService1.xsd" MetadataType="Schema" ID="e1a025ff-7ebf-46ed-983e-c711990d11fb" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="PrestamoService2.xsd" MetadataType="Schema" ID="879b8ee3-48d7-4bd9-ad54-006d8c72c8c9" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd2" />
+    <MetadataFile FileName="PrestamoService.disco" MetadataType="Disco" ID="7217319f-f4a9-4ab4-9abd-5a5b73d1485e" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?disco" />
+    <MetadataFile FileName="PrestamoService3.xsd" MetadataType="Schema" ID="419277ea-3e83-43b8-8328-5d6e774b1c2d" SourceId="1" SourceUrl="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

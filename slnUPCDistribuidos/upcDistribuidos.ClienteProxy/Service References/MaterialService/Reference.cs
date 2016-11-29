@@ -36,6 +36,18 @@ namespace upcDistribuidos.ClienteProxy.MaterialService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMaterialService/ListarMateriales", ReplyAction="http://tempuri.org/IMaterialService/ListarMaterialesResponse")]
         System.Threading.Tasks.Task<upcDistribuidos.Entidades.Mapper.MaterialListar[]> ListarMaterialesAsync(upcDistribuidos.Entidades.Entidades.Material material);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMaterialService/EliminaMaterial", ReplyAction="http://tempuri.org/IMaterialService/EliminaMaterialResponse")]
+        bool EliminaMaterial(string cod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMaterialService/EliminaMaterial", ReplyAction="http://tempuri.org/IMaterialService/EliminaMaterialResponse")]
+        System.Threading.Tasks.Task<bool> EliminaMaterialAsync(string cod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMaterialService/ModificarMaterial", ReplyAction="http://tempuri.org/IMaterialService/ModificarMaterialResponse")]
+        upcDistribuidos.Entidades.Entidades.Material ModificarMaterial(upcDistribuidos.Entidades.Entidades.Material material);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMaterialService/ModificarMaterial", ReplyAction="http://tempuri.org/IMaterialService/ModificarMaterialResponse")]
+        System.Threading.Tasks.Task<upcDistribuidos.Entidades.Entidades.Material> ModificarMaterialAsync(upcDistribuidos.Entidades.Entidades.Material material);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -87,6 +99,22 @@ namespace upcDistribuidos.ClienteProxy.MaterialService {
         
         public System.Threading.Tasks.Task<upcDistribuidos.Entidades.Mapper.MaterialListar[]> ListarMaterialesAsync(upcDistribuidos.Entidades.Entidades.Material material) {
             return base.Channel.ListarMaterialesAsync(material);
+        }
+        
+        public bool EliminaMaterial(string cod) {
+            return base.Channel.EliminaMaterial(cod);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EliminaMaterialAsync(string cod) {
+            return base.Channel.EliminaMaterialAsync(cod);
+        }
+        
+        public upcDistribuidos.Entidades.Entidades.Material ModificarMaterial(upcDistribuidos.Entidades.Entidades.Material material) {
+            return base.Channel.ModificarMaterial(material);
+        }
+        
+        public System.Threading.Tasks.Task<upcDistribuidos.Entidades.Entidades.Material> ModificarMaterialAsync(upcDistribuidos.Entidades.Entidades.Material material) {
+            return base.Channel.ModificarMaterialAsync(material);
         }
     }
 }

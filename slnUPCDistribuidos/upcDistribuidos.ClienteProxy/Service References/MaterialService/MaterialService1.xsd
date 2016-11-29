@@ -44,4 +44,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EliminaMaterial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EliminaMaterialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EliminaMaterialResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarMaterial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="material" nillable="true" type="q6:Material" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModificarMaterialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="ModificarMaterialResult" nillable="true" type="q7:Material" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

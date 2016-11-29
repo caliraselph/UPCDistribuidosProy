@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Mapper" />
+  <xs:import schemaLocation="http://localhost:1594/Prestamos/PrestamoService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" />
+  <xs:element name="BuscarPrestamo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codigo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="estado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="persona" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fechaPresIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaPresFin" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaDevIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fechaDevFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscarPrestamoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Mapper" minOccurs="0" name="BuscarPrestamoResult" nillable="true" type="q1:ArrayOfPrestamoListar" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPrestamo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cod" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPrestamoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="ObtenerPrestamoResult" nillable="true" type="q2:Prestamo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPrestamo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="prestamo" nillable="true" type="q3:Prestamo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RegistrarPrestamoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Entidades" minOccurs="0" name="RegistrarPrestamoResult" nillable="true" type="q4:Prestamo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
