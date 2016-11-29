@@ -127,7 +127,7 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                         FechaPrestamo = _reader["FechaPrestamo"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaPrestamo"].ToString()),
                         FechaReserva = _reader["FechaReserva"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaReserva"].ToString()),
                         Observacion = _reader["Observacion"]== null ? string.Empty: _reader["Observacion"].ToString(),
-                        Persona = Convert.ToInt32(_reader["Persona"].ToString()),
+                        PersonaId = Convert.ToInt32(_reader["Persona"].ToString()),
                         UsuarioCreacion= Convert.ToInt32(_reader["UsuarioCreacion"].ToString())
                     };
 
@@ -176,6 +176,8 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             Prestamo _pres = null;
             Conexion _cnx = new Conexion();
 
+            int _IdPersona = ObtenerPersonaId(prestamo.Persona.Codigo);
+
             SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
             _cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
             _cmd.Parameters.AddWithValue("@FechaReserva", prestamo.FechaReserva);
@@ -183,7 +185,7 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             _cmd.Parameters.AddWithValue("@FechaEntrega", prestamo.FechaEntrega);
             _cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion);
             _cmd.Parameters.AddWithValue("@Observacion", prestamo.Observacion);
-            _cmd.Parameters.AddWithValue("@Persona", prestamo.Persona);
+            _cmd.Parameters.AddWithValue("@Persona", _IdPersona);
             _cmd.Parameters.AddWithValue("@UsuarioCreacion", prestamo.UsuarioCreacion);
             _cnx.AbrirConexion();
 
@@ -236,6 +238,23 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
 
             int _id = Convert.ToInt16(_cmd.ExecuteScalar());
             
+            _cnx.CerrarConexion();
+            return _id;
+        }
+
+        private int ObtenerPersonaId(string codigo)
+        {
+            String _sql = @"  select Per_id from [dbo].[tb_persona] where per_cod=   @Codigo";
+
+            Conexion _cnx = new Conexion();
+
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Codigo", codigo);
+
+            _cnx.AbrirConexion();
+
+            int _id = Convert.ToInt16(_cmd.ExecuteScalar());
+
             _cnx.CerrarConexion();
             return _id;
         }

@@ -25,11 +25,14 @@ namespace upcDistribuidos.Entidades.Entidades
         [DataMember]
         public String Observacion { get; set; }
         [DataMember]
-        public int? Persona { get; set; }
+        public int? PersonaId { get; set; }
         [DataMember]
         public int? UsuarioCreacion { get; set; }
         [DataMember]
         public List<Material> Materiales { get; set; }
-        
+        [DataMember]
+        public Persona Persona { get; set; }
+
+
     }
 }
