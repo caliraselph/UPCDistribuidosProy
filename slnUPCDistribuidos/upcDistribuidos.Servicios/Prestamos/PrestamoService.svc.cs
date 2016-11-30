@@ -44,9 +44,15 @@ namespace upcDistribuidos.Servicios.Prestamos
             else
             {
                 _fechaActual = DateTime.Now;
-                DateTime _fechaInicioDefault = new DateTime();
-                DateTime _fechaFinDefault = _fechaActual.AddDays(1.0);
-            
+                int Year = _fechaActual.Year;
+                int Mount = _fechaActual.Month;
+                int Day = _fechaActual.Day;
+                string fechafind = string.Concat(Day, "/", Mount, "/", Year, " 00:00");
+
+
+                DateTime _fechaInicioDefault = DateTime.Parse("01/01/1753 00:00");
+                DateTime _fechaFinDefault = DateTime.Parse(fechafind).AddDays(1);
+                    
                 DateTime _fechaPresIni = (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni)) ? _fechaInicioDefault : DateTime.Parse(fechaPresIni) ;
                 DateTime _fechaPresFin = (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin)) ? _fechaFinDefault : DateTime.Parse(fechaPresFin);
                 DateTime _fechaDevIni = (string.IsNullOrEmpty(fechaDevIni) || string.IsNullOrWhiteSpace(fechaDevIni)) ? _fechaInicioDefault : DateTime.Parse(fechaDevIni);

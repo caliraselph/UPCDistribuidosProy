@@ -5,23 +5,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using upcDistribuidos.ClienteLogica.Contrato;
+using upcDistribuidos.ClienteLogica.Implementacion;
+using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Entidades.Mapper;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBPrestamo : System.Web.UI.Page
     {
+
+        IMaestroBL _maestroBL = new MaestroBL();
+        IPrestamoBL _prestamoBL = new PrestamoBL();
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 GrillaDefault();
-
-                if (Session["CodPersonaPres"] != null)
-                {
-                    txtPersona.Text = Session["CodPersonaPres"].ToString();
-                }
-
-
+                CargarEstados();
             }
         }
 
@@ -47,6 +50,15 @@ namespace upcDistribuidos.Web.Prototype
             dgvPrestamo.DataBind();
           
         }
+
+        private void CargarEstados() {
+            ddlEstado.DataSource = _maestroBL.ListarEstados(2);
+            ddlEstado.DataMember = "Abreviatura";
+            ddlEstado.DataTextField = "Descripcion";
+            ddlEstado.DataBind();
+
+        }
+
 
         protected void imgFechaPresIni_Click(object sender, ImageClickEventArgs e)
         {
@@ -95,6 +107,13 @@ namespace upcDistribuidos.Web.Prototype
         protected void dgvPrestamo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
+        }
+
+        protected void btnConsultarPrestamo_Click(object sender, ImageClickEventArgs e)
+        {
+            
+            dgvPrestamo.DataSource = _prestamoBL.BuscarPrestamo("", "-1", "20021002", "", "", "", "");
+            dgvPrestamo.DataBind();
         }
     }
 }

@@ -29,12 +29,9 @@ namespace upcDistribuidos.Web.Prototype
             int index = Convert.ToInt32(e.CommandArgument.ToString());
 
             string _cod = grdPersona.Rows[index].Cells[1].Text.ToString();
-
-            Session["CodPersonaPres"] = _cod;
+                     
             //ClientScript.RegisterClientScriptBlock(GetType(), "Refresca", "window.opener.location.reload(); window.close();", true);
-            ClientScript.RegisterClientScriptBlock(GetType(), "Refresca", "window.opener.document.formBPrestamo.txtPersona.value = '" + _cod +  "' ; window.close();", true);
-
-
+            ClientScript.RegisterClientScriptBlock(GetType(), "Refresca", "window.opener.MostrarCodigoEmpleado('" + _cod + "');window.close();", true);
             
         }
 

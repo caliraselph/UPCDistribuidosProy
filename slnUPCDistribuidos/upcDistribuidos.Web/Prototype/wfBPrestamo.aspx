@@ -11,10 +11,12 @@
 
 </head>
 <body>
-    <script>
-         function MostrarCodigoEmpleado(cod) {
-            window.print(cod);
-            $("#txtPersona").val(cod);
+    <script type="text/javascript" >
+        function MostrarCodigoEmpleado(cod) {
+            //debugger;
+            document.getElementById("txtPersona").value = cod;
+            //window.print(cod);
+           // $("#txtPersona").val(cod);
         }
 
     </script>
@@ -63,7 +65,7 @@
                         <asp:ImageButton ID="btnNuevoPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" />
                     </td>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" />
+                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" OnClick="btnConsultarPrestamo_Click" />
                     </td>
                     <td class="td-style4">
                         <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
