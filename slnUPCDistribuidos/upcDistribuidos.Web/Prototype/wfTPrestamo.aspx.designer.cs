@@ -49,6 +49,15 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.ImageButton imgCancelarReserva;
         
         /// <summary>
+        /// Control divBuscarMaterial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBuscarMaterial;
+        
+        /// <summary>
         /// Control lblBusquedaMaterial.
         /// </summary>
         /// <remarks>
@@ -148,13 +157,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// Control txtCodigoP.
+        /// Control txtCodigoR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoP;
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoR;
         
         /// <summary>
         /// Control Label7.
@@ -166,13 +175,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// Control txtFechaPrestamoP.
+        /// Control txtFechaPrestamoR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaPrestamoP;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaPrestamoR;
         
         /// <summary>
         /// Control Label8.
@@ -184,13 +193,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// Control txtFechaRetornoP.
+        /// Control txtFechaRetornoR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaRetornoP;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaRetornoR;
         
         /// <summary>
         /// Control Label9.
@@ -202,13 +211,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// Control txtFechaDevolucionP.
+        /// Control txtFechaDevolucionR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaDevolucionP;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaDevolucionR;
         
         /// <summary>
         /// Control Label10.
@@ -247,13 +256,13 @@ namespace upcDistribuidos.Web.Prototype {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// Control txtEstadoP.
+        /// Control txtEstadoR.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstadoP;
+        protected global::System.Web.UI.WebControls.TextBox txtEstadoR;
         
         /// <summary>
         /// Control dgvDetalleP.

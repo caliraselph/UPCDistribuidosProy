@@ -16,6 +16,7 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
                                            string fechaPresFin, string fechaDevIni, string fechaDevFin)
         {
+            
             return _PrestamoProxy.BuscarPrestamo(codigo, estado, persona, fechaPresIni, fechaPresFin, fechaDevIni, fechaDevFin);
         }
 
