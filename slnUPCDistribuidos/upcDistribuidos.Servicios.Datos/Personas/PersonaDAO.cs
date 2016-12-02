@@ -36,7 +36,7 @@ namespace upcDistribuidos.Servicios.Datos.Personas
                         Correo = _reader["email"].ToString(),
                         Direccion = _reader["direccion"].ToString(),
                         Celular = _reader["celular"].ToString(),
-                        NroLibros = Convert.ToByte(string.IsNullOrEmpty(_reader["nro_libros"].ToString()) ? "0" : _reader["nro_libros"].ToString()),
+                        NroLibros = Convert.ToInt16(string.IsNullOrEmpty(_reader["nro_libros"].ToString()) ? "0" : _reader["nro_libros"].ToString()),
                         MontoDeuda = Convert.ToDecimal(string.IsNullOrEmpty(_reader["monto_deuda"].ToString()) ? "0.0" : _reader["monto_deuda"].ToString())
 
                     };
@@ -103,7 +103,7 @@ namespace upcDistribuidos.Servicios.Datos.Personas
                             celular = @celular,
                             nro_libros = @nro_libros,
                             monto_deuda = @monto_deuda
-                            where per_cod = @per_cod)
+                            where per_cod = @per_cod
                             ";
 
             Persona _per = null;
@@ -155,7 +155,7 @@ namespace upcDistribuidos.Servicios.Datos.Personas
                             Correo = _reader["email"].ToString(),
                             Direccion = _reader["direccion"].ToString(),
                             Celular = _reader["celular"].ToString(),
-                            NroLibros = Convert.ToByte(string.IsNullOrEmpty(_reader["nro_libros"].ToString()) ? "0" : _reader["nro_libros"].ToString()),
+                            NroLibros = Convert.ToInt16(string.IsNullOrEmpty(_reader["nro_libros"].ToString()) ? "0" : _reader["nro_libros"].ToString()),
                             MontoDeuda = Convert.ToDecimal(string.IsNullOrEmpty(_reader["monto_deuda"].ToString()) ? "0.0" : _reader["monto_deuda"].ToString())
                         }
                      );

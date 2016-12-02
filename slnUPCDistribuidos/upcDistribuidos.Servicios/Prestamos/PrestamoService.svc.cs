@@ -34,7 +34,7 @@ namespace upcDistribuidos.Servicios.Prestamos
                             new FaultReason("Codigo Erroneo")
                         );
             }
-            if (_p.Estado != 3 || _p.Estado != 1) 
+            if (_p.Estado != 3 &&  _p.Estado != 1) 
             {
                 throw new FaultException<RepetidoException>(
                 new RepetidoException { Codigo = "101", Mensaje = "No se puede Anular" },
@@ -125,7 +125,7 @@ namespace upcDistribuidos.Servicios.Prestamos
                             new FaultReason("Codigo Erroneo")
                         );
             }
-            if (_p.Estado != 3 || _p.Estado != 5)
+            if (_p.Estado != 3 && _p.Estado != 5)
             {
                 throw new FaultException<RepetidoException>(
                 new RepetidoException { Codigo = "101", Mensaje = "No se puede Devolver" },
@@ -139,9 +139,14 @@ namespace upcDistribuidos.Servicios.Prestamos
                 _p = _prestamoBL.ObtenerPrestamo(cod);
                 Persona _persona = _personaBL.ObtenerPersona(_p.Persona.Codigo);
 
-                TimeSpan ts = (_p.FechaDevolucion.Value - _p.FechaEntrega.Value);
-                decimal _d = ts.Days * 1.5M;
-                _persona.MontoDeuda += _d;
+                if (_p.FechaEntrega < _p.FechaDevolucion)
+                {
+                    TimeSpan ts = (_p.FechaDevolucion.Value - _p.FechaEntrega.Value);
+                    decimal _d = ts.Days == 0 ? 1 : ts.Days * 1.5M;
+                    _persona.MontoDeuda += _d;
+
+                }
+
                 _persona.NroLibros -= Convert.ToByte( _p.Materiales.Count);
                 _personaBL.ActualizarPersona(_persona);
 
@@ -255,7 +260,7 @@ namespace upcDistribuidos.Servicios.Prestamos
 
             if (_prestamo != null)
             {
-                _persona.NroLibros += Convert.ToByte(_prestamo.Materiales.Count);
+                _persona.NroLibros += _prestamo.Materiales.Count;
                 _personaBL.ActualizarPersona(_persona);
 
                 foreach (Material item in _prestamo.Materiales)
