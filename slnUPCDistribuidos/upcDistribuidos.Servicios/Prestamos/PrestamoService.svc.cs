@@ -20,18 +20,46 @@ namespace upcDistribuidos.Servicios.Prestamos
     {
 
         IPrestamoBL _prestamoBL = new PrestamoBL();
+        IPersonaBL _personaBL = new PersonaBL();
+        IMaterialBL _materialBL = new MaterialBL();
 
         public bool AnularPrestamo(string cod)
         {
-            if (_prestamoBL.ObtenerPrestamo(cod) == null)
+            bool _resul = false;
+            Prestamo _p = _prestamoBL.ObtenerPrestamo(cod);
+            if (_p == null)
             { 
                 throw new FaultException<RepetidoException>(
                             new RepetidoException { Codigo = "101", Mensaje = "Codigo Erroneo" },
                             new FaultReason("Codigo Erroneo")
                         );
             }
-            return _prestamoBL.AnularPrestamo(cod);
+            if (_p.Estado != 3 || _p.Estado != 1) 
+            {
+                throw new FaultException<RepetidoException>(
+                new RepetidoException { Codigo = "101", Mensaje = "No se puede Anular" },
+                new FaultReason("No se puede Anular")
+                );
+            }
 
+            _resul = AnularPrestamo(cod); ;
+            
+            if (_resul)
+            {
+                _p = _prestamoBL.ObtenerPrestamo(cod);
+                Persona _persona = _personaBL.ObtenerPersona(_p.Persona.Codigo);
+
+                _persona.NroLibros -= Convert.ToByte(_p.Materiales.Count);
+                _personaBL.ActualizarPersona(_persona);
+
+                foreach (Material item in _p.Materiales)
+                {
+                    Material _material = _materialBL.ObtenerMaterial(item.Codigo);
+                    _material.Stock += 1;
+                    _materialBL.ModificarMaterial(_material);
+                }
+            }
+            return _resul;
         }
 
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
@@ -88,14 +116,44 @@ namespace upcDistribuidos.Servicios.Prestamos
 
         public bool DevolverPrestamo(string cod)
         {
-            if (_prestamoBL.ObtenerPrestamo(cod) == null)
+            Prestamo _p = _prestamoBL.ObtenerPrestamo(cod);
+            bool _resul = false;
+            if (_p == null)
             {
                 throw new FaultException<RepetidoException>(
                             new RepetidoException { Codigo = "101", Mensaje = "Codigo Erroneo" },
                             new FaultReason("Codigo Erroneo")
                         );
             }
-            return _prestamoBL.DevolverPrestamo(cod);
+            if (_p.Estado != 3 || _p.Estado != 5)
+            {
+                throw new FaultException<RepetidoException>(
+                new RepetidoException { Codigo = "101", Mensaje = "No se puede Devolver" },
+                new FaultReason("No se puede Devolver")
+                );
+            }
+            _resul = _prestamoBL.DevolverPrestamo(cod);
+
+            if (_resul)
+            {
+                _p = _prestamoBL.ObtenerPrestamo(cod);
+                Persona _persona = _personaBL.ObtenerPersona(_p.Persona.Codigo);
+
+                TimeSpan ts = (_p.FechaDevolucion.Value - _p.FechaEntrega.Value);
+                decimal _d = ts.Days * 1.5M;
+                _persona.MontoDeuda += _d;
+                _persona.NroLibros -= Convert.ToByte( _p.Materiales.Count);
+                _personaBL.ActualizarPersona(_persona);
+
+                foreach (Material item in _p.Materiales)
+                {
+                    Material _material = _materialBL.ObtenerMaterial(item.Codigo);
+                    _material.Stock += 1;
+                    _materialBL.ModificarMaterial(_material);
+                }
+            }
+
+            return _resul;
         }
 
         public Prestamo ObtenerPrestamo(string cod)
@@ -131,15 +189,23 @@ namespace upcDistribuidos.Servicios.Prestamos
             }
 
             IPersonaService _servicesPersona = new PersonaService();
+            Persona _persona = _servicesPersona.ObtenerPersona(prestamo.Persona.Codigo);
 
-            if (_servicesPersona.ObtenerPersona(prestamo.Persona.Codigo) == null) {
+            if (_persona == null) {
                 throw new FaultException<RepetidoException>(
                       new RepetidoException { Codigo = "101", Mensaje = "Código de Persona no Existe."  },
                       new FaultReason("Código de Persona no Existe.")
                   );
             }
 
-
+            if (_persona.MontoDeuda > 0)
+            {
+                throw new FaultException<ParametroException>(
+                                  new ParametroException { Codigo = "205", Mensaje = "Peronal con deuda" },
+                                  new FaultReason("Peronal con deuda")
+                            );
+            }
+            
             if (prestamo.Materiales.Count <=0)
             {
                 throw new FaultException<ParametroException>(
@@ -185,7 +251,25 @@ namespace upcDistribuidos.Servicios.Prestamos
                 }
             }
             
-            return _prestamoBL.RegistrarPrestamo(prestamo);
+            Prestamo _prestamo = _prestamoBL.RegistrarPrestamo(prestamo);
+
+            if (_prestamo != null)
+            {
+                _persona.NroLibros += Convert.ToByte(_prestamo.Materiales.Count);
+                _personaBL.ActualizarPersona(_persona);
+
+                foreach (Material item in _prestamo.Materiales)
+                {
+                    Material _material = _materialBL.ObtenerMaterial(item.Codigo);
+                    _material.Stock -= 1;
+                    _materialBL.ModificarMaterial(_material);
+                }
+            }
+
+
+
+
+            return _prestamo;
         }
     }
 }

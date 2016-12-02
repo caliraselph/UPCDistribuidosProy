@@ -25,5 +25,8 @@ namespace upcDistribuidos.Entidades.Mapper
         [DataMember]
         public string TipoMaterial { get; set; }
 
+        [DataMember]
+        public int stock { get; set; }
+
     }
 }

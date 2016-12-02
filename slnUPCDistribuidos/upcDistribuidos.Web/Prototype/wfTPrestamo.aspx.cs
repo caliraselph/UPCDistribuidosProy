@@ -264,10 +264,11 @@ namespace upcDistribuidos.Web.Prototype
                     Autor="",
                     Editorial="",
                     Flag= 1,
-                    Titulo ="",
+                    Titulo = txtFiltroTitulo.Text,
                     Codigo=""
                     
-                });
+                }).Where(c=> c.stock >0).ToList();
+
 
                 dgvBusquedaMaterial.DataSource = _materiales;
                 dgvBusquedaMaterial.DataBind();

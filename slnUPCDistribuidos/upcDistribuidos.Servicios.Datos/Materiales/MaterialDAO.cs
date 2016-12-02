@@ -102,6 +102,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
         {
             String _sql = @"SELECT m.mat_cod Codigo, m.Titulo ,m.Autor, m.Año Anio,m.Editorial,
                                 CASE WHEN	m.flag_sala = 0 THEN 'BAJA' ELSE 'ALTA'END Flag,ttm.tip_mat_desc TipoMaterial
+                                ,m.Stock 
                             FROM [dbo].[tb_material] m WITH(NOLOCK) 
 	                            INNER JOIN dbo.tb_tipoMaterial ttm WITH	(NOLOCK) ON m.tip_mat_id = ttm	.tip_mat_id	
                             WHERE m.mat_cod LIKE '%'+@Codigo+ '%' 
@@ -137,6 +138,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                             Editorial = _reader["Editorial"].ToString(),
                             Flag = _reader["Flag"].ToString(),
                             TipoMaterial = _reader["TipoMaterial"].ToString(),
+                            stock = Convert.ToInt32(_reader["Stock"].ToString()),
                         }
                      );
                 }
