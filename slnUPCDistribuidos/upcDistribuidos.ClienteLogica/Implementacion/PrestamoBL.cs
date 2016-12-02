@@ -16,18 +16,43 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
                                            string fechaPresFin, string fechaDevIni, string fechaDevFin)
         {
+            try
+            {
+                return _PrestamoProxy.BuscarPrestamo(codigo, estado, persona, fechaPresIni, fechaPresFin, fechaDevIni, fechaDevFin);
+            }
+            catch (Exception ex1)
+            {
+                throw ex1;
+            }
             
-            return _PrestamoProxy.BuscarPrestamo(codigo, estado, persona, fechaPresIni, fechaPresFin, fechaDevIni, fechaDevFin);
         }
 
         public Prestamo ObtenerPrestamo(string cod)
         {
-            return _PrestamoProxy.ObtenerPrestamo(cod);
+            try
+            {
+                return _PrestamoProxy.ObtenerPrestamo(cod);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
 
         public Prestamo RegistrarPrestamo(Prestamo prestamo)
         {
-            return _PrestamoProxy.RegistrarPrestamo(prestamo);
+            try
+            {
+                return _PrestamoProxy.RegistrarPrestamo(prestamo);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }

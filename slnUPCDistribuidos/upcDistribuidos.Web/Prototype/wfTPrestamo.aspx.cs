@@ -24,11 +24,28 @@ namespace upcDistribuidos.Web.Prototype
         public string codVer = "";
         List<Material> _detalle = new List<Material>();
 
+        private List<Material> DetallePrestamo
+        {
+            get
+            {
+                _detalle = (List<Material>)Session["DetalleMaterial"];
+                if (_detalle == null)
+                    return new List<Material>();
+
+                return _detalle;
+            }
+            set
+            {
+                _detalle = value;
+                Session["DetalleMaterial"] = _detalle;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                DetallePrestamo = null;
                 codVer = string.IsNullOrEmpty(Request.QueryString["vew"]) ? "" : Request.QueryString["vew"];
 
                 if (codVer != "")
@@ -40,14 +57,14 @@ namespace upcDistribuidos.Web.Prototype
                     GrillaMaterialDefault(dgvBusquedaMaterial);
                     GrillaMaterialDefault(dgvDetalleP);
                     CargarFechasNuevaReserva();
-
+                    txtEstadoR.Text = "Prestado";
+                    CargarCategoria();
+                    CargarTipoDeMateriales();
                 }
 
-                CargarCategoria();
-                CargarTipoDeMateriales();
+                
 
                 txtCodigoR.Enabled = false;
-                txtEstadoR.Text = "Prestado";
                 txtEstadoR.Enabled = false;
                 txtFechaDevolucionR.Enabled = false;
                 txtFechaPrestamoR.Enabled = false;
@@ -74,6 +91,7 @@ namespace upcDistribuidos.Web.Prototype
             int index = Convert.ToInt32(e.CommandArgument.ToString());
 
             string _cod = dgvBusquedaMaterial.Rows[index].Cells[1].Text.ToString();
+            _detalle = DetallePrestamo;
 
             if (_detalle.Count > 3)
             {
@@ -93,6 +111,7 @@ namespace upcDistribuidos.Web.Prototype
             }
 
             _detalle.Add(_materialBL.ObtenerMaterial(_cod));
+            DetallePrestamo = _detalle;
             CargarDetalle();
 
         }
@@ -138,13 +157,14 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void imgGuardarReserva_Click(object sender, ImageClickEventArgs e)
         {
-            DateTime? _datenull;
-            if (_detalle.Count > 0)
+            _detalle = DetallePrestamo;
+
+            if (_detalle.Count <= 0)
             {
                 Mensaje("No existe detalle");
                 return;
             }
-            if(_detalle.Count >3)
+            if(_detalle.Count > 3)
             {
                 Mensaje("Solo se acepta 3 materiales");
                 return;
@@ -156,16 +176,22 @@ namespace upcDistribuidos.Web.Prototype
                 _pres.Estado = 3;
                 _pres.FechaEntrega = DateTime.Parse(txtFechaRetornoR.Text);
                 _pres.FechaPrestamo = DateTime.Parse(txtFechaPrestamoR.Text);
+                _pres.Persona = new Persona { Codigo = txtPersonaR.Text};
+                _pres.Persona.Codigo = "20021002";
+                _pres.Materiales = new List<Material>();
+                _pres.Materiales = _detalle;
+                _pres.UsuarioCreacion = 1001;
 
-                _prestamoBL.RegistrarPrestamo(_pres);
+                Prestamo _resul =_prestamoBL.RegistrarPrestamo(_pres);
 
-                Mensaje("Prestamo guardado correctamente");    
+                DetallePrestamo = null;
+                Mensaje("Prestamo guardado correctamente \n Codigo: "+ _resul.Codigo);
                 Response.Redirect(Formularios.PrestamoBusq);
                 
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                Mensaje(((HttpWebResponse)ex.Response).StatusDescription );
+                //Mensaje(((HttpWebResponse)ex.Response).StatusDescription );
             }
         }
 
@@ -221,7 +247,7 @@ namespace upcDistribuidos.Web.Prototype
 
         private void CargarDetalle()
         {
-            dgvDetalleP.DataSource = _detalle;
+            dgvDetalleP.DataSource = DetallePrestamo;
             dgvDetalleP.DataBind();
         }
 

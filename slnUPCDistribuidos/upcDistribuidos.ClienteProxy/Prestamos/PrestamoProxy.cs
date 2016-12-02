@@ -21,7 +21,7 @@ namespace upcDistribuidos.ClienteProxy.Prestamos
         }
 
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
-                                           string fechaPresFin, string fechaDevIni, string fechaDevFin)
+                                           string fechaPresFin, string fechaDevIni, string fechaDevFin) 
         {
             try
             {
@@ -31,6 +31,7 @@ namespace upcDistribuidos.ClienteProxy.Prestamos
             {
                 throw ex;
             }
+           
         }
 
         public Prestamo ObtenerPrestamo(string cod)
@@ -44,6 +45,8 @@ namespace upcDistribuidos.ClienteProxy.Prestamos
 
                 throw ex;
             }
+                
+
         }
 
         public Prestamo RegistrarPrestamo(Prestamo prestamo)
@@ -51,12 +54,14 @@ namespace upcDistribuidos.ClienteProxy.Prestamos
             try
             {
                 return _services.RegistrarPrestamo(prestamo);
+
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+          
         }
 
     }

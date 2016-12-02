@@ -141,7 +141,7 @@
             </tr>
             <tr >   
                 <td  class="td-style1" >
-                    <asp:Label ID="Label2" runat="server" Text="Fecha Devolucion:" CssClass="lbl-style1"/>
+                    <asp:Label ID="Label2" runat="server" Text="Fecha Entrega:" CssClass="lbl-style1"/>
                 </td>
                 <td  class="td-style2" >
                     <asp:TextBox ID="txtFechaIniDev" runat="server" CssClass="txt-style1"></asp:TextBox>

@@ -234,18 +234,15 @@
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
-                                <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" >
+                                <asp:BoundField DataField="Codigo" HeaderText="Código" >
                                 <ItemStyle Width="50px" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Titulo" DataFormatString="Titulo" HeaderText="Titulo" />
-                                <asp:BoundField DataField="CodTipMaterial" DataFormatString="CodTipMaterial" HeaderText="CodTipMaterial" Visible="False" />
-                                <asp:BoundField DataField="TipoMaterial" DataFormatString="TipoMaterial" HeaderText="Tipo Material" />
-                                <asp:BoundField DataField="CodCategoria" DataFormatString="CodCategoria" HeaderText="CodCategoria" Visible="False" />
-                                <asp:BoundField DataField="Categoria" DataFormatString="Categoria" HeaderText="Categoria" />
-                                <asp:BoundField DataField="Anio" DataFormatString="Anio" HeaderText="Año" >
+                                <asp:BoundField DataField="Titulo" HeaderText="Titulo" />
+                                <asp:BoundField DataField="Autor" HeaderText="Autor"/>
+                                <asp:BoundField DataField="Editorial"  HeaderText="Editorial"  />
+                                <asp:BoundField DataField="Anio" HeaderText="Año" >
                                 <ItemStyle Width="20px" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Autor" DataFormatString="Autor" HeaderText="Autor" />
                                 <asp:ButtonField ButtonType="Image" CommandName="cmdEliminarDetalle" ImageUrl="~/images/delete.png" Text="Button">
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>

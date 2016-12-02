@@ -14,7 +14,8 @@ namespace upcDistribuidos.Servicios.Datos
         private SqlConnection cnxBD;
 
         public Conexion() {
-            cnxBD = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxBD"].ToString());
+            //cnxBD = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxBD"].ToString());
+            cnxBD = new SqlConnection(ConfigurationManager.ConnectionStrings["cnxBD1"].ToString());
         }
 
         public SqlConnection ObtenerConexion() {

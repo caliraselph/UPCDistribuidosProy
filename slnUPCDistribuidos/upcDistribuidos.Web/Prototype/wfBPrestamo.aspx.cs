@@ -9,8 +9,9 @@ using upcDistribuidos.ClienteLogica.Contrato;
 using upcDistribuidos.ClienteLogica.Implementacion;
 using upcDistribuidos.Comun;
 using upcDistribuidos.Entidades.Entidades;
-using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.Entidades.Errores;
 using System.Net;
+using System.ServiceModel;
 
 namespace upcDistribuidos.Web.Prototype
 {
@@ -54,7 +55,7 @@ namespace upcDistribuidos.Web.Prototype
 
         private void CargarEstados() {
             ddlEstado.DataSource = _maestroBL.ListarEstados(2);
-            ddlEstado.DataMember = "Abreviatura";
+            ddlEstado.DataValueField = "Abreviatura";
             ddlEstado.DataTextField = "Descripcion";
             ddlEstado.DataBind();
 
@@ -139,12 +140,20 @@ namespace upcDistribuidos.Web.Prototype
         {
             try
             {
-                dgvPrestamo.DataSource = _prestamoBL.BuscarPrestamo("", "-1", "20021002", "", "", "", "");
+                string _d = "";
+
+                _d = ddlEstado.SelectedValue;
+                _d = ddlEstado.SelectedItem.Value;
+                _d = ddlEstado.DataValueField.ToString();
+                _d = ddlEstado.DataTextField.ToString();
+
+                dgvPrestamo.DataSource = _prestamoBL.BuscarPrestamo(txtCodigo.Text, ddlEstado.SelectedValue, txtPersona.Text, txtFechaPresIni.Text, txtFechaPresFin.Text, txtFechaIniDev.Text, txtFechaFinDev.Text);
                 dgvPrestamo.DataBind();
             }
-            catch (WebException ex)
+            catch (Exception ex1)
             {
-                Mensaje(((HttpWebResponse)ex.Response).StatusDescription);
+              
+                Mensaje(ex1.Message);
             }
         }
 

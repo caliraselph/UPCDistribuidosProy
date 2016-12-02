@@ -38,7 +38,7 @@ namespace upcDistribuidos.Servicios.Prestamos
 
                 throw new FaultException<ParametroException>(
                         new ParametroException { Codigo = "202", Mensaje = "Debe ingresar al menos un filtro o el tipo de dato no es el correcto" },
-                        new FaultReason("Error Listar Prestamo")
+                        new FaultReason("Debe ingresar al menos un filtro o el tipo de dato no es el correcto")
                      );
             }
             else
@@ -51,7 +51,7 @@ namespace upcDistribuidos.Servicios.Prestamos
 
 
                 DateTime _fechaInicioDefault = DateTime.Parse("01/01/1753 00:00");
-                DateTime _fechaFinDefault = DateTime.Parse(fechafind).AddDays(1);
+                DateTime _fechaFinDefault = DateTime.Parse(fechafind).AddDays(100);
                     
                 DateTime _fechaPresIni = (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni)) ? _fechaInicioDefault : DateTime.Parse(fechaPresIni) ;
                 DateTime _fechaPresFin = (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin)) ? _fechaFinDefault : DateTime.Parse(fechaPresFin);
@@ -73,7 +73,7 @@ namespace upcDistribuidos.Servicios.Prestamos
             {
                 throw new FaultException<ParametroException>(
                       new ParametroException { Codigo = "201", Mensaje = "Parametro vacio" },
-                      new FaultReason("Error Obtener Prestamo")
+                      new FaultReason("Parametro vacio")
                 );
 
             }
@@ -91,7 +91,7 @@ namespace upcDistribuidos.Servicios.Prestamos
             {
                 throw new FaultException<ParametroException>(
                                    new ParametroException { Codigo = "201", Mensaje = "Datos incompletos" },
-                                   new FaultReason("Error al registrar Prestamo")
+                                   new FaultReason("Datos incompletos")
                              );
             }
 
@@ -99,16 +99,25 @@ namespace upcDistribuidos.Servicios.Prestamos
 
             if (_servicesPersona.ObtenerPersona(prestamo.Persona.Codigo) == null) {
                 throw new FaultException<RepetidoException>(
-                      new RepetidoException { Codigo = "101", Mensaje = "Código de Persona no Existe. "  },
-                      new FaultReason("Error Registrar Prestamo")
+                      new RepetidoException { Codigo = "101", Mensaje = "Código de Persona no Existe."  },
+                      new FaultReason("Código de Persona no Existe.")
                   );
             }
-            
+
+
+            if (prestamo.Materiales.Count <=0)
+            {
+                throw new FaultException<ParametroException>(
+                               new ParametroException { Codigo = "202", Mensaje = "No existe Materiales" },
+                               new FaultReason("No existe Materiales")
+                         );
+            }
+
             if (prestamo.Materiales.Count > 3)
             {
                 throw new FaultException<ParametroException>(
-                               new ParametroException { Codigo = "202", Mensaje = "Solo se permite hasta 3 materiales por registro" },
-                               new FaultReason("Error al registrar Prestamo")
+                               new ParametroException { Codigo = "203", Mensaje = "Solo se permite hasta 3 materiales por registro" },
+                               new FaultReason("Solo se permite hasta 3 materiales por registro")
                          );
             }
 
@@ -120,7 +129,7 @@ namespace upcDistribuidos.Servicios.Prestamos
                 {
                     throw new FaultException<RepetidoException>(
                        new RepetidoException { Codigo = "101", Mensaje = "Código de material no Existe. Material : " + item.Codigo },
-                       new FaultReason("Error Registrar Prestamo")
+                       new FaultReason("Código de material no Existe. Material : " + item.Codigo)
                    );
                 }
 
@@ -128,7 +137,7 @@ namespace upcDistribuidos.Servicios.Prestamos
                 {
                     throw new FaultException<ParametroException>(
                        new ParametroException { Codigo = "103", Mensaje = "Material Inactivo. Material : " + item.Codigo },
-                       new FaultReason("Error Registrar Prestamo")
+                       new FaultReason("Material Inactivo. Material : " + item.Codigo)
                    );
                 }
 
@@ -136,7 +145,7 @@ namespace upcDistribuidos.Servicios.Prestamos
                 {
                     throw new FaultException<ParametroException>(
                              new ParametroException { Codigo = "203", Mensaje = "No hay stock para el material : " + item.Codigo },
-                             new FaultReason("Error al registrar Prestamo")
+                             new FaultReason("No hay stock para el material : " + item.Codigo)
                        );
                 }
             }

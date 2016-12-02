@@ -37,9 +37,9 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                     where 
 	                    CONCAT('PR-',p.pres_id) like case when isnull(@codigo,'') ='' then '%' else @codigo end and
 	                    e.sta_abrev = case when @Estado = '-1' then e.sta_abrev else @estado end  and
-	                    per.per_cod = @Persona and
+	                    per.per_cod like case when isnull(@Persona,'') ='' then '%' else @Persona end and
 	                    (p.fec_ini_pre between @FechaPresIni and @FechaPresFin) and 
-	                    (p.fec_devolucion between @FechaDevIni and @FechaDevFin)
+	                    (p.fec_fin_pre between @FechaDevIni and @FechaDevFin)
                         order by p.pres_id desc  ";
 
             List<PrestamoListar> _lista = new List<PrestamoListar>();
@@ -122,10 +122,10 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                     {
                         Codigo = _reader["Codigo"].ToString(),
                         Estado = Convert.ToInt16(_reader["Estado"].ToString()),
-                        FechaDevolucion = _reader["FechaDevolucion"] == null ? _dateNull: Convert.ToDateTime(_reader["FechaDevolucion"].ToString()),
+                        FechaDevolucion = string.IsNullOrEmpty(_reader["FechaDevolucion"].ToString()) ? _dateNull: Convert.ToDateTime(_reader["FechaDevolucion"].ToString()),
                         FechaEntrega = _reader["FechaEntrega"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaEntrega"].ToString()),
                         FechaPrestamo = _reader["FechaPrestamo"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaPrestamo"].ToString()),
-                        FechaReserva = _reader["FechaReserva"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaReserva"].ToString()),
+                        FechaReserva = string.IsNullOrEmpty(_reader["FechaReserva"].ToString()) ? _dateNull : Convert.ToDateTime(_reader["FechaReserva"].ToString()),
                         Observacion = _reader["Observacion"]== null ? string.Empty: _reader["Observacion"].ToString(),
                         PersonaId = Convert.ToInt32(_reader["Persona"].ToString()),
                         UsuarioCreacion= Convert.ToInt32(_reader["UsuarioCreacion"].ToString())
@@ -179,12 +179,33 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             int _IdPersona = ObtenerPersonaId(prestamo.Persona.Codigo);
 
             SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.CommandTimeout = 100000;
             _cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
-            _cmd.Parameters.AddWithValue("@FechaReserva", prestamo.FechaReserva);
+
+            // _cmd.Parameters.Add(new SqlParameter { ParameterName = "@FechaReserva", SqlDbType = SqlDbType.DateTime, Value = prestamo.FechaReserva == null });
+
+            if(prestamo.FechaReserva == null)
+                _cmd.Parameters.AddWithValue("@FechaReserva", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@FechaReserva", prestamo.FechaReserva);
+
             _cmd.Parameters.AddWithValue("@FechaPrestamo", prestamo.FechaPrestamo);
             _cmd.Parameters.AddWithValue("@FechaEntrega", prestamo.FechaEntrega);
-            _cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion);
-            _cmd.Parameters.AddWithValue("@Observacion", prestamo.Observacion);
+
+            if(prestamo.FechaDevolucion == null)
+                _cmd.Parameters.AddWithValue("@FechaDevolucion", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion);
+
+            //_cmd.Parameters.Add(new SqlParameter { ParameterName = "@FechaDevolucion", SqlDbType = SqlDbType.DateTime, Value = prestamo.FechaDevolucion });
+
+            if(prestamo.Observacion == null)
+                _cmd.Parameters.AddWithValue("@Observacion", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@Observacion", prestamo.Observacion);
+
+            //_cmd.Parameters.Add(new SqlParameter { ParameterName= "@Observacion",SqlDbType = SqlDbType.VarChar,Value= prestamo.Observacion } );
+
             _cmd.Parameters.AddWithValue("@Persona", _IdPersona);
             _cmd.Parameters.AddWithValue("@UsuarioCreacion", prestamo.UsuarioCreacion);
             _cnx.AbrirConexion();

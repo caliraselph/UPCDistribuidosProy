@@ -37,9 +37,9 @@ namespace upcDistribuidos.ClienteLogica.Implementacion
             List<Estado> _lista = new List<Estado>();
 
             if (def == 1) // Deault Seleccionar
-                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Seleccionar_Cod), Descripcion = Estados.Seleccionar_Value });
+                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Seleccionar_Cod),Abreviatura= Estados.Seleccionar_Cod, Descripcion = Estados.Seleccionar_Value });
             else // default Todos
-                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Todos_Cod), Descripcion = Estados.Todos_Value });
+                _lista.Add(new Estado { Id = Convert.ToInt16(Estados.Todos_Cod), Abreviatura= Estados.Todos_Cod, Descripcion = Estados.Todos_Value });
 
             _lista.AddRange(proxy.ListarEstados());
 

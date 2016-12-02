@@ -37,7 +37,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                         Autor = _reader["autor"].ToString(),
                         Cantidad = Convert.ToInt32(_reader["cat_id"].ToString()),
                         Editorial = _reader["editorial"].ToString(),
-                        //Flag = Convert.ToInt32( _reader["flag_sala"].ToString()),
+                        Flag = Convert.ToInt32(string.IsNullOrEmpty(_reader["flag_sala"].ToString()) ? 0 : _reader["flag_sala"].ToString().Equals("True") ? 1 :0),
                         Stock = Convert.ToInt32(_reader["stock"].ToString()),
                         TipoId = Convert.ToInt32(_reader["tip_mat_id"].ToString()),
                         Titulo = _reader["titulo"].ToString()
