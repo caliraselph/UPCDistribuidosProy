@@ -131,6 +131,7 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                         UsuarioCreacion= Convert.ToInt32(_reader["UsuarioCreacion"].ToString())
                     };
 
+                    _pres.Persona = new Persona { Codigo = ObtenerPersonaCodigo(_pres.PersonaId.Value)};
                     _mat = _reader["Materiales"] == null ? string.Empty : _reader["Materiales"].ToString();
                     
                     foreach (string codmat in _mat.Split(','))
@@ -280,9 +281,79 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             return _id;
         }
 
+        private string ObtenerPersonaCodigo(int id)
+        {
+            String _sql = @"  select per_cod from [dbo].[tb_persona] where Per_id=   @Id";
 
+            Conexion _cnx = new Conexion();
 
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Id", id);
 
+            _cnx.AbrirConexion();
 
+            string _codigo = Convert.ToString(_cmd.ExecuteScalar());
+
+            _cnx.CerrarConexion();
+            return _codigo;
+        }
+
+        public bool AnularPrestamo(string cod)
+        {
+            bool _estado = false;
+
+            String _sql = @"  update [dbo].[tb_prestamo]
+                                set estado = 2
+                                where CONCAT('PR-',pres_id) =@Codigo";
+            try
+            {
+                Conexion _cnx = new Conexion();
+
+                SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+                _cmd.Parameters.AddWithValue("@Codigo", cod);
+
+                _cnx.AbrirConexion();
+
+                _cmd.ExecuteNonQuery();
+
+                _cnx.CerrarConexion();
+                _estado = true;
+            }
+            catch (Exception)
+            {
+                _estado = false;
+            }
+
+            return _estado;
+        }
+
+        public bool DevolverPrestamo(string cod)
+        {
+            bool _estado = false;
+
+            String _sql = @"  update [dbo].[tb_prestamo]
+                                set fec_devolucion = getdate() ,estado = 4 
+                            where CONCAT('PR-',pres_id) = @Codigo";
+            try
+            {
+                Conexion _cnx = new Conexion();
+
+                SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+                _cmd.Parameters.AddWithValue("@Codigo", cod);
+
+                _cnx.AbrirConexion();
+
+                _cmd.ExecuteNonQuery();
+
+                _cnx.CerrarConexion();
+                _estado = true;
+            }
+            catch (Exception)
+            {
+                _estado = false;
+            }
+
+            return _estado;
+        }
     }
 }

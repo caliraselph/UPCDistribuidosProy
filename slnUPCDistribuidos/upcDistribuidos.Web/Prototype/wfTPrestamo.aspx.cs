@@ -50,8 +50,14 @@ namespace upcDistribuidos.Web.Prototype
 
                 if (codVer != "")
                 {
+                    Label4.Text = "Ver Prestamo";
                     divBuscarMaterial.Visible = false;
-                    
+                    txtPersonaR.Enabled = false;
+                    CargarPrestamo(codVer);
+                    imgGuardarReserva.Visible = false;
+                    dgvDetalleP.Columns[5].Visible = false;
+                    imbBuscarPersonaP.Visible = false;
+
                 }
                 else {
                     GrillaMaterialDefault(dgvBusquedaMaterial);
@@ -60,6 +66,7 @@ namespace upcDistribuidos.Web.Prototype
                     txtEstadoR.Text = "Prestado";
                     CargarCategoria();
                     CargarTipoDeMateriales();
+                                   
                 }
 
                 
@@ -69,20 +76,52 @@ namespace upcDistribuidos.Web.Prototype
                 txtFechaDevolucionR.Enabled = false;
                 txtFechaPrestamoR.Enabled = false;
                 txtFechaRetornoR.Enabled = false;
-                txtPersonaR.Enabled = false;
-
-
             }
 
         }
 
+        private void CargarPrestamo(string codigo)
+        {
+            string _estado = "";
+
+            try
+            {
+                Prestamo _pres = _prestamoBL.ObtenerPrestamo(codigo);
+                txtCodigoR.Text = _pres.Codigo;
+
+                switch (_pres.Estado)
+                {
+                    case 1: _estado = "Reservado"; break;
+                    case 2: _estado = "Anulado"; break;
+                    case 3: _estado = "Prestado"; break;
+                    case 4: _estado = "Devuelto"; break;
+                    case 5: _estado = "Pendiente devolución"; break;
+                }
+
+                txtEstadoR.Text = _estado;
+                txtFechaPrestamoR.Text = _pres.FechaPrestamo.ToString();
+                txtFechaDevolucionR.Text = _pres.FechaDevolucion.ToString();
+                txtFechaRetornoR.Text = _pres.FechaEntrega.ToString();
+                txtPersonaR.Text = _pres.Persona.Codigo;
+
+                DetallePrestamo = _pres.Materiales;
+                CargarDetalle();
+            }
+            catch (Exception ex)
+            {
+                Mensaje(ex.Message);
+            }
+           
+
+        }
+        
         private void CargarFechasNuevaReserva() {
             DateTime _actual = DateTime.Now;
             int year = _actual.Year;
             int mount = _actual.Month;
             int dia = _actual.Day;
 
-            txtFechaPrestamoR.Text = DateTime.Parse(string.Concat(dia, "/", mount, "/", year, " 00:00")).ToShortDateString();
+            txtFechaPrestamoR.Text = _actual.ToString();// DateTime.Parse(string.Concat(dia, "/", mount, "/", year, " 00:00")).ToShortDateString();
             txtFechaRetornoR.Text = DateTime.Parse(string.Concat(dia, "/", mount, "/", year, " 00:00")).AddDays(3).ToShortDateString();
         }
 
@@ -139,12 +178,9 @@ namespace upcDistribuidos.Web.Prototype
         protected void dgvDetalleR_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument.ToString());
-
-            string _cod = dgvBusquedaMaterial.Rows[index].Cells[1].Text.ToString();
-
-            Material _m = _detalle.Where(c => c.Codigo.Equals(_cod)).SingleOrDefault();
-
-            _detalle.Remove(_m);
+            _detalle = DetallePrestamo;
+            _detalle.RemoveAt(index);
+            DetallePrestamo = _detalle;
 
             CargarDetalle();
             
@@ -177,7 +213,7 @@ namespace upcDistribuidos.Web.Prototype
                 _pres.FechaEntrega = DateTime.Parse(txtFechaRetornoR.Text);
                 _pres.FechaPrestamo = DateTime.Parse(txtFechaPrestamoR.Text);
                 _pres.Persona = new Persona { Codigo = txtPersonaR.Text};
-                _pres.Persona.Codigo = "20021002";
+                _pres.Persona.Codigo = txtPersonaR.Text;
                 _pres.Materiales = new List<Material>();
                 _pres.Materiales = _detalle;
                 _pres.UsuarioCreacion = 1001;
@@ -191,7 +227,7 @@ namespace upcDistribuidos.Web.Prototype
             }
             catch (Exception ex)
             {
-                //Mensaje(((HttpWebResponse)ex.Response).StatusDescription );
+                Mensaje(ex.Message);
             }
         }
 
@@ -249,6 +285,7 @@ namespace upcDistribuidos.Web.Prototype
         {
             dgvDetalleP.DataSource = DetallePrestamo;
             dgvDetalleP.DataBind();
+            
         }
 
     }

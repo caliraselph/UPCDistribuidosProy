@@ -21,6 +21,19 @@ namespace upcDistribuidos.Servicios.Prestamos
 
         IPrestamoBL _prestamoBL = new PrestamoBL();
 
+        public bool AnularPrestamo(string cod)
+        {
+            if (_prestamoBL.ObtenerPrestamo(cod) == null)
+            { 
+                throw new FaultException<RepetidoException>(
+                            new RepetidoException { Codigo = "101", Mensaje = "Codigo Erroneo" },
+                            new FaultReason("Codigo Erroneo")
+                        );
+            }
+            return _prestamoBL.AnularPrestamo(cod);
+
+        }
+
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
                                                    string fechaPresFin, string fechaDevIni, string fechaDevFin)
         {
@@ -29,38 +42,60 @@ namespace upcDistribuidos.Servicios.Prestamos
                 (string.IsNullOrEmpty(codigo) || string.IsNullOrWhiteSpace(codigo))
                 && (string.IsNullOrEmpty(estado) || string.IsNullOrWhiteSpace(estado) || estado.Equals("-1")) 
                 && (string.IsNullOrEmpty(persona) || string.IsNullOrWhiteSpace(persona))
-                && (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni) || !DateTime.TryParse(fechaPresIni, out _fechaActual))
-                && (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin) || !DateTime.TryParse(fechaPresFin, out _fechaActual))
-                && (string.IsNullOrEmpty(fechaDevIni) || string.IsNullOrWhiteSpace(fechaDevIni) || !DateTime.TryParse(fechaDevIni, out _fechaActual))
-                && (string.IsNullOrEmpty(fechaDevFin) || string.IsNullOrWhiteSpace(fechaDevFin) || !DateTime.TryParse(fechaDevFin, out _fechaActual))
+                && (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni) )
+                && (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin))
+                && (string.IsNullOrEmpty(fechaDevIni) || string.IsNullOrWhiteSpace(fechaDevIni) )
+                && (string.IsNullOrEmpty(fechaDevFin) || string.IsNullOrWhiteSpace(fechaDevFin) )
                )
             {
-
                 throw new FaultException<ParametroException>(
-                        new ParametroException { Codigo = "202", Mensaje = "Debe ingresar al menos un filtro o el tipo de dato no es el correcto" },
-                        new FaultReason("Debe ingresar al menos un filtro o el tipo de dato no es el correcto")
+                        new ParametroException { Codigo = "202", Mensaje = "Debe ingresar al menos un filtro" },
+                        new FaultReason("Debe ingresar al menos un filtro")
                      );
             }
-            else
+
+            if (
+                (!string.IsNullOrEmpty(fechaPresIni) && !DateTime.TryParse(fechaPresIni, out _fechaActual) )
+                || (!string.IsNullOrEmpty(fechaPresFin) && !DateTime.TryParse(fechaPresFin, out _fechaActual))
+                || (!string.IsNullOrEmpty(fechaDevIni) && !DateTime.TryParse(fechaDevIni, out _fechaActual) )
+                || (!string.IsNullOrEmpty(fechaDevFin) && !DateTime.TryParse(fechaDevFin, out _fechaActual))
+                )
             {
-                _fechaActual = DateTime.Now;
-                int Year = _fechaActual.Year;
-                int Mount = _fechaActual.Month;
-                int Day = _fechaActual.Day;
-                string fechafind = string.Concat(Day, "/", Mount, "/", Year, " 00:00");
+                throw new FaultException<ParametroException>(
+                        new ParametroException { Codigo = "203", Mensaje = "Tipo de dato Fecha es incorrecto" },
+                        new FaultReason("Tipo de dato Fecha es incorrecto")
+                     );
+            }
+
+            _fechaActual = DateTime.Now;
+            int Year = _fechaActual.Year;
+            int Mount = _fechaActual.Month;
+            int Day = _fechaActual.Day;
+            string fechafind = string.Concat(Day, "/", Mount, "/", Year, " 00:00");
 
 
-                DateTime _fechaInicioDefault = DateTime.Parse("01/01/1753 00:00");
-                DateTime _fechaFinDefault = DateTime.Parse(fechafind).AddDays(100);
-                    
-                DateTime _fechaPresIni = (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni)) ? _fechaInicioDefault : DateTime.Parse(fechaPresIni) ;
-                DateTime _fechaPresFin = (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin)) ? _fechaFinDefault : DateTime.Parse(fechaPresFin);
-                DateTime _fechaDevIni = (string.IsNullOrEmpty(fechaDevIni) || string.IsNullOrWhiteSpace(fechaDevIni)) ? _fechaInicioDefault : DateTime.Parse(fechaDevIni);
-                DateTime _fechaDevFin = (string.IsNullOrEmpty(fechaDevFin) || string.IsNullOrWhiteSpace(fechaDevFin)) ? _fechaFinDefault : DateTime.Parse(fechaDevFin);
+            DateTime _fechaInicioDefault = DateTime.Parse("01/01/1753 00:00");
+            DateTime _fechaFinDefault = DateTime.Parse(fechafind).AddDays(100);
                 
-                return _prestamoBL.BuscarPrestamo(codigo, estado, persona, _fechaPresIni, _fechaPresFin, _fechaDevIni, _fechaDevFin);
-            }           
+            DateTime _fechaPresIni = (string.IsNullOrEmpty(fechaPresIni) || string.IsNullOrWhiteSpace(fechaPresIni)) ? _fechaInicioDefault : DateTime.Parse(fechaPresIni) ;
+            DateTime _fechaPresFin = (string.IsNullOrEmpty(fechaPresFin) || string.IsNullOrWhiteSpace(fechaPresFin)) ? _fechaFinDefault : DateTime.Parse(fechaPresFin);
+            DateTime _fechaDevIni = (string.IsNullOrEmpty(fechaDevIni) || string.IsNullOrWhiteSpace(fechaDevIni)) ? _fechaInicioDefault : DateTime.Parse(fechaDevIni);
+            DateTime _fechaDevFin = (string.IsNullOrEmpty(fechaDevFin) || string.IsNullOrWhiteSpace(fechaDevFin)) ? _fechaFinDefault : DateTime.Parse(fechaDevFin);
             
+            return _prestamoBL.BuscarPrestamo(codigo, estado, persona, _fechaPresIni, _fechaPresFin, _fechaDevIni, _fechaDevFin);
+            
+        }
+
+        public bool DevolverPrestamo(string cod)
+        {
+            if (_prestamoBL.ObtenerPrestamo(cod) == null)
+            {
+                throw new FaultException<RepetidoException>(
+                            new RepetidoException { Codigo = "101", Mensaje = "Codigo Erroneo" },
+                            new FaultReason("Codigo Erroneo")
+                        );
+            }
+            return _prestamoBL.DevolverPrestamo(cod);
         }
 
         public Prestamo ObtenerPrestamo(string cod)

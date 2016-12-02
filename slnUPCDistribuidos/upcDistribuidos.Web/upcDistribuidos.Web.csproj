@@ -120,6 +120,7 @@
     <Content Include="images\close.jpg" />
     <Content Include="images\date.jpg" />
     <Content Include="images\delete.png" />
+    <Content Include="images\Devolver.jpg" />
     <Content Include="images\edit.png" />
     <Content Include="images\new.png" />
     <Content Include="images\save.png" />

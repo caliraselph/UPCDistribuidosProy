@@ -27,5 +27,15 @@ namespace upcDistribuidos.Servicios.Prestamos
         [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         Prestamo RegistrarPrestamo(Prestamo prestamo);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool AnularPrestamo(string cod);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool DevolverPrestamo(string cod);
+
+
     }
 }

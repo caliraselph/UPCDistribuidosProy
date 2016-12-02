@@ -108,7 +108,7 @@ namespace upcDistribuidos.Web.Prototype
         protected void dgvPrestamo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument.ToString());
-            string _cod = dgvPrestamo.Rows[index].Cells[2].Text.ToString();
+            string _cod = dgvPrestamo.Rows[index].Cells[3].Text.ToString();
 
             switch (e.CommandName)
             {
@@ -119,11 +119,24 @@ namespace upcDistribuidos.Web.Prototype
                 case "cmdEliminar":
                     try
                     {
-                       // _material.EliminarMaterial(cod);
+                        if (_prestamoBL.AnularPrestamo(_cod))
+                            Mensaje("Proceso completado correctamente!!");
                     }
-                    catch (WebException ex)
+                    catch (Exception ex)
                     {
-                        Response.Write("<script>alert('" + ((HttpWebResponse)ex.Response).StatusDescription + "')</script>");
+                        Mensaje(ex.Message);
+                    }
+                    BuscarPrestamo();
+                    break;
+                case "cmdDevolver":
+                    try
+                    {
+                        if (_prestamoBL.DevolverPrestamo(_cod))
+                            Mensaje("Proceso completado correctamente!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Mensaje(ex.Message);
                     }
                     BuscarPrestamo();
                     break;
@@ -140,13 +153,6 @@ namespace upcDistribuidos.Web.Prototype
         {
             try
             {
-                string _d = "";
-
-                _d = ddlEstado.SelectedValue;
-                _d = ddlEstado.SelectedItem.Value;
-                _d = ddlEstado.DataValueField.ToString();
-                _d = ddlEstado.DataTextField.ToString();
-
                 dgvPrestamo.DataSource = _prestamoBL.BuscarPrestamo(txtCodigo.Text, ddlEstado.SelectedValue, txtPersona.Text, txtFechaPresIni.Text, txtFechaPresFin.Text, txtFechaIniDev.Text, txtFechaFinDev.Text);
                 dgvPrestamo.DataBind();
             }
@@ -171,7 +177,6 @@ namespace upcDistribuidos.Web.Prototype
         {
             Response.Write("<script>alert('"+_msj+"')</script>");
         }
-
-
+        
     }
 }

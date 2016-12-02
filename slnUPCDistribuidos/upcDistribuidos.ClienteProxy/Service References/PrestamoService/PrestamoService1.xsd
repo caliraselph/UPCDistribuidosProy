@@ -10,7 +10,8 @@
       <xs:element minOccurs="0" name="FechaReserva" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Materiales" nillable="true" type="tns:ArrayOfMaterial" />
       <xs:element minOccurs="0" name="Observacion" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Persona" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Persona" nillable="true" type="tns:Persona" />
+      <xs:element minOccurs="0" name="PersonaId" nillable="true" type="xs:int" />
       <xs:element minOccurs="0" name="UsuarioCreacion" nillable="true" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
@@ -35,4 +36,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Material" nillable="true" type="tns:Material" />
+  <xs:complexType name="Persona">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Apellidos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Celular" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Codigo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Correo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MontoDeuda" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NroLibros" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Persona" nillable="true" type="tns:Persona" />
 </xs:schema>

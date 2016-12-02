@@ -31,10 +31,25 @@ namespace upcDistribuidos.ClienteProxy.PrestamoService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/RegistrarPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/RegistrarPrestamoResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(upcDistribuidos.Entidades.Errores.ParametroException), Action="http://tempuri.org/IPrestamoService/RegistrarPrestamoParametroExceptionFault", Name="ParametroException", Namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores")]
+        [System.ServiceModel.FaultContractAttribute(typeof(upcDistribuidos.Entidades.Errores.RepetidoException), Action="http://tempuri.org/IPrestamoService/RegistrarPrestamoRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores")]
         upcDistribuidos.Entidades.Entidades.Prestamo RegistrarPrestamo(upcDistribuidos.Entidades.Entidades.Prestamo prestamo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/RegistrarPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/RegistrarPrestamoResponse")]
         System.Threading.Tasks.Task<upcDistribuidos.Entidades.Entidades.Prestamo> RegistrarPrestamoAsync(upcDistribuidos.Entidades.Entidades.Prestamo prestamo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/AnularPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/AnularPrestamoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(upcDistribuidos.Entidades.Errores.RepetidoException), Action="http://tempuri.org/IPrestamoService/AnularPrestamoRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores")]
+        bool AnularPrestamo(string cod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/AnularPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/AnularPrestamoResponse")]
+        System.Threading.Tasks.Task<bool> AnularPrestamoAsync(string cod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/DevolverPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/DevolverPrestamoResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(upcDistribuidos.Entidades.Errores.RepetidoException), Action="http://tempuri.org/IPrestamoService/DevolverPrestamoRepetidoExceptionFault", Name="RepetidoException", Namespace="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores")]
+        bool DevolverPrestamo(string cod);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPrestamoService/DevolverPrestamo", ReplyAction="http://tempuri.org/IPrestamoService/DevolverPrestamoResponse")]
+        System.Threading.Tasks.Task<bool> DevolverPrestamoAsync(string cod);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -86,6 +101,22 @@ namespace upcDistribuidos.ClienteProxy.PrestamoService {
         
         public System.Threading.Tasks.Task<upcDistribuidos.Entidades.Entidades.Prestamo> RegistrarPrestamoAsync(upcDistribuidos.Entidades.Entidades.Prestamo prestamo) {
             return base.Channel.RegistrarPrestamoAsync(prestamo);
+        }
+        
+        public bool AnularPrestamo(string cod) {
+            return base.Channel.AnularPrestamo(cod);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AnularPrestamoAsync(string cod) {
+            return base.Channel.AnularPrestamoAsync(cod);
+        }
+        
+        public bool DevolverPrestamo(string cod) {
+            return base.Channel.DevolverPrestamo(cod);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DevolverPrestamoAsync(string cod) {
+            return base.Channel.DevolverPrestamoAsync(cod);
         }
     }
 }

@@ -70,7 +70,6 @@
                     <td class="td-style4">
                         <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" OnClick="btnSalirPrestamo_Click" />
                     </td>
-                    
                 </tr>
             </table>
         </div>    
@@ -215,6 +214,10 @@
                                 </asp:ButtonField>
                                 <asp:ButtonField ButtonType="Image"  CommandName="cmdVer"  ControlStyle-CssClass="img-style1" ImageUrl="~/images/view.png"  >
 <ControlStyle CssClass="img-style1"></ControlStyle>
+                                <ItemStyle Width="10px" />
+                                </asp:ButtonField>
+                                <asp:ButtonField ButtonType="Image" ControlStyle-CssClass="img-style1" CommandName="cmdDevolver" ImageUrl="~/images/Devolver.jpg" >
+                                    <ControlStyle CssClass="img-style1"></ControlStyle>
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>
                                 <asp:BoundField DataField="Codigo" HeaderText="Código" />

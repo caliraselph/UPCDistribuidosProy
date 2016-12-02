@@ -64,5 +64,35 @@ namespace upcDistribuidos.ClienteProxy.Prestamos
           
         }
 
+        public bool AnularPrestamo(string cod)
+        {
+            try
+            {
+                return _services.AnularPrestamo(cod);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public bool DevolverPrestamo(string cod)
+        {
+            try
+            {
+                return _services.DevolverPrestamo(cod);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
     }
 }

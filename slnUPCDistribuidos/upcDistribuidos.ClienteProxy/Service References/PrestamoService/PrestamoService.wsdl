@@ -36,6 +36,27 @@
   <wsdl:message name="IPrestamoService_RegistrarPrestamo_ParametroExceptionFault_FaultMessage">
     <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores" name="detail" element="q3:ParametroException" />
   </wsdl:message>
+  <wsdl:message name="IPrestamoService_RegistrarPrestamo_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores" name="detail" element="q4:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_AnularPrestamo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AnularPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_AnularPrestamo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AnularPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_AnularPrestamo_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores" name="detail" element="q5:RepetidoException" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_DevolverPrestamo_InputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPrestamo" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_DevolverPrestamo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DevolverPrestamoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPrestamoService_DevolverPrestamo_RepetidoExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/upcDistribuidos.Entidades.Errores" name="detail" element="q6:RepetidoException" />
+  </wsdl:message>
   <wsdl:portType name="IPrestamoService">
     <wsdl:operation name="BuscarPrestamo">
       <wsdl:input wsaw:Action="http://tempuri.org/IPrestamoService/BuscarPrestamo" message="tns:IPrestamoService_BuscarPrestamo_InputMessage" />
@@ -51,6 +72,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPrestamoService/RegistrarPrestamo" message="tns:IPrestamoService_RegistrarPrestamo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPrestamoService/RegistrarPrestamoResponse" message="tns:IPrestamoService_RegistrarPrestamo_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IPrestamoService/RegistrarPrestamoParametroExceptionFault" name="ParametroExceptionFault" message="tns:IPrestamoService_RegistrarPrestamo_ParametroExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPrestamoService/RegistrarPrestamoRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IPrestamoService_RegistrarPrestamo_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AnularPrestamo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrestamoService/AnularPrestamo" message="tns:IPrestamoService_AnularPrestamo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrestamoService/AnularPrestamoResponse" message="tns:IPrestamoService_AnularPrestamo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPrestamoService/AnularPrestamoRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IPrestamoService_AnularPrestamo_RepetidoExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPrestamo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPrestamoService/DevolverPrestamo" message="tns:IPrestamoService_DevolverPrestamo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPrestamoService/DevolverPrestamoResponse" message="tns:IPrestamoService_DevolverPrestamo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IPrestamoService/DevolverPrestamoRepetidoExceptionFault" name="RepetidoExceptionFault" message="tns:IPrestamoService_DevolverPrestamo_RepetidoExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPrestamoService" type="tns:IPrestamoService">
@@ -89,6 +121,33 @@
       </wsdl:output>
       <wsdl:fault name="ParametroExceptionFault">
         <soap:fault use="literal" name="ParametroExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AnularPrestamo">
+      <soap:operation soapAction="http://tempuri.org/IPrestamoService/AnularPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DevolverPrestamo">
+      <soap:operation soapAction="http://tempuri.org/IPrestamoService/DevolverPrestamo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="RepetidoExceptionFault">
+        <soap:fault use="literal" name="RepetidoExceptionFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
