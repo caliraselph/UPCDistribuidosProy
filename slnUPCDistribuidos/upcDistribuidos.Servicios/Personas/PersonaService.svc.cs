@@ -24,10 +24,10 @@ namespace upcDistribuidos.Servicios.Personas
                     !string.IsNullOrEmpty(persona.Apellidos) || !string.IsNullOrEmpty(persona.Direccion) ||
                      !string.IsNullOrEmpty(persona.Correo) || !string.IsNullOrEmpty(persona.Celular))
                 {
-                    if (logica.ObtenerPersona(persona.Codigo) != null)
+                    if (logica.ObtenerPersona(persona.Codigo) == null)
                     {
                         throw new FaultException<RepetidoException>(
-                            new RepetidoException { Codigo = "101", Mensaje = "Código ya Existe" },
+                            new RepetidoException { Codigo = "101", Mensaje = "Código mo Existe" },
                             new FaultReason("Error Registrar Persona")
                         );
                     }

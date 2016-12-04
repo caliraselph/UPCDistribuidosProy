@@ -67,22 +67,22 @@
                                 <asp:BoundField HeaderText="E-Mail" DataField="Correo" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png" NavigateUrl="javascript:Mensaje()"
-                                            Text="Editar"></asp:HyperLink>
+                                        <asp:ImageButton ID="btnEditar" runat="server" CommandName="Editar" ImageUrl="~/images/edit.png"
+                                            ToolTip="Editar" CommandArgument='<%# Eval("Codigo") %>'></asp:ImageButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png" NavigateUrl="javascript:Mensaje()"
+                                        <asp:ImageButton ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png" NavigateUrl="javascript:Mensaje()"
                                             Text="Eliminar">
                                             
-                                        </asp:HyperLink>
+                                        </asp:ImageButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png" NavigateUrl="javascript:Mensaje()"
-                                            Text="Ver"></asp:HyperLink>
+                                        <asp:ImageButton ID="btnVer" runat="server" CommandName="Ver" ImageUrl="~/images/view.png"
+                                            ToolTip="Ver" CommandArgument='<%# Eval("Codigo") %>'></asp:ImageButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

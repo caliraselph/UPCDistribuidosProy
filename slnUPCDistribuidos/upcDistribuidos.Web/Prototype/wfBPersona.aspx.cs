@@ -63,11 +63,11 @@ namespace upcDistribuidos.Web.Prototype
                 row["Codigo"] = per.Codigo;
                 row["Apellidos"] = per.Apellidos;
                 row["Nombres"] = per.Nombres;
-                row["Correo"] = per.NroLibros;
-                row["Direccion"] = per.MontoDeuda;
+                row["Correo"] = per.Correo;
+                row["Direccion"] = per.Direccion;
                 row["Celular"] = per.Celular;
-                row["NroLibros"] = per.Celular;
-                row["MontoDeuda"] = per.Celular;
+                row["NroLibros"] = per.NroLibros;
+                row["MontoDeuda"] = per.MontoDeuda;
 
                 dt.Rows.Add(row);
             }
@@ -92,10 +92,19 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void grdCSRPageData_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "DeleteRow")
+
+            string cod = e.CommandArgument.ToString();
+
+            switch (e.CommandName)
             {
-               
+                case "Editar":
+                    Response.Redirect("wfTPersona.aspx" + "?edt=" + cod);
+                    break;
+                case "Ver":
+                    Response.Redirect("wfTPersona.aspx" + "?vew=" + cod);
+                    break;
             }
+
         }
 
         protected void btnNuevo_Click(object sender, ImageClickEventArgs e)
@@ -131,11 +140,11 @@ namespace upcDistribuidos.Web.Prototype
                 row["Codigo"] = per.Codigo;
                 row["Apellidos"] = per.Apellidos;
                 row["Nombres"] = per.Nombres;
-                row["Correo"] = per.NroLibros;
-                row["Direccion"] = per.MontoDeuda;
+                row["Correo"] = per.Correo;
+                row["Direccion"] = per.Direccion;
                 row["Celular"] = per.Celular;
-                row["NroLibros"] = per.Celular;
-                row["MontoDeuda"] = per.Celular;
+                row["NroLibros"] = per.NroLibros;
+                row["MontoDeuda"] = per.MontoDeuda;
 
                 dt.Rows.Add(row);
             }

@@ -71,7 +71,7 @@ namespace upcDistribuidos.Web.Prototype
                 else
                 {
                     _persona.ActualizarPersona(persona);
-                    Response.Write("<script>alert('El material se modificó correctamente.')</script>");
+                    Response.Write("<script>alert('La persona se modificó correctamente.')</script>");
                     Response.Write("<script>window.location.href='" + Formularios.PersonaBusq + "'</script>");
                 }
 
