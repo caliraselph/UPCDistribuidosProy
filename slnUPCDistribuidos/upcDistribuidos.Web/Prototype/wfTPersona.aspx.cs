@@ -25,7 +25,10 @@ namespace upcDistribuidos.Web.Prototype
                 codVer = string.IsNullOrEmpty(Request.QueryString["vew"]) ? "" : Request.QueryString["vew"];
                 txtCodigo.Enabled = true;
 
-              
+                txtNroLibro.Text = "0";
+                txtDeuda.Text = "0";
+
+
 
                 if (codEdic != "")
                 {

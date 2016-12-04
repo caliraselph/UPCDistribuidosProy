@@ -24,7 +24,6 @@
                             <asp:MenuItem Text="Usuario" Value="mnuUsuario" NavigateUrl="wfBUsuario.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Operación Central" Value="mnuOperacionCentral">
-                            <asp:MenuItem Text="Reserva" Value="Reserva" NavigateUrl="wfBReserva.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Préstamo" Value="mnuPrestamo" NavigateUrl="wfBPrestamo.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Seguridad" Value="mnuSeguridad">

@@ -15,30 +15,31 @@ namespace MQ
     public class Mensajeria
     {
 
-        public void RegistrarEntrada(Material entrada) {
+        public void RegistrarEntrada(Persona entrada) {
 
             var ironMq = IronSharp.IronMQ.Client.New(
                 new IronClientConfig { 
-                    ProjectId = "583f8901bccbd80006c37d9c", 
-                    Token = "D6DMW91CkzSnVPxH4PXM",
+                    ProjectId = "58447b19d9cc19000737b8c1", 
+                    Token = "Dpwg2GhZP66fZGIpyfkG",
                     Host = "mq-aws-eu-west-1-1.iron.io",
                     Scheme = "http",
                     Port = 80        
             });
 
-            QueueClient queue = ironMq.Queue("EntradasColas");
-            string messageId = queue.Post(  entrada.Anio + "|" +entrada.Autor );
+            QueueClient queue = ironMq.Queue("persona");
+            string messageId = queue.Post(  entrada.Codigo + "|" +entrada.Nombres + "|" + entrada.Apellidos
+                + "|" + entrada.Correo + "|" + entrada.Direccion + "|" + entrada.Celular + "|" + "0" + "|" + "0.0");
             
         }
 
-        public List<Material> ListarEntradasCola(){
+        public List<Persona> ListarEntradasCola(){
 
-            List<Material> _entradas = new List<Material>();
+            List<Persona> _entradas = new List<Persona>();
             var ironMq = IronSharp.IronMQ.Client.New(
                 new IronClientConfig
                 {
-                    ProjectId = "583f8901bccbd80006c37d9c",
-                    Token = "D6DMW91CkzSnVPxH4PXM",
+                    ProjectId = "58447b19d9cc19000737b8c1",
+                    Token = "Dpwg2GhZP66fZGIpyfkG",
                     Host = "mq-aws-eu-west-1-1.iron.io",
                     Scheme = "http",
                     Port = 80
@@ -49,11 +50,11 @@ namespace MQ
             var queues = ironMq.Queues();
             string[] _cadena;
             foreach (var queueInfo in queues) { 
-                QueueClient queue = ironMq.Queue("EntradasColas");
+                QueueClient queue = ironMq.Queue("persona");
                 QueueMessage message = queue.Reserve();
                 _cadena = message.Body.ToString().Split('|');
 
-                _entradas.Add(new Material {Autor= _cadena[0], Codigo = _cadena[1] });
+                _entradas.Add(new Persona { Codigo= _cadena[0], Nombres = _cadena[1] });
 
                 message.Delete();
             }
