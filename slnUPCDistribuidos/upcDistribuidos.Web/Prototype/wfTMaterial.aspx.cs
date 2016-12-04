@@ -133,12 +133,12 @@ namespace upcDistribuidos.Web.Prototype
                     Response.Write("<script>alert('El material se modificó correctamente.')</script>");
                     Response.Write("<script>window.location.href='" + Formularios.MaterialBusq + "'</script>");
                 }
-                
+
                 //Response.Redirect(Formularios.MaterialBusq);
             }
             catch (WebException ex)
             {
-                Response.Write("<script>alert('"+ ex.Message + "')</script>");
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
 
@@ -170,6 +170,6 @@ namespace upcDistribuidos.Web.Prototype
             cboTipo.DataBind();
         }
 
-        
+
     }
 }

@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Maestros\MaestroService.svc" />
+    <Content Include="Materiales\MaterialRESTService.svc" />
     <Content Include="Materiales\MaterialService.svc" />
     <Content Include="Personas\PersonaService.svc" />
     <Content Include="Prestamos\PrestamoService.svc" />
@@ -102,7 +103,11 @@
     <Compile Include="Maestros\MaestroService.svc.cs">
       <DependentUpon>MaestroService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Materiales\IMaterialRESTService.cs" />
     <Compile Include="Materiales\IMaterialService.cs" />
+    <Compile Include="Materiales\MaterialRESTService.svc.cs">
+      <DependentUpon>MaterialRESTService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Materiales\MaterialService.svc.cs">
       <DependentUpon>MaterialService.svc</DependentUpon>
     </Compile>

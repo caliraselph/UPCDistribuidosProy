@@ -1,0 +1,7 @@
+﻿<%@ ServiceHost 
+    Language="C#" 
+    Debug="true" 
+    Service="upcDistribuidos.Servicios.Materiales.MaterialRESTService" 
+    CodeBehind="MaterialRESTService.svc.cs" 
+    Factory="System.ServiceModel.Activation.WebServiceHostFactory"
+    %>
