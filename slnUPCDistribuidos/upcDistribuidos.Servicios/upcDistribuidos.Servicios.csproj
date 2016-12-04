@@ -93,6 +93,7 @@
     <Content Include="Materiales\MaterialService.svc" />
     <Content Include="Personas\PersonaService.svc" />
     <Content Include="Prestamos\PrestamoService.svc" />
+    <Content Include="Personas\PersonaService.svc" />
     <Content Include="Seguridad\UsuarioService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>

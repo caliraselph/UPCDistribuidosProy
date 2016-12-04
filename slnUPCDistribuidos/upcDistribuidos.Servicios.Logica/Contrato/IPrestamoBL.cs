@@ -17,5 +17,9 @@ namespace upcDistribuidos.Servicios.Logica.Contrato
         Prestamo ObtenerPrestamo(string cod);
 
         Prestamo RegistrarPrestamo(Prestamo prestamo);
+
+        bool AnularPrestamo(string cod);
+
+        bool DevolverPrestamo(string cod);
     }
 }

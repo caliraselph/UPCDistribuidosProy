@@ -35,11 +35,11 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
 	                    inner join tb_persona per with(nolock) on per.per_id = p.per_id
 	                    inner join tb_estado e with(nolock) on p.estado=e.sta_id
                     where 
-	                    CONCAT('PR-',p.pres_id) = @codigo and
+	                    CONCAT('PR-',p.pres_id) like case when isnull(@codigo,'') ='' then '%' else @codigo end and
 	                    e.sta_abrev = case when @Estado = '-1' then e.sta_abrev else @estado end  and
-	                    per.per_cod = @Persona and
+	                    per.per_cod like case when isnull(@Persona,'') ='' then '%' else @Persona end and
 	                    (p.fec_ini_pre between @FechaPresIni and @FechaPresFin) and 
-	                    (p.fec_devolucion between @FechaDevIni and @FechaDevFin)
+	                    (p.fec_fin_pre between @FechaDevIni and @FechaDevFin)
                         order by p.pres_id desc  ";
 
             List<PrestamoListar> _lista = new List<PrestamoListar>();
@@ -122,15 +122,16 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
                     {
                         Codigo = _reader["Codigo"].ToString(),
                         Estado = Convert.ToInt16(_reader["Estado"].ToString()),
-                        FechaDevolucion = _reader["FechaDevolucion"] == null ? _dateNull: Convert.ToDateTime(_reader["FechaDevolucion"].ToString()),
+                        FechaDevolucion = string.IsNullOrEmpty(_reader["FechaDevolucion"].ToString()) ? _dateNull: Convert.ToDateTime(_reader["FechaDevolucion"].ToString()),
                         FechaEntrega = _reader["FechaEntrega"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaEntrega"].ToString()),
                         FechaPrestamo = _reader["FechaPrestamo"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaPrestamo"].ToString()),
-                        FechaReserva = _reader["FechaReserva"] == null ? _dateNull : Convert.ToDateTime(_reader["FechaReserva"].ToString()),
+                        FechaReserva = string.IsNullOrEmpty(_reader["FechaReserva"].ToString()) ? _dateNull : Convert.ToDateTime(_reader["FechaReserva"].ToString()),
                         Observacion = _reader["Observacion"]== null ? string.Empty: _reader["Observacion"].ToString(),
-                        Persona = Convert.ToInt32(_reader["Persona"].ToString()),
+                        PersonaId = Convert.ToInt32(_reader["Persona"].ToString()),
                         UsuarioCreacion= Convert.ToInt32(_reader["UsuarioCreacion"].ToString())
                     };
 
+                    _pres.Persona = new Persona { Codigo = ObtenerPersonaCodigo(_pres.PersonaId.Value)};
                     _mat = _reader["Materiales"] == null ? string.Empty : _reader["Materiales"].ToString();
                     
                     foreach (string codmat in _mat.Split(','))
@@ -176,14 +177,37 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             Prestamo _pres = null;
             Conexion _cnx = new Conexion();
 
+            int _IdPersona = ObtenerPersonaId(prestamo.Persona.Codigo);
+
             SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.CommandTimeout = 100000;
             _cmd.Parameters.AddWithValue("@Estado", prestamo.Estado);
-            _cmd.Parameters.AddWithValue("@FechaReserva", prestamo.FechaReserva);
+
+            // _cmd.Parameters.Add(new SqlParameter { ParameterName = "@FechaReserva", SqlDbType = SqlDbType.DateTime, Value = prestamo.FechaReserva == null });
+
+            if(prestamo.FechaReserva == null)
+                _cmd.Parameters.AddWithValue("@FechaReserva", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@FechaReserva", prestamo.FechaReserva);
+
             _cmd.Parameters.AddWithValue("@FechaPrestamo", prestamo.FechaPrestamo);
             _cmd.Parameters.AddWithValue("@FechaEntrega", prestamo.FechaEntrega);
-            _cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion);
-            _cmd.Parameters.AddWithValue("@Observacion", prestamo.Observacion);
-            _cmd.Parameters.AddWithValue("@Persona", prestamo.Persona);
+
+            if(prestamo.FechaDevolucion == null)
+                _cmd.Parameters.AddWithValue("@FechaDevolucion", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@FechaDevolucion", prestamo.FechaDevolucion);
+
+            //_cmd.Parameters.Add(new SqlParameter { ParameterName = "@FechaDevolucion", SqlDbType = SqlDbType.DateTime, Value = prestamo.FechaDevolucion });
+
+            if(prestamo.Observacion == null)
+                _cmd.Parameters.AddWithValue("@Observacion", DBNull.Value);
+            else
+                _cmd.Parameters.AddWithValue("@Observacion", prestamo.Observacion);
+
+            //_cmd.Parameters.Add(new SqlParameter { ParameterName= "@Observacion",SqlDbType = SqlDbType.VarChar,Value= prestamo.Observacion } );
+
+            _cmd.Parameters.AddWithValue("@Persona", _IdPersona);
             _cmd.Parameters.AddWithValue("@UsuarioCreacion", prestamo.UsuarioCreacion);
             _cnx.AbrirConexion();
 
@@ -240,9 +264,96 @@ namespace upcDistribuidos.Servicios.Datos.Prestamos
             return _id;
         }
 
+        private int ObtenerPersonaId(string codigo)
+        {
+            String _sql = @"  select Per_id from [dbo].[tb_persona] where per_cod=   @Codigo";
 
+            Conexion _cnx = new Conexion();
 
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Codigo", codigo);
 
+            _cnx.AbrirConexion();
 
+            int _id = Convert.ToInt16(_cmd.ExecuteScalar());
+
+            _cnx.CerrarConexion();
+            return _id;
+        }
+
+        private string ObtenerPersonaCodigo(int id)
+        {
+            String _sql = @"  select per_cod from [dbo].[tb_persona] where Per_id=   @Id";
+
+            Conexion _cnx = new Conexion();
+
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Id", id);
+
+            _cnx.AbrirConexion();
+
+            string _codigo = Convert.ToString(_cmd.ExecuteScalar());
+
+            _cnx.CerrarConexion();
+            return _codigo;
+        }
+
+        public bool AnularPrestamo(string cod)
+        {
+            bool _estado = false;
+
+            String _sql = @"  update [dbo].[tb_prestamo]
+                                set estado = 2
+                                where CONCAT('PR-',pres_id) =@Codigo";
+            try
+            {
+                Conexion _cnx = new Conexion();
+
+                SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+                _cmd.Parameters.AddWithValue("@Codigo", cod);
+
+                _cnx.AbrirConexion();
+
+                _cmd.ExecuteNonQuery();
+
+                _cnx.CerrarConexion();
+                _estado = true;
+            }
+            catch (Exception)
+            {
+                _estado = false;
+            }
+
+            return _estado;
+        }
+
+        public bool DevolverPrestamo(string cod)
+        {
+            bool _estado = false;
+
+            String _sql = @"  update [dbo].[tb_prestamo]
+                                set fec_devolucion = getdate() ,estado = 4 
+                            where CONCAT('PR-',pres_id) = @Codigo";
+            try
+            {
+                Conexion _cnx = new Conexion();
+
+                SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+                _cmd.Parameters.AddWithValue("@Codigo", cod);
+
+                _cnx.AbrirConexion();
+
+                _cmd.ExecuteNonQuery();
+
+                _cnx.CerrarConexion();
+                _estado = true;
+            }
+            catch (Exception)
+            {
+                _estado = false;
+            }
+
+            return _estado;
+        }
     }
 }

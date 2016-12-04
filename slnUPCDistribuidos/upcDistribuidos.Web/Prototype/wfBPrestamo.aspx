@@ -7,10 +7,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link href="../scripts/Estilo1.css" rel="stylesheet" />
     <title></title>
+    
 
 </head>
 <body>
+    <script type="text/javascript" >
+        function MostrarCodigoEmpleado(cod) {
+            //debugger;
+            document.getElementById("txtPersona").value = cod;
+            //window.print(cod);
+           // $("#txtPersona").val(cod);
+        }
 
+    </script>
     <form id="formBPrestamo" runat="server">
         <div>
             <table class="table-style1">
@@ -53,15 +62,14 @@
             <table>
                 <tr>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnNuevoPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" />
+                        <asp:ImageButton ID="btnNuevoPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/new.png" OnClick="btnNuevoPrestamo_Click" />
                     </td>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" />
+                        <asp:ImageButton ID="btnConsultarPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/search.png" OnClick="btnConsultarPrestamo_Click" />
                     </td>
                     <td class="td-style4">
-                        <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
+                        <asp:ImageButton ID="btnSalirPrestamo" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" OnClick="btnSalirPrestamo_Click" />
                     </td>
-                    
                 </tr>
             </table>
         </div>    
@@ -83,8 +91,8 @@
                      <asp:Label ID="lblPersona" runat="server" Text="Persona:" CssClass="lbl-style1"/>
                 </td>
                 <td class="td-style2" >
-                      <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
-                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" />
+                      <asp:TextBox ID="txtPersona" runat="server" CssClass="txt-style1" ></asp:TextBox>
+                    <asp:ImageButton ID="imgBuscarPersona" runat="server" ImageUrl="~/images/search.png" CssClass="img-style1" OnClientClick="window.open('./ppBuscarPersona.aspx','Personas', 'top=300,width=650 ,height=350, left=350');"  />
                 
                 </td>
                 <td class="td-style3" >
@@ -132,7 +140,7 @@
             </tr>
             <tr >   
                 <td  class="td-style1" >
-                    <asp:Label ID="Label2" runat="server" Text="Fecha Devolucion:" CssClass="lbl-style1"/>
+                    <asp:Label ID="Label2" runat="server" Text="Fecha Entrega:" CssClass="lbl-style1"/>
                 </td>
                 <td  class="td-style2" >
                     <asp:TextBox ID="txtFechaIniDev" runat="server" CssClass="txt-style1"></asp:TextBox>
@@ -146,7 +154,7 @@
                      <asp:Label ID="Label3" runat="server" Text="Codigo:" CssClass="lbl-style1"/>
                 </td>
                 <td class="td-style2" >
-                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt-style1" ReadOnly="true"></asp:TextBox>
+                      <asp:TextBox ID="txtCodigo" runat="server" CssClass="txt-style1" ></asp:TextBox>
                 
                 </td>
                 <td class="td-style3" >
@@ -200,11 +208,7 @@
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
-                                <asp:ButtonField ButtonType="Image" ControlStyle-CssClass="img-style1" CommandName="cmdEditar" ImageUrl="~/images/edit.png">
-<ControlStyle CssClass="img-style1"></ControlStyle>
-                                <ItemStyle Width="10px" />
-                                </asp:ButtonField>
-                                <asp:ButtonField ButtonType="Image"  CommandName="cmdEliminar" ControlStyle-CssClass="img-style1" ImageUrl="~/images/delete.png" >
+                                <asp:ButtonField ButtonType="Image" ControlStyle-CssClass="img-style1" CommandName="cmdEliminar" ImageUrl="~/images/delete.png">
 <ControlStyle CssClass="img-style1"></ControlStyle>
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>
@@ -212,14 +216,18 @@
 <ControlStyle CssClass="img-style1"></ControlStyle>
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>
-                                <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" />
-                                <asp:BoundField DataField="CodPersona" DataFormatString="CodPersona" HeaderText="CodPersona" Visible="False" />
-                                <asp:BoundField DataField="Persona" DataFormatString="Persona" HeaderText="Persona" />
-                                <asp:BoundField DataField="FechaPrestamo" DataFormatString="FechaPrestamo" HeaderText="Fecha Prestamo" />
-                                <asp:BoundField DataField="FechaEntrega" DataFormatString="FechaEntrega" HeaderText="FechaEntrega" />
-                                <asp:BoundField DataField="FechaDevolucion" DataFormatString="FechaDevolucion" HeaderText="Fecha Devolución" />
-                                <asp:BoundField DataField="CodEstado" DataFormatString="CodEstado" HeaderText="CodEstado" Visible="False" />
-                                <asp:BoundField DataField="Estado" DataFormatString="Estado" HeaderText="Estado"  />
+                                <asp:ButtonField ButtonType="Image" ControlStyle-CssClass="img-style1" CommandName="cmdDevolver" ImageUrl="~/images/Devolver.jpg" >
+                                    <ControlStyle CssClass="img-style1"></ControlStyle>
+                                <ItemStyle Width="10px" />
+                                </asp:ButtonField>
+                                <asp:BoundField DataField="Codigo" HeaderText="Código" />
+                                <asp:BoundField DataField="CodPersona" HeaderText="CodPersona" Visible="False" ConvertEmptyStringToNull="False" />
+                                <asp:BoundField DataField="Persona" HeaderText="Persona" />
+                                <asp:BoundField DataField="FechaPrestamo" HeaderText="Fecha Prestamo" />
+                                <asp:BoundField DataField="FechaEntrega" HeaderText="FechaEntrega" />
+                                <asp:BoundField DataField="FechaDevolucion" HeaderText="Fecha Devolución" />
+                                <asp:BoundField DataField="CodEstado" HeaderText="CodEstado" Visible="False" />
+                                <asp:BoundField DataField="Estado" HeaderText="Estado"  />
                             </Columns>
 
                             <FooterStyle BackColor="#CCCCCC" />

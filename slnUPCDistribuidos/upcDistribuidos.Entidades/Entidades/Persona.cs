@@ -25,7 +25,7 @@ namespace upcDistribuidos.Entidades.Entidades
         [DataMember]
         public string Celular { get; set; }
         [DataMember]
-        public byte NroLibros { get; set; }
+        public int NroLibros { get; set; }
         [DataMember]
         public decimal MontoDeuda { get; set; }
     }

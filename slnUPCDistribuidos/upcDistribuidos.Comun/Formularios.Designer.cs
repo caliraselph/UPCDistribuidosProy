@@ -79,11 +79,38 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to wfBPrestamo.aspx.
+        /// </summary>
+        public static string PrestamoBusq {
+            get {
+                return ResourceManager.GetString("PrestamoBusq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wfTPrestamo.aspx.
+        /// </summary>
+        public static string PrestamoTrans {
+            get {
+                return ResourceManager.GetString("PrestamoTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to wfPrincipal.aspx.
         /// </summary>
         public static string Principal {
             get {
                 return ResourceManager.GetString("Principal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wfBUsuario.aspx.
+        /// </summary>
+        public static string UsuarioBusq {
+            get {
+                return ResourceManager.GetString("UsuarioBusq", resourceCulture);
             }
         }
         

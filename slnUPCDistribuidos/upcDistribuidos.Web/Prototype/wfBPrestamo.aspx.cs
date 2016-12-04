@@ -5,23 +5,32 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using upcDistribuidos.ClienteLogica.Contrato;
+using upcDistribuidos.ClienteLogica.Implementacion;
+using upcDistribuidos.Comun;
+using upcDistribuidos.Entidades.Entidades;
+using upcDistribuidos.Entidades.Errores;
+using System.Net;
+using System.ServiceModel;
 
 namespace upcDistribuidos.Web.Prototype
 {
     public partial class wfBPrestamo : System.Web.UI.Page
     {
+
+        IMaestroBL _maestroBL = new MaestroBL();
+        IPrestamoBL _prestamoBL = new PrestamoBL();
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 GrillaDefault();
-
-
-
+                CargarEstados();
             }
         }
-
-
+        
         private void  GrillaDefault()
         {
             DataTable _dt = new DataTable("tb_test");
@@ -44,6 +53,14 @@ namespace upcDistribuidos.Web.Prototype
           
         }
 
+        private void CargarEstados() {
+            ddlEstado.DataSource = _maestroBL.ListarEstados(2);
+            ddlEstado.DataValueField = "Abreviatura";
+            ddlEstado.DataTextField = "Descripcion";
+            ddlEstado.DataBind();
+
+        }
+        
         protected void imgFechaPresIni_Click(object sender, ImageClickEventArgs e)
         {
             calFecPresIni.Visible = !calFecPresIni.Visible;
@@ -90,7 +107,76 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void dgvPrestamo_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            int index = Convert.ToInt32(e.CommandArgument.ToString());
+            string _cod = dgvPrestamo.Rows[index].Cells[3].Text.ToString();
+
+            switch (e.CommandName)
+            {
+
+                case "cmdVer":
+                    Response.Redirect(Formularios.PrestamoTrans + "?vew=" + _cod);
+                    break;
+                case "cmdEliminar":
+                    try
+                    {
+                        if (_prestamoBL.AnularPrestamo(_cod))
+                            Mensaje("Proceso completado correctamente!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Mensaje(ex.Message);
+                    }
+                    BuscarPrestamo();
+                    break;
+                case "cmdDevolver":
+                    try
+                    {
+                        if (_prestamoBL.DevolverPrestamo(_cod))
+                            Mensaje("Proceso completado correctamente!!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Mensaje(ex.Message);
+                    }
+                    BuscarPrestamo();
+                    break;
+            }
 
         }
+
+        protected void btnConsultarPrestamo_Click(object sender, ImageClickEventArgs e)
+        {
+            BuscarPrestamo();
+        }
+
+        private void BuscarPrestamo()
+        {
+            try
+            {
+                dgvPrestamo.DataSource = _prestamoBL.BuscarPrestamo(txtCodigo.Text, ddlEstado.SelectedValue, txtPersona.Text, txtFechaPresIni.Text, txtFechaPresFin.Text, txtFechaIniDev.Text, txtFechaFinDev.Text);
+                dgvPrestamo.DataBind();
+            }
+            catch (Exception ex1)
+            {
+              
+                Mensaje(ex1.Message);
+            }
+        }
+
+        protected void btnNuevoPrestamo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect(Formularios.PrestamoTrans);
+        }
+
+        protected void btnSalirPrestamo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect(Formularios.Principal);
+        }
+
+        private void Mensaje(string _msj)
+        {
+            Response.Write("<script>alert('"+_msj+"')</script>");
+        }
+        
     }
 }
