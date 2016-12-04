@@ -57,8 +57,8 @@ namespace upcDistribuidos.Web.Prototype
             txtEditorial.Text = materialObtenido.Editorial;
             txtAutor.Text = materialObtenido.Autor;
             txtAno.Text = materialObtenido.Anio;
-            //cboEstado.SelectedValue = materialObtenido.Flag.ToString();
-            cboEstado.SelectedIndex = 1;
+            cboEstado.SelectedValue = materialObtenido.Flag.ToString();
+            //cboEstado.SelectedIndex = 1;
             cboCategoria.SelectedValue = materialObtenido.Cantidad.ToString();
 
             txtCodigo.Enabled = false;
@@ -76,8 +76,8 @@ namespace upcDistribuidos.Web.Prototype
             txtEditorial.Text = materialObtenido.Editorial;
             txtAutor.Text = materialObtenido.Autor;
             txtAno.Text = materialObtenido.Anio;
-            //cboEstado.SelectedValue = materialObtenido.Flag.ToString();
-            cboEstado.SelectedIndex = 1;
+            cboEstado.SelectedValue = materialObtenido.Flag.ToString();
+            //cboEstado.SelectedIndex = 1;
             cboCategoria.SelectedValue = materialObtenido.Cantidad.ToString();
 
             txtCodigo.Enabled = false;
@@ -122,15 +122,23 @@ namespace upcDistribuidos.Web.Prototype
                 material.Cantidad = int.Parse(cboCategoria.SelectedValue);
 
                 if (txtCodigo.Enabled)
+                {
                     _material.RegistrarMaterial(material);
+                    Response.Write("<script>alert('El material se registró correctamente.')</script>");
+                    Response.Write("<script>window.location.href='" + Formularios.MaterialBusq + "'</script>");
+                }
                 else
+                {
                     _material.ModificarMaterial(material);
-                Response.Write("<script>alert('El material se registró correctamente.')</script>");
-                Response.Redirect(Formularios.MaterialBusq);
+                    Response.Write("<script>alert('El material se modificó correctamente.')</script>");
+                    Response.Write("<script>window.location.href='" + Formularios.MaterialBusq + "'</script>");
+                }
+
+                //Response.Redirect(Formularios.MaterialBusq);
             }
             catch (WebException ex)
             {
-                Response.Write("<script>alert('"+ ex.Message + "')</script>");
+                Response.Write("<script>alert('" + ex.Message + "')</script>");
             }
         }
 
@@ -162,6 +170,6 @@ namespace upcDistribuidos.Web.Prototype
             cboTipo.DataBind();
         }
 
-        
+
     }
 }

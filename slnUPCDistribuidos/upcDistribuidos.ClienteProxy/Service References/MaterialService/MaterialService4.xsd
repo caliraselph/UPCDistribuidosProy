@@ -15,6 +15,7 @@
       <xs:element minOccurs="0" name="Flag" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TipoMaterial" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Titulo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="stock" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="MaterialListar" nillable="true" type="tns:MaterialListar" />
