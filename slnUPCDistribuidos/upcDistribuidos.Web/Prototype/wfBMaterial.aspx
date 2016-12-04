@@ -105,9 +105,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="grdMaterial" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ViewStateMode="Enabled"
-                            OnRowCommand="grdMaterial_RowCommand">
-                            <AlternatingRowStyle BackColor="White" ForeColor="#284775"/>
+                        <asp:GridView ID="grdMaterial" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ViewStateMode="Enabled">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
                                 <asp:CheckBoxField HeaderText="Sel" DataField="Sel" />
@@ -116,20 +115,22 @@
                                 <asp:BoundField HeaderText="Autor" DataField="Autor" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="btnEditar" runat="server" CommandName="Editar" ImageUrl="~/images/edit.png"
-                                            ToolTip="Editar" CommandArgument='<%# Eval("Codigo") %>'/>
+                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Editar" ></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="btnEliminar" runat="server" CommandName="Eliminar" ImageUrl="~/images/delete.png"
-                                            ToolTip="Eliminar" CommandArgument='<%# Eval("Codigo") %>'/>
+                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Eliminar" >
+                                            
+                                        </asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ID="btnVer" runat="server" CommandName="Ver" ImageUrl="~/images/view.png"
-                                            ToolTip="Ver" CommandArgument='<%# Eval("Codigo") %>'/>
+                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Ver"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

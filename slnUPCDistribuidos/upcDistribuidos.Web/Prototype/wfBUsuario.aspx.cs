@@ -48,8 +48,7 @@ namespace upcDistribuidos.Web.Prototype
             lista = _usuario.ListarUsuarios(usuarioABuscar);
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("Sel");
-            dt.Columns.Add("Codigo");
+            dt.Columns.Add("CodUsuario");
             dt.Columns.Add("Password");
             dt.Columns.Add("Perfil");
             dt.Columns.Add("NombreCompleto");
@@ -58,9 +57,7 @@ namespace upcDistribuidos.Web.Prototype
             {
                 DataRow row = dt.NewRow();
 
-                row["Sel"] = false;
-
-                row["Codigo"] = usu.CodUsuario;
+                row["CodUsuario"] = usu.CodUsuario;
 
                 row["Password"] = usu.Password;
 

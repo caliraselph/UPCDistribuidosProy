@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using upcDistribuidos.ClienteProxy;
 using upcDistribuidos.ClienteLogica.Contrato;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;

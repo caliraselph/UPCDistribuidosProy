@@ -18,14 +18,14 @@ namespace upcDistribuidos.Web.Prototype
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect(Formularios.UsuarioBusq);
+
         }
 
         protected void btnNewUsu_Click(object sender, ImageClickEventArgs e)
         {
             try
             {
-                if (txtUsuario.Text == "" || txtContrasena.Text == "" || lblIdPersona.Text == "-1")
+                if (txtUsuario.Text == "" || txtContrasena.Text == "" || txtCodPersona.Text == "")
                 {
                     Response.Write("<script>alert('Por favor ingrese los datos faltantes.')</script>");
                     return;

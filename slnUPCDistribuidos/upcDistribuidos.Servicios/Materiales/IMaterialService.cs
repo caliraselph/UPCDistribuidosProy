@@ -4,7 +4,7 @@ using System.ServiceModel;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;
 using upcDistribuidos.Entidades.Errores;
-using System.ServiceModel.Web;
+
 
 namespace upcDistribuidos.Servicios.Materiales
 {
@@ -24,8 +24,5 @@ namespace upcDistribuidos.Servicios.Materiales
         [FaultContract(typeof(ParametroException))]
         [OperationContract]
         List<MaterialListar> ListarMateriales(Material material);
-
-        
-
     }
 }

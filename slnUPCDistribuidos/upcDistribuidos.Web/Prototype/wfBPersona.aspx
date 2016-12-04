@@ -54,24 +54,22 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="grdPersona" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                        <asp:GridView ID="grdPersona" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="grdCSRPageData_RowCommand" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton ImageUrl="~/images/edit.png" ToolTip="Editar" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
-                                        <asp:ImageButton ImageUrl="~/images/delete.png" ToolTip="Eliminar" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
-                                        <asp:ImageButton ImageUrl="~/images/view.png" ToolTip="Ver" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
+                                        <asp:ImageButton CommandName="btnEditRow" ImageUrl="~/images/edit.png" ToolTip="Editar" PostBackUrl="~/Prototype/wfTPersona.aspx" OnClick="GridEdit_Click" o runat="server" />
+                                        <asp:ImageButton CommandName="btnViewRow" ImageUrl="~/images/view.png" ToolTip="Ver" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                     <asp:BoundField HeaderText="Código" DataField="Codigo" />
                                     <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
                                     <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
-                                    <asp:BoundField HeaderText="Tipo" DataField="Tipo" />
                                     <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
-                                    <asp:BoundField HeaderText="Deuda" DataField="Deuda" />
-                                    <asp:BoundField HeaderText="Teléfono" DataField="Telefono" />
-                                    <asp:BoundField HeaderText="E-Mail" DataField="Email" />
+                                    <asp:BoundField HeaderText="Deuda" DataField="MontoDeuda" />
+                                    <asp:BoundField HeaderText="Teléfono" DataField="Celular" />
+                                    <asp:BoundField HeaderText="E-Mail" DataField="Correo" />
 
                             </Columns>
                             <EditRowStyle BackColor="#999999" />

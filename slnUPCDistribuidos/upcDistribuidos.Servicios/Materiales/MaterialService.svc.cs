@@ -8,8 +8,7 @@ using upcDistribuidos.Entidades.Mapper;
 using upcDistribuidos.Entidades.Errores;
 using upcDistribuidos.Servicios.Logica.Contrato;
 using upcDistribuidos.Servicios.Logica.Implementacion;
-using System.ServiceModel.Web;
-using System.Net;
+
 
 namespace upcDistribuidos.Servicios.Materiales
 {
@@ -19,26 +18,24 @@ namespace upcDistribuidos.Servicios.Materiales
     {
         IMaterialBL logica = new MaterialBL();
 
-
-
         public List<MaterialListar> ListarMateriales(Material material)
         {
             if (material != null)
             {
-                //if (!string.IsNullOrEmpty(material.Anio) ||!string.IsNullOrEmpty(material.Autor) ||
-                //    !string.IsNullOrEmpty(material.Codigo) || material.Flag>0 || 
-                //    !string.IsNullOrEmpty(material.Titulo))
-                //{
-                return logica.ListarMateriales(material);
-                //}
-                //else
-                //{
-                //    throw new FaultException<ParametroException>(
-                //            new ParametroException { Codigo = "202", Mensaje = "Debe ingresar al menos un filtro" },
-                //            new FaultReason("Error Listar Material")
-                //        );
+                if (!string.IsNullOrEmpty(material.Anio) ||!string.IsNullOrEmpty(material.Autor) ||
+                    !string.IsNullOrEmpty(material.Codigo) || material.Flag>0 || 
+                    !string.IsNullOrEmpty(material.Titulo))
+                {
+                    return logica.ListarMateriales(material);
+                }
+                else
+                {
+                    throw new FaultException<ParametroException>(
+                            new ParametroException { Codigo = "202", Mensaje = "Debe ingresar al menos un filtro" },
+                            new FaultReason("Error Listar Material")
+                        );
 
-                //}
+                }
             }
             else
             {
@@ -48,31 +45,6 @@ namespace upcDistribuidos.Servicios.Materiales
                        );
             }
             
-        }
-
-        public Material ModificarMaterial(Material material)
-        {
-            if (logica.ObtenerMaterial(material.Codigo) == null)
-            {
-                throw new WebFaultException<RepetidoException>(
-                 new RepetidoException { Codigo = "102", Mensaje = "El material no existe" }, HttpStatusCode.InternalServerError
-                 );
-
-                //throw new FaultException<RepetidoException>(
-                //    new RepetidoException
-                //    {
-                //        Codigo = "102",
-                //        Descripcion = "El material no existe"
-                //    },
-                //    new FaultReason("Error al modificar Material")
-
-                //    );
-
-            }
-            else
-            {
-                return logica.ModificarMaterial(material);
-            }
         }
 
         public Material ObtenerMaterial(string cod)
