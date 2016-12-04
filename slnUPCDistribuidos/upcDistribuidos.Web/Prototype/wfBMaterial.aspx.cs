@@ -63,6 +63,7 @@ namespace upcDistribuidos.Web.Prototype
             lista = _material.ListarMateriales(materialABuscar);
 
             DataTable dt = new DataTable();
+            dt.Columns.Add("Sel");
             dt.Columns.Add("Codigo");
             dt.Columns.Add("Titulo");
             dt.Columns.Add("Autor");
@@ -71,13 +72,13 @@ namespace upcDistribuidos.Web.Prototype
             {
                 DataRow row = dt.NewRow();
 
+                row["Sel"] = false;
+
                 row["Codigo"] = mat.Codigo;
 
                 row["Titulo"] = mat.Titulo;
 
                 row["Autor"] = mat.Autor;
-
-                row["Año"] = mat.Anio;
 
                 dt.Rows.Add(row);
             }
