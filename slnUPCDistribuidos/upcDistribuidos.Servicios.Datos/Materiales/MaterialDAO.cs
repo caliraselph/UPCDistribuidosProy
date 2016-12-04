@@ -37,7 +37,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                         Autor = _reader["autor"].ToString(),
                         Cantidad = Convert.ToInt32(_reader["cat_id"].ToString()),
                         Editorial = _reader["editorial"].ToString(),
-                        //Flag = Convert.ToInt16( _reader["flag_sala"].ToString()),
+                        Flag = Convert.ToInt32(string.IsNullOrEmpty(_reader["flag_sala"].ToString()) ? 0 : _reader["flag_sala"].ToString().Equals("True") ? 1 :0),
                         Stock = Convert.ToInt32(_reader["stock"].ToString()),
                         TipoId = Convert.ToInt32(_reader["tip_mat_id"].ToString()),
                         Titulo = _reader["titulo"].ToString()
@@ -102,6 +102,7 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
         {
             String _sql = @"SELECT m.mat_cod Codigo, m.Titulo ,m.Autor, m.Año Anio,m.Editorial,
                                 CASE WHEN	m.flag_sala = 0 THEN 'BAJA' ELSE 'ALTA'END Flag,ttm.tip_mat_desc TipoMaterial
+                                ,m.Stock 
                             FROM [dbo].[tb_material] m WITH(NOLOCK) 
 	                            INNER JOIN dbo.tb_tipoMaterial ttm WITH	(NOLOCK) ON m.tip_mat_id = ttm	.tip_mat_id	
                             WHERE m.mat_cod LIKE '%'+@Codigo+ '%' 
@@ -137,12 +138,67 @@ namespace upcDistribuidos.Servicios.Datos.Materiales
                             Editorial = _reader["Editorial"].ToString(),
                             Flag = _reader["Flag"].ToString(),
                             TipoMaterial = _reader["TipoMaterial"].ToString(),
+                            stock = Convert.ToInt32(_reader["Stock"].ToString()),
                         }
                      );
                 }
             }
             _cnx.CerrarConexion();
             return _lista;
+        }
+
+        public Material ModificarMaterial(Material material)
+        {
+            String _sql = @"UPDATE [dbo].[tb_material]
+                            SET [titulo] = @titulo,
+                                [autor] = @autor,
+                                [año] = @anio,
+                                [editorial] = @editorial,
+                                [flag_sala] = @flag_sala,
+                                [stock] = @stock,
+                                [cat_id] = @cat_id,
+                                [tip_mat_id] = @tip_mat_id
+                            WHERE [mat_cod] = @mat_cod
+                            ";
+
+            Material _mat = null;
+            Conexion _cnx = new Conexion();
+
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@mat_cod", material.Codigo);
+            _cmd.Parameters.AddWithValue("@titulo", material.Titulo);
+            _cmd.Parameters.AddWithValue("@autor", material.Autor);
+            _cmd.Parameters.AddWithValue("@anio", material.Anio);
+            _cmd.Parameters.AddWithValue("@editorial", material.Editorial);
+            _cmd.Parameters.AddWithValue("@flag_sala", material.Flag);
+            _cmd.Parameters.AddWithValue("@stock", material.Stock);
+            _cmd.Parameters.AddWithValue("@cat_id", material.Cantidad);
+            _cmd.Parameters.AddWithValue("@tip_mat_id", material.TipoId);
+            _cnx.AbrirConexion();
+            _cmd.ExecuteNonQuery();
+            _mat = ObtenerMaterial(material.Codigo);
+
+            _cnx.CerrarConexion();
+            return _mat;
+        }
+
+        public void EliminarMaterial(string codigo)
+        {
+            String _sql = @"UPDATE [dbo].[tb_material]
+                            SET 
+                                [flag_sala] = 0
+                            WHERE [mat_cod] = @Codigo";
+
+            Conexion _cnx = new Conexion();
+            Material _mat = null;
+            SqlCommand _cmd = new SqlCommand(_sql, _cnx.ObtenerConexion());
+            _cmd.Parameters.AddWithValue("@Codigo", codigo);
+
+            _cnx.AbrirConexion();
+
+            _cmd.ExecuteNonQuery();
+            _mat = ObtenerMaterial(codigo);
+            _cnx.CerrarConexion();
         }
 
     }

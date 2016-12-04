@@ -20,9 +20,19 @@ namespace upcDistribuidos.Servicios.Logica.Implementacion
             _dao = new PrestamoDAO();
         }
 
+        public bool AnularPrestamo(string cod)
+        {
+            return  _dao.AnularPrestamo(cod);
+        }
+
         public List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, DateTime fechaPresIni, DateTime fechaPresFin, DateTime fechaDevIni, DateTime fechaDevFin)
         {
             return _dao.BuscarPrestamo(codigo, estado, persona, fechaPresIni, fechaPresFin, fechaDevIni, fechaDevFin);
+        }
+
+        public bool DevolverPrestamo(string cod)
+        {
+            return _dao.DevolverPrestamo(cod);
         }
 
         public Prestamo ObtenerPrestamo(string cod)

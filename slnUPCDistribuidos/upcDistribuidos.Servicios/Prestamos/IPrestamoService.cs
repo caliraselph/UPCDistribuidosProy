@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;
+using upcDistribuidos.Entidades.Errores;
 
 namespace upcDistribuidos.Servicios.Prestamos
 {
@@ -13,13 +14,28 @@ namespace upcDistribuidos.Servicios.Prestamos
     [ServiceContract]
     public interface IPrestamoService
     {
+        [FaultContract(typeof(ParametroException))]
         [OperationContract]
-        List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, DateTime fechaPresIni,
-                                                   DateTime fechaPresFin, DateTime fechaDevIni, DateTime fechaDevFin);
+        List<PrestamoListar> BuscarPrestamo(string codigo, string estado, string persona, string fechaPresIni,
+                                                   string fechaPresFin, string fechaDevIni, string fechaDevFin);
+
+        [FaultContract(typeof(ParametroException))]
         [OperationContract]
         Prestamo ObtenerPrestamo(string cod);
 
+        [FaultContract(typeof(ParametroException))]
+        [FaultContract(typeof(RepetidoException))]
         [OperationContract]
         Prestamo RegistrarPrestamo(Prestamo prestamo);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool AnularPrestamo(string cod);
+
+        [FaultContract(typeof(RepetidoException))]
+        [OperationContract]
+        bool DevolverPrestamo(string cod);
+
+
     }
 }

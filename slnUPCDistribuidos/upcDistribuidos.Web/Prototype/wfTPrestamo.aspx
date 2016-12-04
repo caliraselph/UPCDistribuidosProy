@@ -9,6 +9,14 @@
     <link href="../scripts/Estilo1.css" rel="stylesheet" />
 </head>
 <body>
+  <script type="text/javascript" >
+        function MostrarCodigoEmpleado(cod) {
+
+            document.getElementById("txtPersonaR").value = cod;
+
+        }
+
+    </script>
     <form id="frmTReserva" runat="server">
     <div id="divTitulo">
         <table class="table-style1">
@@ -52,16 +60,16 @@
         <table >
             <tr>
                 <td class="td-style4">
-                    <asp:ImageButton ID="imgGuardarReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/save.png"  />
+                    <asp:ImageButton ID="imgGuardarReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/save.png" OnClick="imgGuardarReserva_Click"  />
                 </td>
                 <td class="td-style4">
-                    <asp:ImageButton ID="imgCancelarReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" />
+                    <asp:ImageButton ID="imgCancelarReserva" CssClass="img-style2" runat="server" ImageUrl="~/images/close.jpg" OnClick="imgCancelarReserva_Click" />
                 </td>
                 
             </tr>
         </table>
     </div>
-    <div id="divBuscarMaterial" class="div-style1">
+    <div id="divBuscarMaterial" class="div-style1" runat="server">
         <table class="table-style1">
             <tr>
                 <td class="td-style5">
@@ -97,7 +105,7 @@
                     <asp:DropDownList ID="ddlCategoriaB" runat="server" CssClass="ddl-style1" Height="19px" ></asp:DropDownList>
                 </td>
                 <td class="td-style9">
-                    <asp:ImageButton ID="imgBuscarMaterial" runat="server" ImageUrl="~/images/search.png" />
+                    <asp:ImageButton ID="imgBuscarMaterial" runat="server" ImageUrl="~/images/search.png" OnClick="imgBuscarMaterial_Click" />
                 </td>
                 <td class="td-style1">
 
@@ -116,15 +124,14 @@
                                 <asp:CommandField SelectText="Seleccionar" ShowSelectButton="True">
                                 <ItemStyle Width="20px" />
                                 </asp:CommandField>
-                                <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" >
+                                <asp:BoundField DataField="Codigo" HeaderText="Código" >
                                 <ItemStyle Width="50px" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Titulo" DataFormatString="Titulo" HeaderText="Titulo" />
-                                <asp:BoundField DataField="CodTipMaterial" DataFormatString="CodTipMaterial" HeaderText="CodTipMaterial" Visible="False" />
-                                <asp:BoundField DataField="TipoMaterial" DataFormatString="TipoMaterial" HeaderText="Tipo Material" />
-                                <asp:BoundField DataField="CodCategoria" DataFormatString="CodCategoria" HeaderText="CodCategoria" Visible="False" />
-                                <asp:BoundField DataField="Categoria" DataFormatString="Categoria" HeaderText="Categoria" />
-                                <asp:BoundField DataField="Anio" DataFormatString="Anio" HeaderText="Año" >
+                                <asp:BoundField DataField="Titulo" HeaderText="Titulo" />
+                                <asp:BoundField DataField="Autor"  HeaderText="Autor" />
+                                <asp:BoundField DataField="Anio"  HeaderText="Año" />
+                                <asp:BoundField DataField="Editorial" HeaderText="Editorial" />
+                                <asp:BoundField DataField="TipoMaterial" HeaderText="TipoMaterial" >
                                 <ItemStyle Width="20px" />
                                 </asp:BoundField>
                                 <asp:BoundField DataField="Autor" DataFormatString="Autor" HeaderText="Autor" />
@@ -173,13 +180,13 @@
                                 <asp:Label ID="Label5" runat="server" Text="Codigo:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtCodigoP" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtCodigoR" runat="server"></asp:TextBox>
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label7" runat="server" Text="Fecha Prestamo:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtFechaPrestamoP" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaPrestamoR" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -187,13 +194,13 @@
                                 <asp:Label ID="Label8" runat="server" Text="Fecha Retorno:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtFechaRetornoP" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaRetornoR" runat="server"></asp:TextBox>
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label9" runat="server" Text="Fecha Devolucion:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtFechaDevolucionP" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaDevolucionR" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -202,13 +209,13 @@
                             </td>
                             <td class="td-style5">
                                 <asp:TextBox ID="txtPersonaR" runat="server"></asp:TextBox>
-                                <asp:ImageButton ID="imbBuscarPersonaP" runat="server" ImageUrl="~/images/search.png" />
+                                <asp:ImageButton ID="imbBuscarPersonaP" runat="server" ImageUrl="~/images/search.png" OnClientClick="window.open('./ppBuscarPersona.aspx','Personas', 'top=300,width=650 ,height=350, left=350');" />
                             </td>
                             <td class="td-style5">
                                 <asp:Label ID="Label11" runat="server" Text="Estado:"></asp:Label>
                             </td>
                             <td class="td-style5">
-                                <asp:TextBox ID="txtEstadoP" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtEstadoR" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -227,18 +234,15 @@
                             <AlternatingRowStyle BackColor="#CCCCCC" />
                             <EmptyDataTemplate>No hay Registros a mostrar</EmptyDataTemplate>
                             <Columns>
-                                <asp:BoundField DataField="Codigo" DataFormatString="Codigo" HeaderText="Código" >
+                                <asp:BoundField DataField="Codigo" HeaderText="Código" >
                                 <ItemStyle Width="50px" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Titulo" DataFormatString="Titulo" HeaderText="Titulo" />
-                                <asp:BoundField DataField="CodTipMaterial" DataFormatString="CodTipMaterial" HeaderText="CodTipMaterial" Visible="False" />
-                                <asp:BoundField DataField="TipoMaterial" DataFormatString="TipoMaterial" HeaderText="Tipo Material" />
-                                <asp:BoundField DataField="CodCategoria" DataFormatString="CodCategoria" HeaderText="CodCategoria" Visible="False" />
-                                <asp:BoundField DataField="Categoria" DataFormatString="Categoria" HeaderText="Categoria" />
-                                <asp:BoundField DataField="Anio" DataFormatString="Anio" HeaderText="Año" >
+                                <asp:BoundField DataField="Titulo" HeaderText="Titulo" />
+                                <asp:BoundField DataField="Autor" HeaderText="Autor"/>
+                                <asp:BoundField DataField="Editorial"  HeaderText="Editorial"  />
+                                <asp:BoundField DataField="Anio" HeaderText="Año" >
                                 <ItemStyle Width="20px" />
                                 </asp:BoundField>
-                                <asp:BoundField DataField="Autor" DataFormatString="Autor" HeaderText="Autor" />
                                 <asp:ButtonField ButtonType="Image" CommandName="cmdEliminarDetalle" ImageUrl="~/images/delete.png" Text="Button">
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>

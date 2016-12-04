@@ -204,10 +204,6 @@
 <ControlStyle CssClass="img-style1"></ControlStyle>
                                 <ItemStyle Width="10px" />
                                 </asp:ButtonField>
-                                <asp:ButtonField ButtonType="Image"  CommandName="cmdEliminar" ControlStyle-CssClass="img-style1" ImageUrl="~/images/delete.png" >
-<ControlStyle CssClass="img-style1"></ControlStyle>
-                                <ItemStyle Width="10px" />
-                                </asp:ButtonField>
                                 <asp:ButtonField ButtonType="Image"  CommandName="cmdVer"  ControlStyle-CssClass="img-style1" ImageUrl="~/images/view.png"  >
 <ControlStyle CssClass="img-style1"></ControlStyle>
                                 <ItemStyle Width="10px" />

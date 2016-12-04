@@ -48,6 +48,7 @@
     <Compile Include="Maestros\MaestroProxy.cs" />
     <Compile Include="Materiales\MaterialProxy.cs" />
     <Compile Include="Personas\PersonaProxy.cs" />
+    <Compile Include="Prestamos\PrestamoProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -70,6 +71,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\PrestamoService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\UsuarioService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,7 +84,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Persona.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Prestamo.datasource" />
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Entidades.Usuario.datasource" />
+    <None Include="Properties\DataSources\upcDistribuidos.Entidades.Mapper.PrestamoListar.datasource" />
     <None Include="Properties\DataSources\upcDistribuidos.Entidades.Mapper.UsuarioListar.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,6 +101,22 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PersonaService\PersonaService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrestamoService\PrestamoService.wsdl" />
+    <None Include="Service References\PrestamoService\PrestamoService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrestamoService\PrestamoService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrestamoService\PrestamoService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrestamoService\PrestamoService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PrestamoService\PrestamoService4.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UsuarioService\UsuarioService.wsdl" />
@@ -163,6 +187,7 @@
     <WCFMetadataStorage Include="Service References\MaestroService\" />
     <WCFMetadataStorage Include="Service References\MaterialService\" />
     <WCFMetadataStorage Include="Service References\PersonaService\" />
+    <WCFMetadataStorage Include="Service References\PrestamoService\" />
     <WCFMetadataStorage Include="Service References\UsuarioService\" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +243,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\UsuarioService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoService\PrestamoService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PrestamoService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -1,1 +1,4 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="upcDistribuidos.Servicios.Prestamos.PrestamoService" CodeBehind="PrestamoService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" 
+    Debug="true" 
+    Service="upcDistribuidos.Servicios.Prestamos.PrestamoService" 
+    CodeBehind="PrestamoService.svc.cs" %>
