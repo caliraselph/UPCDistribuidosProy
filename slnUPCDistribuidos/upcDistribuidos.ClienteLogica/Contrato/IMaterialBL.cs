@@ -13,5 +13,7 @@ namespace upcDistribuidos.ClienteLogica.Contrato
         Material ObtenerMaterial(string cod);
         Material RegistrarMaterial(Material material);
         List<MaterialListar> ListarMateriales(Material material);
+        Material ModificarMaterial(Material material);
+        void EliminarMaterial(string cod);
     }
 }
