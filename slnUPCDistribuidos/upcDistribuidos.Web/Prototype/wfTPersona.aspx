@@ -38,14 +38,9 @@
                             <table class="auto-style1">
                                 <tr>
                                     <td class="auto-style2">
-                                        <asp:Label ID="Label5" runat="server" Text="Tipo:"></asp:Label>
-                                    </td>
+                                        &nbsp;</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlTipo" runat="server">
-                                            <asp:ListItem Selected="True">Alumno</asp:ListItem>
-                                            <asp:ListItem>Administrativo</asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
+                                        &nbsp;</td>
                                 </tr>
                                 <tr>
                                     <td class="auto-style2">

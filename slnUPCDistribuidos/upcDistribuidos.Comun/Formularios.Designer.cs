@@ -79,6 +79,24 @@ namespace upcDistribuidos.Comun {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to wfBPersona.aspx.
+        /// </summary>
+        public static string PersonaBusq {
+            get {
+                return ResourceManager.GetString("PersonaBusq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to wfTPersona.aspx.
+        /// </summary>
+        public static string PersonaTrans {
+            get {
+                return ResourceManager.GetString("PersonaTrans", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to wfBPrestamo.aspx.
         /// </summary>
         public static string PrestamoBusq {

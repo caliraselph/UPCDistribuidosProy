@@ -123,6 +123,12 @@
   <data name="MaterialTrans" xml:space="preserve">
     <value>wfTMaterial.aspx</value>
   </data>
+  <data name="PersonaBusq" xml:space="preserve">
+    <value>wfBPersona.aspx</value>
+  </data>
+  <data name="PersonaTrans" xml:space="preserve">
+    <value>wfTPersona.aspx</value>
+  </data>
   <data name="PrestamoBusq" xml:space="preserve">
     <value>wfBPrestamo.aspx</value>
   </data>

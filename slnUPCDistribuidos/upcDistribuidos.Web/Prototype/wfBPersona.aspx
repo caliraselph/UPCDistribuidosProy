@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 </head>
 <body>
@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:ImageButton ID="btnNuevo" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNuevo_Click"  />
+                        <asp:ImageButton ID="btnNuevo" runat="server" Height="32px" ImageUrl="~/images/new.png" ToolTip="Nuevo" OnClick="btnNuevo_Click" />
                         &nbsp;&nbsp;<asp:ImageButton ID="btnBuscar" runat="server" Height="32px" ImageUrl="~/images/search.png" ToolTip="Buscar" OnClick="btnBuscar_Click" />
                         &nbsp;<asp:ImageButton ID="btnSalir" runat="server" Height="32px" ImageUrl="~/images/cancel.png" ToolTip="Salir" OnClick="btnSalir_Click" />
                     </td>
@@ -54,23 +54,37 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:GridView ID="grdPersona" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="grdCSRPageData_RowCommand" >
+                        <asp:GridView ID="grdPersona" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="grdCSRPageData_RowCommand">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
+
+                                <asp:BoundField HeaderText="Código" DataField="Codigo" />
+                                <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
+                                <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
+                                <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
+                                <asp:BoundField HeaderText="Deuda" DataField="MontoDeuda" />
+                                <asp:BoundField HeaderText="Teléfono" DataField="Celular" />
+                                <asp:BoundField HeaderText="E-Mail" DataField="Correo" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:ImageButton CommandName="btnEditRow" ImageUrl="~/images/edit.png" ToolTip="Editar" PostBackUrl="~/Prototype/wfTPersona.aspx" OnClick="GridEdit_Click" o runat="server" />
-                                        <asp:ImageButton CommandName="btnViewRow" ImageUrl="~/images/view.png" ToolTip="Ver" PostBackUrl="~/Prototype/wfTPersona.aspx" runat="server" />
+                                        <asp:HyperLink ID="hlEditar" runat="server" ImageUrl="~/images/edit.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Editar"></asp:HyperLink>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                    <asp:BoundField HeaderText="Código" DataField="Codigo" />
-                                    <asp:BoundField HeaderText="Apellido(s)" DataField="Apellidos" />
-                                    <asp:BoundField HeaderText="Nombre(s)" DataField="Nombres" />
-                                    <asp:BoundField HeaderText="Nro. Libros" DataField="NroLibros" />
-                                    <asp:BoundField HeaderText="Deuda" DataField="MontoDeuda" />
-                                    <asp:BoundField HeaderText="Teléfono" DataField="Celular" />
-                                    <asp:BoundField HeaderText="E-Mail" DataField="Correo" />
-
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="hdEliminar" runat="server" ImageUrl="~/images/delete.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Eliminar">
+                                            
+                                        </asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="hlVer" runat="server" ImageUrl="~/images/view.png" NavigateUrl="javascript:Mensaje()"
+                                            Text="Ver"></asp:HyperLink>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
