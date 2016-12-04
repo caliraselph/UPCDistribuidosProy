@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using upcDistribuidos.Entidades.Entidades;
 using upcDistribuidos.Entidades.Mapper;
 
+
 namespace upcDistribuidos.ClienteProxy.Seguridad
 {
     public class UsuarioProxy
